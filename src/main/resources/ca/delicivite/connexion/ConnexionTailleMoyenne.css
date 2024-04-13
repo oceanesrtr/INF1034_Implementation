@@ -1,0 +1,38 @@
+/*Fichier CSS
+ Interface : Connexion
+ FXML : VueConnexionTailleMoyenne */
+
+*  {
+    -fx-font-family: 'Lexend Light';
+}
+
+#titreConnexion {
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+#sousTitreLogo, #sousTitreLogo2 {
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+#copyrightMention, #filConnexion{
+    -fx-font-family: "Lexend Light";
+    -fx-font-size: 12px;
+}
+
+#boutonSeConnecter,  #boutonAnnulerConnexion, #entreeCourriel, #motDePasseCache, #motDePasseRevele, #boutonInscription, #boutonMotDePasseOublie, #boutonAccueil,#texteGeneral1, #texteGeneral2  {
+    -fx-font-family:"Lexend Light";
+    -fx-font-size: 14px;
+}
+
+#filConnexion:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}
+
+
+
+

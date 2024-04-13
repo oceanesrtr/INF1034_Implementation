@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--FXML de l'interface de récupération de mot de passe oublié
+Taille de police : grande -->
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="root" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0"
+            prefWidth="900.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.motDePasseOublie.ControllerMDPOublie">
+    <!--[1] : Barre de menu -->
+    <top>
+        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;"
+                 BorderPane.alignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets left="-4.0" right="-4.0"/>
+            </BorderPane.margin>
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+                <MenuItem fx:id="stAnnulerAction" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Annuler"/>
+                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z"/>
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+                <MenuItem fx:id="stRefaireAction" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Refaire"/>
+                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y"/>
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+                <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Quitter"/>
+                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q"/>
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+            </Menu>
+            <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
+                <MenuItem fx:id="modeSombreMenuItem" text="Mode sombre"/>
+                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair"/>
+            </Menu>
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+                <Menu fx:id="taillePoliceMenu" text="Taille de la police">
+                    <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false" onAction="#petitePolice">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Petite"/>
+                                <Label style="-fx-text-fill: gray;" text="      Ctrl -"/>
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+
+                    <MenuItem fx:id="moyenneTailleMenuItem" mnemonicParsing="false" onAction="#moyennePolice">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Moyenne"/>
+                                <Label style="-fx-text-fill: gray;" text="Ctrl 0"/>
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+
+                    <MenuItem fx:id="grandeTailleMenuItem" mnemonicParsing="false" onAction="#grandePolice">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Grand"/>
+                                <Label style="-fx-text-fill: gray;" text="     Ctrl +"/>
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+                </Menu>
+            </Menu>
+            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos"/>
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation "/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <!--Lien avec le fichier CSS correspondant-->
+    <stylesheets>
+        <URL value="@MDPOublieTailleGrande.css"/>
+    </stylesheets>
+
+    <!--[2] Barre d'état et fil d'Ariane -->
+    <bottom>
+        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: transparent;"
+              BorderPane.alignment="CENTER">
+            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0"
+                       stroke="#c5c5c5" strokeType="INSIDE" width="907.0"/>
+            <Text fx:id="copyrightMention" fill="#424242" layoutX="693.0" layoutY="17.0" strokeWidth="0.0"
+                  text="© Copyright - Tous droits réservés">
+                <font>
+                    <Font name="Lexend Light"/>
+                </font>
+            </Text>
+            <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="307.0">
+                <padding>
+                    <Insets left="-6.0" right="5.0"/>
+                </padding>
+                <Button fx:id="filConnexion" alignment="CENTER_RIGHT" minHeight="0.0" minWidth="0.0" prefHeight="24.0"
+                        prefWidth="93.0" style="-fx-background-color: transparent;" text="Connexion &gt;"
+                        textFill="#424242">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <font>
+                        <Font name="Lexend Light" size="12.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="filMDPOublie" alignment="CENTER_RIGHT" minHeight="0.0" minWidth="0.0"
+                        style="-fx-background-color: transparent;" text="Mot de passe oublié " textFill="#424242">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <font>
+                        <Font name="Lexend Light" size="12.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="-5.0"/>
+                    </padding>
+                </Button>
+            </HBox>
+        </Pane>
+    </bottom>
+
+    <!--[3] Zone de travail et barre latérale gauche -->
+
+    <center>
+        <AnchorPane maxHeight="543.0" maxWidth="928.0" prefHeight="543.0" prefWidth="928.0"
+                    style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="275.0" fitWidth="384.0" layoutX="249.0" layoutY="-3.0">
+                <Image url="@/images/personnes_avec_cle.png"/>
+            </ImageView>
+            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="214.0" layoutY="218.0" prefHeight="68.0"
+                   prefWidth="484.0" text="Mot de passe oublié ? " wrapText="true">
+                <font>
+                    <Font name="Lexend Deca SemiBold" size="28.0"/>
+                </font>
+            </Label>
+            <Label fx:id="descriptionMDPOublie" layoutX="212.0" layoutY="285.0" prefHeight="83.0" prefWidth="462.0"
+                   text="Veuillez entrer l'adresse e-mail liée à votre compte et nous vous renverrons un lien pour réinitialiser votre mot de passe."
+                   textAlignment="CENTER" textOverrun="CLIP" wrapText="true"/>
+            <TextField fx:id="champMailMDPOublie" alignment="CENTER" layoutX="225.0" layoutY="377.0" prefHeight="32.0"
+                       prefWidth="449.0" promptText="Votre adresse e-mail"
+                       style="-fx-background-color: #FFFF; -fx-border-color: #424242;"/>
+            <Button fx:id="boutonAnnulerMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0"
+                    layoutX="222.0" layoutY="436.0" onMouseClicked="#annulerEntree" prefHeight="30.0" prefWidth="215.0"
+                    style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Annuler"
+                    textAlignment="CENTER" textFill="#94dae5" wrapText="true">
+                <font>
+                    <Font name="Lexend Light"/>
+                </font>
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Button>
+            <Button fx:id="boutonEnvoyerMailMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0"
+                    layoutX="459.0" layoutY="436.0" prefHeight="30.0" prefWidth="215.0"
+                    style="-fx-background-color: #94dae5; -fx-background-radius: 6;" text="Envoyer"
+                    textAlignment="CENTER" textFill="#424242" wrapText="true">
+                <font>
+                    <Font name="Lexend Light"/>
+                </font>
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Button>
+        </AnchorPane>
+    </center>
+
+</BorderPane>

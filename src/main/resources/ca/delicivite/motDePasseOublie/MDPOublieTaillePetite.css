@@ -1,0 +1,39 @@
+/*Fichier CSS
+ Interface : Confirmation d'envoi d'un email de récupération
+ FXML : VueMDPOublieEmailValidePetite*/
+
+*  {
+    -fx-font-family: 'Lexend Light';
+}
+
+#titreMDPOUblie{
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+
+#copyrightMention, #filConnexion, #filMDPOublie{
+    -fx-font-family: "Lexend Light";
+    -fx-font-size: 12px;
+}
+
+#boutonRetourEntreeMDPOublie, #boutonRetourConnexion, #descriptionMDPOublie, #messageSoutienTechnique, #mailSoutienTechnique {
+    -fx-font-family:"Lexend Light";
+    -fx-font-size: 7px;
+}
+
+#filConnexion:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}
+
+#filMDPOublie:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}
+
+#filConfirmationMDPOublie:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}

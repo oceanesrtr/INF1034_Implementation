@@ -1,0 +1,34 @@
+/*Fichier CSS
+ Interface : Mot de passe oublié
+ FXML : VueMDPOublieGrande */
+
+*  {
+    -fx-font-family: 'Lexend Light';
+}
+
+#titreMDPOUblie {
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 46px;
+    -fx-font-weight: bold;
+}
+
+
+#copyrightMention, #filConnexion, #filMDPOublie{
+    -fx-font-family: "Lexend Light";
+    -fx-font-size: 12px;
+}
+
+#boutonAnnulerMDP,  #boutonEnvoyerMailMDP, #champMailMDPOublie, #descriptionMDPOublie {
+    -fx-font-family:"Lexend Light";
+    -fx-font-size: 18px;
+}
+
+#filConnexion:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}
+
+#filMDPOublie:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}

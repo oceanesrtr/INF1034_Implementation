@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--FXML de l'interface de confirmation d'envoi de courriel de récupération de mot de passe
+Taille de police : moyenne-->
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="root" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.motDePasseOublieConfirmation.ControllerRecuperationMDP">
+    <!--[1] : Barre de menu -->
+    <top>
+        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets left="-4.0" right="-4.0" />
+            </BorderPane.margin>
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+                <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Annuler" />
+                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+                <MenuItem fx:id="stRefaireAction" disable="true" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Refaire" />
+                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+                <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Quitter" />
+                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+            </Menu>
+            <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
+                <MenuItem fx:id="modeSombreMenuItem" text="Mode sombre" />
+                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
+            </Menu>
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+                <Menu fx:id="taillePoliceMenu" text="Taille de la police">  <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false" onAction="#petitePolice">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Petite" />
+                            <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+
+                    <MenuItem fx:id="moyenneTailleMenuItem" mnemonicParsing="false" onAction="#moyennePolice">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Moyenne" />
+                                <Label style="-fx-text-fill: gray;" text="Ctrl 0" />
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+
+                    <MenuItem fx:id="grandeTailleMenuItem" mnemonicParsing="false" onAction="#grandePolice">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Grand" />
+                                <Label style="-fx-text-fill: gray;" text="     Ctrl +" />
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+                </Menu>
+            </Menu>
+            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation " />
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <!--Lien avec le fichier CSS correspondant-->
+    <stylesheets>
+        <URL value="@EnvoiMailRecuperationTailleMoyenne.css" />
+    </stylesheets>
+
+    <!--[2] Barre d'état et fil d'Ariane -->
+    <bottom>
+        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
+            <Text fx:id="copyrightMention" fill="#424242" layoutX="693.0" layoutY="17.0" strokeWidth="0.0" text="© Copyright - Tous droits réservés">
+                <font>
+                    <Font name="Lexend Light" />
+                </font>
+            </Text>
+            <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="562.0">
+                <padding>
+                    <Insets left="2.0" right="5.0" />
+                </padding>
+                <Button fx:id="filConnexion" alignment="CENTER_RIGHT" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="filMDPOublie" alignment="CENTER_RIGHT" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" text="Mot de passe oublié &gt; " textFill="#424242">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <padding>
+                        <Insets left="-5.0" top="1.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="filConfirmationMDPOublie" minHeight="0.0" minWidth="0.0" prefHeight="24.0" prefWidth="107.0" style="-fx-background-color: transparent;" text="Confirmation" textFill="#424242">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <padding>
+                        <Insets left="-40.0" top="1.0" />
+                    </padding>
+                </Button>
+            </HBox>
+        </Pane>
+    </bottom>
+
+    <!--[3] Zone de travail et barre latérale gauche -->
+    <center>
+        <AnchorPane maxHeight="543.0" maxWidth="928.0" prefHeight="543.0" prefWidth="928.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="220.0" layoutY="241.0" prefHeight="63.0" prefWidth="500.0" text="Vérifiez votre boîte de réception !" wrapText="true">
+                <font>
+                    <Font name="Lexend Deca SemiBold" size="28.0" />
+                </font>
+            </Label>
+            <Label fx:id="descriptionMDPOublie" layoutX="222.0" layoutY="294.0" prefHeight="54.0" prefWidth="455.0" text="Un courriel vous a été envoyé, avec les instructions nécessaires pour récupérer votre compte. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="boutonRetourEntreeMDPOublie" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="222.0" layoutY="362.0" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Revenir" textAlignment="CENTER" textFill="#94dae5" wrapText="true">
+                <font>
+                    <Font name="Lexend Light" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="459.0" layoutY="362.0" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #94dae5; -fx-background-radius: 6;" text="Aller à la page Connexion" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                <font>
+                    <Font name="Lexend Light" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <ImageView fitHeight="200.0" fitWidth="190.0" layoutX="345.0" layoutY="49.0">
+                <Image url="@/images/pigeonVoyageur.jpeg" />
+            </ImageView>
+            <Label fx:id="messageSoutienTechnique" layoutX="114.0" layoutY="483.0" opacity="0.5" prefHeight="54.0" prefWidth="499.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="mailSoutienTechnique" layoutX="587.0" layoutY="495.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="delicivite.soutien@gmail.com" textFill="#246fe4" underline="true">
+                <font>
+                    <Font name="Lexend Light" size="12.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Line endX="656.6666870117188" layoutX="244.0" layoutY="473.0" opacity="0.12" startX="-244.00001525878906" />
+        </AnchorPane>
+    </center>
+
+</BorderPane>
