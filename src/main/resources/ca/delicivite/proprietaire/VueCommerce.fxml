@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ca.delicivite.proprietaire.ControllerCommerce">
+    <fx:include source="imageDeFond.fxml"/>
+    <children>
+        <Label layoutX="300.0" layoutY="250.0" text="Section Commerce" textFill="black">
+            <font>
+                <Font name="System bold" size="50.0"/>
+            </font>
+        </Label>
+    </children>
+
+</Pane>

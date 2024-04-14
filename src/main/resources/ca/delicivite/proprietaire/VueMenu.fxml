@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.delicivite.proprietaire.ControllerMenu">
+    <fx:include source="imageDeFond.fxml"/>
+    <top>
+        <Pane prefHeight="120.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" spacing="100">
+                    <padding>
+                        <Insets top="60" right="0" bottom="0" left="100" />
+                    </padding>
+                    <Button styleClass="buttonMenu" fx:id="buttonApercu" prefHeight="60.0" prefWidth="200.0" text="Aperçu" onAction="#apercu"/>
+                    <Button styleClass="buttonMenu" fx:id="buttonMenu" prefHeight="60.0" prefWidth="200.0" text="Menu" onAction="#menu"/>
+                    <Button styleClass="buttonMenu" fx:id="buttonModifier" prefHeight="60.0" prefWidth="200.0" text="Modifier les groupes" onAction="#modifier" />
+                </HBox>
+            </children>
+        </Pane>
+    </top>
+
+    <center>
+        <AnchorPane prefHeight="9000.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+            <children>
+                <StackPane fx:id="contentArea" prefHeight="900.0" prefWidth="1100.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

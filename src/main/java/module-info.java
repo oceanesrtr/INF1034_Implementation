@@ -30,6 +30,9 @@ module ca.delicivite {
     exports ca.delicivite.modele;
     opens ca.delicivite.modele to javafx.fxml;
 
+    exports ca.delicivite.modele.ModeleItemMenu;
+    opens ca.delicivite.modele.ModeleItemMenu to javafx.fxml;
+
     exports ca.delicivite.outils;
     opens ca.delicivite.outils to javafx.fxml;
 
@@ -38,4 +41,7 @@ module ca.delicivite {
 
     exports ca.delicivite.clientConnecteAccueil;
     opens ca.delicivite.clientConnecteAccueil to javafx.fxml;
+
+    exports ca.delicivite.proprietaire;
+    opens ca.delicivite.proprietaire to javafx.fxml;
 }

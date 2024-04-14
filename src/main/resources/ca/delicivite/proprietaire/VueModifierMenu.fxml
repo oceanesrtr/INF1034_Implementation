@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Text?>
+
+<Pane  xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="ca.delicivite.proprietaire.ControllerModifierMenu" style="-fx-padding: 40 0 0 40;">
+    <fx:include source="imageDeFond2.fxml"/>
+    <children>
+
+        <VBox spacing="10" layoutX="100" layoutY="50">
+            <Text text="Ajouter un nouveau groupe" style="-fx-font-size: 30px;"/>
+            <TextField fx:id="nouveauGroupe"/>
+            <Button styleClass="buttonAction" onAction="#onAjoutGroupe"> Ajouter </Button>
+
+            <Region prefHeight="20"/>
+
+            <Text text="Supprimer un groupe" style="-fx-font-size: 30px;" />
+            <ChoiceBox prefWidth="400" prefHeight="25" fx:id="groupe"> </ChoiceBox>
+            <Button styleClass="buttonAction" onAction="#onSupprimerGroupe" > Supprimer </Button>
+        </VBox>
+    </children>
+
+</Pane >

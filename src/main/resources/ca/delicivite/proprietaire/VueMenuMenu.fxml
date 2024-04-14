@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ca.delicivite.proprietaire.ControllerMenuMenu">
+    <fx:include source="imageDeFond2.fxml"/>
+    <children>
+
+        <VBox fx:id="vbox" spacing="10" layoutX="100" layoutY="50" HBox.hgrow="ALWAYS">
+            <ListView fx:id="listeItems" prefWidth="800" style="-fx-border-width: 0; -fx-padding: 0;"/>
+        </VBox>
+    </children>
+
+</Pane>

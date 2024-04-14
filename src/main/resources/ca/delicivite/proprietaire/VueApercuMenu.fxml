@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ca.delicivite.proprietaire.ControllerApercuMenu">
+    <fx:include source="imageDeFond2.fxml"/>
+    <children>
+
+        <VBox spacing="10" layoutX="100" layoutY="50">
+
+            <HBox spacing="30">
+
+                <TextField fx:id="recherche" prefHeight="30.0" prefWidth="300.0" promptText="Rechercher..."/>
+
+                <Button styleClass="buttonAction" onAction="#ajouterItem" text="Ajouter un item au menu"/>
+
+                <Button styleClass="buttonAction" onAction="#supprimerItem" text="Supprimer un item au menu"/>
+            </HBox>
+
+        </VBox>
+        <VBox layoutX="100" layoutY="100">
+            <ListView fx:id="listeItems" prefWidth="800" style="-fx-border-width: 0; -fx-padding: 0;"/>
+        </VBox>
+    </children>
+</Pane>

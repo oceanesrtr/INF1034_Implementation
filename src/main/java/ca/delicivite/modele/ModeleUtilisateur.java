@@ -2,6 +2,7 @@
 des utilisateurs en général */
 package ca.delicivite.modele;
 
+import ca.delicivite.connexion.ControllerConnexion;
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -38,7 +39,7 @@ public class ModeleUtilisateur {
                 preparedStatementInsererCourriel.setString(2, motDePasse);
                 preparedStatementInsererCourriel.executeUpdate();
 
-                ClasseUtilitaire.changerScene(event, "accueilClientConnecte.fxmml", "Accueil", adresseCourrielIdentifiant);
+                ClasseUtilitaire.changerScene(event, "accueilClientConnecte.fxmml", "ControllerAccueil", adresseCourrielIdentifiant);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -111,18 +112,23 @@ public class ModeleUtilisateur {
                 while (resultSet.next()) {
                     String typeUtilisateur = resultSet.getString("type_utilisateur");
                     switch (typeUtilisateur) {
-                        case "propriétaire":
+                        case "proprietaire":
                             // Redirection vers la page d'accueil du propriétaire
-                            ClasseUtilitaire.changerScene(event, "accueilProprietaire.fxml", "Accueil Propriétaire", courriel);
+                            ClasseUtilitaire.changerScene(event, "accueilProprietaire.fxml", "ControllerAccueil Propriétaire", courriel);
                             break;
 
                         case "client":
                             // Redirection vers la page d'accueil du client
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "ControllerAccueil", courriel);
                             break;
                         case "livreur":
                             // Redirection vers la page d'accueil du livreur
-                            ClasseUtilitaire.changerScene(event, "accueilLivreur.fxml", "Accueil Livreur", courriel);
+                            ClasseUtilitaire.changerScene(event, "accueilLivreur.fxml", "ControllerAccueil Livreur", courriel);
+                            break;
+
+                        case "employe":
+                            // Redirection vers la page d'accueil de l'employe
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil employé", courriel);
                             break;
                     }
                 }
