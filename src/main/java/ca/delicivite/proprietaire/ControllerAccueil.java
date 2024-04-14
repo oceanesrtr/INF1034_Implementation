@@ -119,7 +119,8 @@ public class ControllerAccueil implements Initializable {
     /*=========================================================================
     [6] Méthode pour afficher l'interface "Menu"
     * ========================================================================*/
-    public void menu(javafx.event.ActionEvent actionEvent) throws IOException {        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil employé", null);
+    public void menu(javafx.event.ActionEvent actionEvent) throws IOException {
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil employé", null);
         ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueMenuMenu.fxml", "Accueil employé", null);
 
     }
@@ -154,7 +155,7 @@ public class ControllerAccueil implements Initializable {
     public void onDeconnexion() throws IOException {
         // Redirection vers la vue de connexion
         Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
-        Scene scene = new Scene(root, 320, 240);
+        Scene scene = new Scene(root);
         Stage stage = (Stage) buttonDeconnexion.getScene().getWindow();
         stage.setScene(scene);
     }*/
@@ -163,18 +164,9 @@ public class ControllerAccueil implements Initializable {
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
-        // Affichage d'une boîte de dialogue de confirmation
-        Alert verification = new Alert(Alert.AlertType.CONFIRMATION);
-        verification.setTitle("Confirmation");
-        verification.setHeaderText(null);
-        verification.setContentText("Êtes-vous sûr de vouloir vous déconnecter ?");
-
-        Optional<ButtonType> resultat = verification.showAndWait();
-
-        if (resultat.isPresent() && resultat.get() == ButtonType.OK) {
-            // Redirection vers la vue de connexion
+        if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
-            Scene scene = new Scene(root, 320, 240);
+            Scene scene = new Scene(root);
             Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
             stage.setScene(scene);
         }
@@ -205,6 +197,7 @@ public class ControllerAccueil implements Initializable {
 
         lastClickedButton = clickedButton;
     }
+
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Aide
      * [4] Afficher la fenêtre d'information A propos

@@ -145,7 +145,7 @@ public class ControllerMonCommerce implements Initializable {
     public void onDeconnexion() throws IOException {
         // Redirection vers la vue de connexion
         Parent root = FXMLLoader.load(getClass().getResource("/del/delicivite/connexion-view.fxml"));
-        Scene scene = new Scene(root, 320, 240);
+        Scene scene = new Scene(root);
         Stage stage = (Stage) buttonDeconnexion.getScene().getWindow();
         stage.setScene(scene);
     }
@@ -165,7 +165,7 @@ public class ControllerMonCommerce implements Initializable {
         if (resultat.isPresent() && resultat.get() == ButtonType.OK) {
             // Redirection vers la vue de connexion
             Parent root = FXMLLoader.load(getClass().getResource("/del/delicivite/connexion-view.fxml"));
-            Scene scene = new Scene(root, 320, 240);
+            Scene scene = new Scene(root);
             Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
             stage.setScene(scene);
         }

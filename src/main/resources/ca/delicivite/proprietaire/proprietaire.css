@@ -1,6 +1,5 @@
 
 .buttonAction, .buttonMenu, .buttonMonCommerce{
-    -fx-background-color: #94DAE5;
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -15,13 +14,13 @@
 }
 
 .buttonMonCommerce {
-    -fx-font-size: 20px;
+    -fx-font-size: 14px;
 }
 
 .buttonMenu:hover, .buttonMonCommerce:hover, .buttonAction:hover,
 .buttonMenu:focused, .buttonMonCommerce:focused, .clicked-button
 {
-    -fx-background-color: #94DAE5;
+    -fx-background-color: #3DBDD2;
 }
 
 .list-cell {

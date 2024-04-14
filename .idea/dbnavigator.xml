@@ -17,7 +17,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f6cfb903-9a4c-477a-b094-40eb7eb629b2">
-      <console name="delicivite" type="STANDARD" schema="delicivite" session="Main" />
+      <console name="delicivite" type="STANDARD" schema="delicivite" session="Main"><![CDATA[insert into inscription values('1', '1', 'Jules','Beta', 'employe');]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
