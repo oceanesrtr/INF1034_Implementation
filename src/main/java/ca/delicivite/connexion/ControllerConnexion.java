@@ -149,8 +149,8 @@ public class ControllerConnexion implements Initializable {
         boutonSeConnecter.setOnAction(actionEvent -> ModeleUtilisateur.clientSeConnecte(actionEvent, entreeCourriel.getText().trim(), motDePasseCache.getText().trim()));
 
         //TODO : Créer les pages non faîtes inscription et accueil pour non-connecté
-        boutonInscription.setOnAction(actionEvent -> changerScene(actionEvent, "VueInscriptionP1.fxml", "Inscription", null));
-        boutonAccueil.setOnAction(actionEvent -> changerScene(actionEvent, "VueClientNonConnecteAccueil.fxml", "ControllerAccueil", null));
+        boutonInscription.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale.fxml", "Inscription", null));
+        boutonAccueil.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "ControllerAccueil", null));
 
         boutonMotDePasseOublie.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/motDePasseOublie/VueMDPOublieMoyenne.fxml", "Mot de passe oublié", null));
 

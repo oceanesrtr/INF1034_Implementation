@@ -127,8 +127,8 @@ public class ModeleUtilisateur {
                             break;
 
                         case "employe":
-                            // Redirection vers la page d'accueil de l'employe
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil employé", courriel);
+                            // Redirection vers la page d'accueil du proprietare
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil Propriétaire", courriel);
                             break;
                     }
                 }

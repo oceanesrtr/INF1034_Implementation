@@ -166,7 +166,7 @@
                     </font>
                 </Button>
 
-                <Button fx:id="buttonProprio" onAction="#onProprio" style="-fx-background-color: transparent;" text="Interface employé" textFill="#424242">
+                <Button fx:id="buttonProprio" onAction="#onProprio" style="-fx-background-color: transparent;" text="Interface Propriétaire" textFill="#424242">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

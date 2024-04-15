@@ -101,14 +101,14 @@ public class ControllerEmploye implements Initializable {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);*/
 
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil Propriétaire", null);
     }
 
     /*=========================================================================
     [3] Méthode pour afficher l'interface "Commerce"
     * ========================================================================*/
     public void commerce(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueCommerce.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueCommerce.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -116,7 +116,7 @@ public class ControllerEmploye implements Initializable {
     [4] Méthode pour afficher l'interface "Commandes"
     * ========================================================================*/
     public void commandes(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueCommande.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueCommande.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -124,7 +124,7 @@ public class ControllerEmploye implements Initializable {
     [5] Méthode pour afficher l'interface "Performances"
     * ========================================================================*/
     public void performances(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VuePerformance.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VuePerformance.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -132,7 +132,7 @@ public class ControllerEmploye implements Initializable {
     [6] Méthode pour afficher l'interface "Menu"
     * ========================================================================*/
     public void menu(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueMenu.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueMenu.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -140,7 +140,7 @@ public class ControllerEmploye implements Initializable {
     [7] Méthode pour afficher l'interface "Paiements"
     * ========================================================================*/
     public void paiements(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VuePaiement.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VuePaiement.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -148,7 +148,7 @@ public class ControllerEmploye implements Initializable {
     [8] Méthode pour afficher l'interface "Employés"
     * ========================================================================*/
     public void employes(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueEmploye.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueEmploye.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -156,7 +156,7 @@ public class ControllerEmploye implements Initializable {
     [9] Méthode pour afficher l'interface "Paramètres"
     * ========================================================================*/
     public void parametres(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueParametre.fxml", "Accueil employé", null);
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueParametre.fxml", "Accueil Propriétaire", null);
 
     }
 
@@ -182,6 +182,7 @@ public class ControllerEmploye implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
+            stage.setTitle("Connexion");
             stage.setScene(scene);
         }
     }
