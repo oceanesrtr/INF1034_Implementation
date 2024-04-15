@@ -1,5 +1,6 @@
 package ca.delicivite.proprietaire;
 
+/*Classe controller : affiche les items des menus d'un restaurant dans une section de la page Menu*/
 import ca.delicivite.modele.ModeleItemMenu.*;
 
 import javafx.collections.ObservableList;
@@ -40,7 +41,7 @@ public class ControllerMenuMenu implements Initializable {
         // Configuration de la liste des items
         listeItems.setItems(items);
         // Ajout de la feuille de style pour la liste des items
-        listeItems.getStylesheets().add("/del/delicivite/Style/proprietaire.css");
+        listeItems.getStylesheets().add("/ca/delicivite/proprietaire/proprietaire.css");
         // Définition de la cellule personnalisée pour la liste des items
         listeItems.setCellFactory(new Callback<ListView<Item>, ListCell<Item>>() {
             @Override

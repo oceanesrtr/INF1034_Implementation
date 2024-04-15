@@ -51,7 +51,7 @@ public class ControllerMonCommerce implements Initializable {
     public void initialize(URL location, ResourceBundle resource) {
         try {
             // Chargement de la vue "Accueil" par défaut
-            Parent fxml = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueAccueil.fxml"));
             contentArea.getChildren().removeAll();
             contentArea.getChildren().setAll(fxml);
         } catch (IOException ex){
@@ -64,7 +64,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void accueil(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueAccueil.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -74,7 +74,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void commerce(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Commerce.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueCommerce.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -84,7 +84,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void commandes(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Commandes.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueCommande.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -94,7 +94,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void performances(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Performances.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VuePerformance.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -104,7 +104,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void menu(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueMenu.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -114,7 +114,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void paiements(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Paiements.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VuePaiement.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -124,7 +124,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void employes(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Employes.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueEmploye.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -134,7 +134,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void parametres(javafx.event.ActionEvent actionEvent) throws IOException {
         onButtonClicked(actionEvent);
-        Parent fxml = FXMLLoader.load(getClass().getResource("Parametres.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueParametre.fxml.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
@@ -144,7 +144,7 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void onDeconnexion() throws IOException {
         // Redirection vers la vue de connexion
-        Parent root = FXMLLoader.load(getClass().getResource("/del/delicivite/connexion-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) buttonDeconnexion.getScene().getWindow();
         stage.setScene(scene);
@@ -159,12 +159,14 @@ public class ControllerMonCommerce implements Initializable {
         verification.setTitle("Confirmation");
         verification.setHeaderText(null);
         verification.setContentText("Êtes-vous sûr de vouloir vous déconnecter ?");
+        Stage stage1 = (Stage) verification.getDialogPane().getScene().getWindow();
+        stage1.getIcons().add(new Image("/images/logo_fond_grise.png"));
 
         Optional<ButtonType> resultat = verification.showAndWait();
 
         if (resultat.isPresent() && resultat.get() == ButtonType.OK) {
             // Redirection vers la vue de connexion
-            Parent root = FXMLLoader.load(getClass().getResource("/del/delicivite/connexion-view.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
             stage.setScene(scene);
@@ -179,13 +181,13 @@ public class ControllerMonCommerce implements Initializable {
     * ========================================================================*/
     public void onProprio() throws Exception {
         // Chargement de la vue propriétaire
-        Parent root = FXMLLoader.load(getClass().getResource("/del/delicivite/proprio/monCommerce-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ca/delicivite/VueConnexionTailleMoyenne.fxml"));
         Stage stage = (Stage) buttonProprio.getScene().getWindow();
         stage.setResizable(false);
         stage.setTitle("Interface Proprietaire");
-        stage.getIcons().add(new Image("/del/delicivite/images/logoDelicivite.png"));
+        stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
         Scene scene = new Scene(root, 1300, 800);
-        scene.getStylesheets().add(getClass().getResource("/del/delicivite/Style/proprietaire.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ca/delicivite/proprietaire/proprietaire.css").toExternalForm());
         stage.setScene(scene);
 
         stage.initStyle(StageStyle.UNDECORATED);

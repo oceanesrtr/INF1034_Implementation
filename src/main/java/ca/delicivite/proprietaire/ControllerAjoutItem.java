@@ -4,13 +4,16 @@ import ca.delicivite.modele.ModeleItemMenu.Item;
 import ca.delicivite.modele.ModeleItemMenu.DonneesItem;
 
 
+import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -72,6 +75,19 @@ public class ControllerAjoutItem implements Initializable {
             items.add(new Item(nom, groupeSelectionne, descriptionTexte));
             // Fermeture de la fenêtre
             fermer((Node) event.getSource());
+        } else {
+        // Affichage du message d'erreur
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Champs incomplets");
+            alert.setContentText("Veuillez remplir tous les champs.");
+
+            // Positionnement du popup au-dessus du popup d'ajout d'items
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+            stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
+
+            alert.showAndWait();
         }
     }
 

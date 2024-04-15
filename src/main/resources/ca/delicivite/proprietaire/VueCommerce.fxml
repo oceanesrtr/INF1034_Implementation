@@ -27,7 +27,7 @@
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
             <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
-                <MenuItem fx:id="stAnnulerAction" mnemonicParsing="false">
+                <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
                             <Label style="-fx-text-fill: black;" text="Annuler" />
@@ -35,7 +35,7 @@
                         </HBox>
                     </graphic>
                 </MenuItem>
-                <MenuItem fx:id="stRefaireAction" mnemonicParsing="false">
+                <MenuItem fx:id="stRefaireAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
                             <Label style="-fx-text-fill: black;" text="Refaire" />
@@ -53,11 +53,11 @@
                 </MenuItem>
             </Menu>
             <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
-                <MenuItem fx:id="modeSombreMenuItem" text="Mode sombre" />
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
             <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
-                <Menu fx:id="taillePoliceMenu" text="Taille de la police">
+                <Menu fx:id="taillePoliceMenu" disable="true" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -67,7 +67,7 @@
                         </graphic>
                     </MenuItem>
 
-                    <MenuItem fx:id="moyenneTailleMenuItem" mnemonicParsing="false">
+                    <MenuItem fx:id="moyenneTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
                                 <Label style="-fx-text-fill: black;" text="Moyenne" />
@@ -76,7 +76,7 @@
                         </graphic>
                     </MenuItem>
 
-                    <MenuItem fx:id="grandeTailleMenuItem" mnemonicParsing="false">
+                    <MenuItem fx:id="grandeTailleMenuItem"  disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
                                 <Label style="-fx-text-fill: black;" text="Grand" />
@@ -214,6 +214,14 @@
                         <Font name="Lexend Light" size="12.0" />
                     </font>
                 </Button>
+            <Button fx:id="buttonfilConnexion1" layoutX="10.0" layoutY="10.0" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Interface employé" textFill="#424242">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Lexend Light" size="12.0" />
+               </font>
+            </Button>
             </HBox>
 
         </Pane>

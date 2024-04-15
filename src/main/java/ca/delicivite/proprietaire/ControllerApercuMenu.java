@@ -98,9 +98,9 @@ public class ControllerApercuMenu implements Initializable {
             try {
                 // Création de la fenêtre d'ajout
                 ajoutFenetre = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/del/delicivite/proprio/ajoutItem.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 300, 250);
-                scene.getStylesheets().add(getClass().getResource("/del/delicivite/Style/proprietaire.css").toExternalForm());
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ca/delicivite/proprietaire/VueAjoutItem.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                scene.getStylesheets().add(getClass().getResource("/ca/delicivite/proprietaire/proprietaire.css").toExternalForm());
                 ajoutFenetre.setTitle("Ajouter un item");
                 ajoutFenetre.getIcons().add(new Image("/images/logo_fond_grise.png"));
                 ajoutFenetre.setScene(scene);
@@ -139,9 +139,9 @@ public class ControllerApercuMenu implements Initializable {
             try {
                 // Création de la fenêtre de suppression
                 fenetreSupprimer = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/del/delicivite/proprio/supprimerItem.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 300, 250);
-                scene.getStylesheets().add(getClass().getResource("/del/delicivite/Style/proprietaire.css").toExternalForm());
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ca/delicivite/proprietaire/VueSupprimerItem.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                scene.getStylesheets().add(getClass().getResource("/ca/delicivite/proprietaire/proprietaire.css").toExternalForm());
                 fenetreSupprimer.setTitle("Supprimer un item");
                 fenetreSupprimer.getIcons().add(new Image("/images/logo_fond_grise.png"));
                 fenetreSupprimer.setScene(scene);

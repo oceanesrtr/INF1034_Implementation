@@ -120,9 +120,7 @@ public class ControllerAccueil implements Initializable {
     [6] Méthode pour afficher l'interface "Menu"
     * ========================================================================*/
     public void menu(javafx.event.ActionEvent actionEvent) throws IOException {
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil employé", null);
-        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueMenuMenu.fxml", "Accueil employé", null);
-
+        ClasseUtilitaire.changerScene(actionEvent, "/ca/delicivite/proprietaire/VueMenu.fxml", "Accueil employé", null);
     }
 
     /*=========================================================================

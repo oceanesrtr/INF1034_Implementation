@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class ControllerModifierMenu implements Initializable {
 
@@ -65,6 +67,8 @@ public class ControllerModifierMenu implements Initializable {
             alert.setTitle("Attention");
             alert.setHeaderText(null);
             alert.setContentText("Ce nom de groupe existe déjà.");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
             alert.showAndWait();
         }
         // Vérification si le nom du groupe est vide
@@ -74,6 +78,8 @@ public class ControllerModifierMenu implements Initializable {
             alert.setTitle("Attention");
             alert.setHeaderText(null);
             alert.setContentText("Veuillez entrer un nom valide.");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
             alert.showAndWait();
         } else {
             // Ajout du nouveau groupe à la liste des groupes

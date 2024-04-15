@@ -1,35 +1,236 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ca.delicivite.proprietaire.ControllerMenu">
+<?import java.net.URL?>
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.proprietaire.ControllerMenu">
+<!--
     <fx:include source="imageDeFond.fxml"/>
+-->
+    <stylesheets>
+        <URL value="@proprietaire.css" />
+    </stylesheets>
     <top>
-        <Pane prefHeight="120.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets left="-4.0" right="-4.0" />
+            </BorderPane.margin>
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+                <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Annuler" />
+                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+                <MenuItem fx:id="stRefaireAction" disable="true" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Refaire" />
+                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+                <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Quitter" />
+                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
+            </Menu>
+            <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
+                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
+            </Menu>
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+                <Menu fx:id="taillePoliceMenu" text="Taille de la police">
+                    <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Petite" />
+                                <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+
+                    <MenuItem fx:id="moyenneTailleMenuItem" disable="true" mnemonicParsing="false">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Moyenne" />
+                                <Label style="-fx-text-fill: gray;" text="Ctrl 0" />
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+
+                    <MenuItem fx:id="grandeTailleMenuItem" disable="true" mnemonicParsing="false">
+                        <graphic>
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label style="-fx-text-fill: black;" text="Grand" />
+                                <Label style="-fx-text-fill: gray;" text="     Ctrl +" />
+                            </HBox>
+                        </graphic>
+                    </MenuItem>
+                </Menu>
+            </Menu>
+            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation " />
+            </Menu>
+        </MenuBar>
+    </top>
+
+
+    <right>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+        <Pane prefHeight="40.0" prefWidth="573.0" BorderPane.alignment="CENTER">
             <children>
-                <HBox alignment="CENTER" spacing="100">
-                    <padding>
-                        <Insets top="60" right="0" bottom="0" left="100" />
-                    </padding>
-                    <Button styleClass="buttonMenu" fx:id="buttonApercu" prefHeight="60.0" prefWidth="200.0" text="Aperçu" onAction="#apercu"/>
-                    <Button styleClass="buttonMenu" fx:id="buttonMenu" prefHeight="60.0" prefWidth="200.0" text="Menu" onAction="#menu"/>
-                    <Button styleClass="buttonMenu" fx:id="buttonModifier" prefHeight="60.0" prefWidth="200.0" text="Modifier les groupes" onAction="#modifier" />
+                <HBox alignment="CENTER" layoutX="12.0" prefHeight="40.0" prefWidth="586.0" spacing="10.0">
+                    <Button fx:id="buttonApercu" maxHeight="30.0" onAction="#apercu" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3DBDD2; -fx-border-radius: 5;" styleClass="buttonMenu" text="APERCU">
+                     <font>
+                        <Font name="Lexend Light" size="12.0" />
+                     </font></Button>
+                    <Button fx:id="buttonModifier" maxHeight="30.0" onAction="#modifier" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3DBDD2; -fx-border-radius: 5;" styleClass="buttonMenu" text="MODIFIER LES GROUPES" />
+                    <Button fx:id="buttonMenu" maxHeight="30.0" onAction="#menu" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3DBDD2; -fx-border-radius: 5;" styleClass="buttonMenu" text="AFFICHER LES MENUS" />
                 </HBox>
             </children>
         </Pane>
-    </top>
+         <ScrollPane prefHeight="470.0" prefWidth="624.0" style="-fx-background-color: #FFFF; -fx-border-color: #FFFF;">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="597.0" prefHeight="480.0" prefWidth="599.0">
+                  <children>
+                      <StackPane fx:id="contentArea" maxWidth="616.0" prefHeight="417.0" prefWidth="610.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+               </AnchorPane>
+           </content>
+         </ScrollPane>
+         <BorderPane.margin>
+            <Insets left="7.0" right="5.0" top="20.0" />
+         </BorderPane.margin>
+        </VBox>
+    </right>
 
-    <center>
-        <AnchorPane prefHeight="9000.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
-            <children>
-                <StackPane fx:id="contentArea" prefHeight="900.0" prefWidth="1100.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
-            </children>
-        </AnchorPane>
-    </center>
+
+    <left>
+        <Pane maxHeight="548.0" prefHeight="548.0" prefWidth="263.0" BorderPane.alignment="CENTER">
+            <VBox maxHeight="549.0" maxWidth="263.0" prefHeight="549.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#accueil" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Accueil" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#commerce" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Commerce" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#commandes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Commandes" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#performances" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Performances" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#menu" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Menu" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#paiements" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Paiements" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#employes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Employés" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#parametres" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Paramètres" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+                <Button fx:id="buttonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242">
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+            </VBox>
+        </Pane>
+    </left>
+
+    <bottom>
+        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
+            <Text fx:id="copyrightMention" fill="#424242" layoutX="695.0" layoutY="17.0" strokeWidth="0.0" text="© Copyright - Tous droits réservés">
+                <font>
+                    <Font name="Lexend Light" />
+                </font>
+            </Text>
+
+            <HBox alignment="CENTER_RIGHT" spacing="-15">
+                <Button fx:id="buttonfilConnexion" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Lexend Light" size="12.0" />
+                    </font>
+                </Button>
+            <Button fx:id="buttonfilConnexion1" layoutX="10.0" layoutY="10.0" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Interface employé" textFill="#424242">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Lexend Light" size="12.0" />
+               </font>
+            </Button>
+            </HBox>
+
+        </Pane>
+    </bottom>
 </BorderPane>
