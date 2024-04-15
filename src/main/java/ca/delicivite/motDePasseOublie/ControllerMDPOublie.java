@@ -204,6 +204,7 @@ public class ControllerMDPOublie implements Initializable {
     /*=======================================================
      * [3] : Redirige vers le site JAVAFX
      * =======================================================*/
+    @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
         String url = "https://docs.oracle.com/javase/8/javase-clienttechnologies.htm";
         ClasseUtilitaire.redirectionSiteInternet(url);

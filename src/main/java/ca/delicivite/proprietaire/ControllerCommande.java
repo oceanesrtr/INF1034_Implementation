@@ -1,6 +1,7 @@
 package ca.delicivite.proprietaire;
 
 import ca.delicivite.outils.ClasseUtilitaire;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -75,6 +79,17 @@ public class ControllerCommande implements Initializable {
         } catch (IOException ex){
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null, ex);
         }*/
+
+        stQuitterApp.setOnAction(event -> Platform.exit());
+
+        // [f] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
+        barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
+            if (newScene != null) {
+                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
+                Runnable runnable = Platform::exit;
+                newScene.getAccelerators().put(keyCombination, runnable);
+            }
+        });
     }
 
     /*=========================================================================
@@ -231,6 +246,7 @@ public class ControllerCommande implements Initializable {
     /*=======================================================
      * [5] : Redirige vers le site JAVAFX
      * =======================================================*/
+    @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
         String url = "https://docs.oracle.com/javase/8/javase-clienttechnologies.htm";
         ClasseUtilitaire.redirectionSiteInternet(url);

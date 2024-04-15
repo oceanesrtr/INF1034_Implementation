@@ -57,6 +57,8 @@ public class ControllerMonCommerce implements Initializable {
         } catch (IOException ex){
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }
 
     /*=========================================================================
@@ -268,6 +270,7 @@ public class ControllerMonCommerce implements Initializable {
     /*=======================================================
      * [5] : Redirige vers le site JAVAFX
      * =======================================================*/
+    @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
         String url = "https://docs.oracle.com/javase/8/javase-clienttechnologies.htm";
         ClasseUtilitaire.redirectionSiteInternet(url);

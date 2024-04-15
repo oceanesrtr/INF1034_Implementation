@@ -51,6 +51,7 @@ public class ControllerAjoutItem implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         groupe.setItems(listeGroupes);
+
     }
 
    /* @FXML

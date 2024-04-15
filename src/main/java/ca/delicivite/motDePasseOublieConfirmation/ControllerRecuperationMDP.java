@@ -171,6 +171,7 @@ public class ControllerRecuperationMDP implements Initializable {
      * Méthodes pour le sous-menu Aide
      *  [3] : Redirige vers le site JAVAFX
      * =======================================================*/
+    @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
         String url = "https://docs.oracle.com/javase/8/javase-clienttechnologies.htm";
         ClasseUtilitaire.redirectionSiteInternet(url);
