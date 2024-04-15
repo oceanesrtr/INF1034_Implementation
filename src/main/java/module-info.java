@@ -44,4 +44,16 @@ module ca.delicivite {
 
     exports ca.delicivite.proprietaire;
     opens ca.delicivite.proprietaire to javafx.fxml;
+
+    exports ca.delicivite.inscription;
+    opens ca.delicivite.inscription to javafx.fxml;
+
+    exports ca.delicivite.inscription.inscriptionClient;
+    opens ca.delicivite.inscription.inscriptionClient to javafx.fxml;
+
+    exports ca.delicivite.inscription.inscriptionProprietaire;
+    opens ca.delicivite.inscription.inscriptionProprietaire to javafx.fxml;
+
+    exports ca.delicivite.inscription.inscriptionLivreur;
+    opens ca.delicivite.inscription.inscriptionLivreur to javafx.fxml;
 }

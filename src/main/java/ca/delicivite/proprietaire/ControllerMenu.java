@@ -42,6 +42,7 @@ public class ControllerMenu implements Initializable{
     public Button buttonMenu;
     @FXML
     public Button buttonModifier;
+    public Button boutonRedirectionMenu;
 
     // Indicateur d'initialisation
     private boolean initialized = false;
@@ -233,6 +234,9 @@ public class ControllerMenu implements Initializable{
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
+        buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2");
+        boutonRedirectionMenu.setStyle("-fx-background-color: #94DAE5");
+
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);

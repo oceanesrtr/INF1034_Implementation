@@ -1,8 +1,7 @@
-* {
-    -fx-font-family: 'Lexend Light';
-}
 
- .buttonMonCommerce {
+
+
+.buttonMonCommerce {
     -fx-text-fill: #424242;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -10,38 +9,39 @@
     -fx-font-size: 14px;
 }
 
-.buttonMenu, .buttonAction {
+.boutonHover, .boutonMenuHaut {
+    -fx-text-fill: #424242;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-font-family: "Lexend Deca Light";
+    -fx-font-size: 14px;
+    -fx-background-color: #94DAE5;
+}
+
+.buttonAction {
     -fx-text-fill: #424242;
     -fx-font-family: "Lexend Deca Light";
     -fx-cursor: hand;
     -fx-font-size: 12px;
 }
 
-#copyrightMention, #buttonfilConnexion1, #buttonfilConnexion {
+#copyrightMention, #boutonFilArianeEmploye, #buttonfilConnexion {
     -fx-font-family: "Lexend Light";
     -fx-font-size: 12px;
-    -fx-text-fill : #424242;
+    -fx-text-fill: #424242;
 }
 
-#filConnexion:hover, #buttonfilConnexion1:hover, #buttonfilConnexion :hover {
+#boutonFilArianeEmploye:hover, #buttonfilConnexion :hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
 }
 
 
-.buttonMonCommerce :hover {
-    -fx-background-color: #3DBDD2;
-}
-
-.buttonMonCommerce{
-    -fx-background-color: #94DAE5;
-}
-
-.buttonMenu:hover, .buttonAction:hover,
-.buttonMenu:focused, .buttonMonCommerce:focused/* .clicked-button*/
+/*.buttonMenu:hover, .buttonAction:hover,
+.buttonMenu:focused, .boutonHover:hover
 {
     -fx-background-color: #3DBDD2;
-}
+}*/
 
 .list-cell {
     -fx-background-color: #ffff; /* Couleur de fond */
@@ -66,4 +66,14 @@
     -fx-border-radius: 5px; /* Rayon des coins */
     -fx-background-radius: 5px; /* Rayon des coins pour le fond */
     -fx-cursor: hand;
+}
+
+#titre1, #titre2 {
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 20px;
+    -fx-font-style: bold;
+}
+
+.Button, .TextField, .ChoiceBox {
+    -fx-border-radius : 5px;
 }

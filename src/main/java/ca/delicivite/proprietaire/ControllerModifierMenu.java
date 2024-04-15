@@ -1,6 +1,7 @@
 package ca.delicivite.proprietaire;
 
 
+import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.fxml.Initializable;
 
 import ca.delicivite.modele.ModeleItemMenu.*;
@@ -62,30 +63,20 @@ public class ControllerModifierMenu implements Initializable {
 
         // Vérification si le nom du groupe existe déjà
         if (listeGroupes.contains(nomGroupe)) {
-            // Affichage d'une alerte si le nom du groupe existe déjà
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Attention");
-            alert.setHeaderText(null);
-            alert.setContentText("Ce nom de groupe existe déjà.");
-            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
-            alert.showAndWait();
+            ClasseUtilitaire.afficherPopUp("Erreur", "Groupe déjà existant", "Veuillez choisir un autre nom de groupe.", Alert.AlertType.ERROR);
         }
         // Vérification si le nom du groupe est vide
         else if (nomGroupe.equals("")) {
             // Affichage d'une alerte si le nom du groupe est vide
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Attention");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez entrer un nom valide.");
-            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
-            alert.showAndWait();
+            ClasseUtilitaire.afficherPopUp("Erreur", "Champs incomplets", "Veuillez entrer un nom valide.", Alert.AlertType.ERROR);
+
         } else {
             // Ajout du nouveau groupe à la liste des groupes
             listeGroupes.add(nomGroupe);
             nouveauGroupe.setText("");
         }
+
+
     }
 
     /*=========================================================================
@@ -93,11 +84,17 @@ public class ControllerModifierMenu implements Initializable {
     * ========================================================================*/
     @FXML
     private void onSupprimerGroupe(ActionEvent event) {
-        // Récupération du groupe sélectionné
-        String selectedItem = groupe.getSelectionModel().getSelectedItem();
-        // Suppression du groupe de la liste des groupes
-        if (selectedItem != null) {
-            listeGroupes.remove(selectedItem);
+
+        //Validation 2 : si l'utilisateur a choisi un groupe
+        if (groupe.getValue() == null) {
+            ClasseUtilitaire.afficherPopUp("Erreur", "Champs incomplets", "Veuillez choisir un groupe.", Alert.AlertType.ERROR);
+        } else {
+            // Récupération du groupe sélectionné
+            String selectedItem = groupe.getSelectionModel().getSelectedItem();
+            // Suppression du groupe de la liste des groupes
+            if (selectedItem != null) {
+                listeGroupes.remove(selectedItem);
+            }
         }
     }
 }

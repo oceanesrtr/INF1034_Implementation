@@ -137,7 +137,7 @@
                      <font>
                         <Font name="Lexend Light" size="12.0" />
                      </font></Button>
-                        <Button fx:id="buttonDeconnexion" mnemonicParsing="false" onAction="#onDeconnexion" prefHeight="62.0" prefWidth="300.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" text="Déconnexion" textFill="#424242">
+                        <Button fx:id="buttonDeconnexion" mnemonicParsing="false" onAction="#onDeconnexion" prefHeight="62.0" prefWidth="300.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" text="Déconnexion" textFill="#424242" onMouseClicked="#onConnexion">
                      <font>
                         <Font name="Lexend Light" size="12.0" />
                      </font></Button>

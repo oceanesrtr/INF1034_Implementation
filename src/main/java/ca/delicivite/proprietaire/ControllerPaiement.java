@@ -65,6 +65,7 @@ public class ControllerPaiement implements Initializable {
     public Menu taillePoliceMenu;
     public MenuItem moyenneTailleMenuItem;
     public MenuItem grandeTailleMenuItem;
+    public Button boutonPaiement;
 
     /*=========================================================================
     [1] Initialize au démarrage de la scène
@@ -174,10 +175,14 @@ public class ControllerPaiement implements Initializable {
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
-        if(ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {  Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
+        buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2;");
+        boutonPaiement.setStyle("-fx-background-color: #94DAE5;");
+        if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
+            Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
-            stage.setScene(scene);}
+            stage.setScene(scene);
+        }
     }
 
     // Variables pour la gestion du déplacement de la fenêtre
@@ -205,6 +210,7 @@ public class ControllerPaiement implements Initializable {
 
         lastClickedButton = clickedButton;
     }
+
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Aide
      * [4] Afficher la fenêtre d'information A propos

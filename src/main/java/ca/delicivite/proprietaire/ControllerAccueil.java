@@ -68,6 +68,9 @@ public class ControllerAccueil implements Initializable {
     public Menu taillePoliceMenu;
     public MenuItem moyenneTailleMenuItem;
     public MenuItem grandeTailleMenuItem;
+    public Button boutonFilArianeEmploye;
+    public Button boutonAccueil;
+    public Button boutonRedirectionCommerce;
 
     /*=========================================================================
     [1] Initialize au démarrage de la scène
@@ -176,6 +179,8 @@ public class ControllerAccueil implements Initializable {
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
+        buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2;");
+        boutonAccueil.setStyle("-fx-background-color: #94DAE5;");
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
@@ -192,22 +197,13 @@ public class ControllerAccueil implements Initializable {
     @FXML
     private Button lastClickedButton;
 
+
     /*=========================================================================
     [13] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
     * ========================================================================*/
     @FXML
     private void onButtonClicked(ActionEvent event) {
-        Button clickedButton = (Button) event.getSource();
-
-        // Retrait de l'element "clicked-button" au bouton
-        if (lastClickedButton != null) {
-            lastClickedButton.getStyleClass().remove("clicked-button");
-        }
-
-        // Ajout de l'element "clicked-button" au bouton
-        clickedButton.getStyleClass().add("clicked-button");
-
-        lastClickedButton = clickedButton;
+       buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2");
     }
 
     /*=============================================================

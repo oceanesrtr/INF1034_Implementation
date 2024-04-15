@@ -156,6 +156,8 @@ public class ControllerMonCommerce implements Initializable {
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
+        buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2;");
+
         // Affichage d'une boîte de dialogue de confirmation
         Alert verification = new Alert(Alert.AlertType.CONFIRMATION);
         verification.setTitle("Confirmation");

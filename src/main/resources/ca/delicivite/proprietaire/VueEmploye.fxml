@@ -27,7 +27,7 @@
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
             <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
-                <MenuItem fx:id="stAnnulerAction" disable="true"  mnemonicParsing="false">
+                <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
                             <Label style="-fx-text-fill: black;" text="Annuler" />
@@ -67,7 +67,7 @@
                         </graphic>
                     </MenuItem>
 
-                    <MenuItem fx:id="moyenneTailleMenuItem"  disable="true" mnemonicParsing="false">
+                    <MenuItem fx:id="moyenneTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
                                 <Label style="-fx-text-fill: black;" text="Moyenne" />
@@ -88,7 +88,7 @@
             </Menu>
             <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation"/>
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
         </MenuBar>
     </top>
@@ -105,22 +105,27 @@
 
     <right>
         <Pane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0">
-            <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.14">
+            <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.1">
                 <Image url="@/images/PatternNourriture.jpeg" />
             </ImageView>
-            <Label layoutX="438.0" layoutY="250.0" text="Section Employés" textFill="black">
+            <Label layoutX="413.0" layoutY="399.0" text="Nous sommes en processus de développement. À bientôt !" textFill="black" />
+            <Label layoutX="402.0" layoutY="359.0" text="Interface non implémentée" textFill="black">
                 <font>
-                    <Font size="50.0" />
+                    <Font size="28.0" />
                 </font>
             </Label>
-
+            <ImageView fitHeight="246.0" fitWidth="349.0" layoutX="399.0" layoutY="122.0">
+                <image>
+                    <Image url="@/images/interfaceNonImplementeeTransparent.png" />
+                </image>
+            </ImageView>
         </Pane>
     </right>
 
     <left>
         <Pane maxHeight="548.0" prefHeight="548.0" prefWidth="263.0" BorderPane.alignment="CENTER">
             <VBox maxHeight="549.0" maxWidth="263.0" prefHeight="549.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;">
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#accueil" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Accueil" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#accueil" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Accueil" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -128,7 +133,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#commerce" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Commerce" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#commerce" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Commerce" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -136,7 +141,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#commandes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Commandes" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#commandes" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Commandes" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -144,7 +149,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#performances" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Performances" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#performances" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Performances" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -152,7 +157,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#menu" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Menu" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#menu" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Menu" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -160,7 +165,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#paiements" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Paiements" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#paiements" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Paiements" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -168,7 +173,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#employes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Employés" textFill="#424242">
+                <Button fx:id= "boutonEmploye" maxWidth="263.0" mnemonicParsing="false" onAction="#employes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #3DBDD2;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Employés" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -176,7 +181,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#parametres" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Paramètres" textFill="#424242">
+                <Button maxWidth="263.0" mnemonicParsing="false" onAction="#parametres" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Paramètres" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -184,7 +189,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button fx:id="buttonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242">
+                <Button fx:id="buttonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -214,7 +219,7 @@
                         <Font name="Lexend Light" size="12.0" />
                     </font>
                 </Button>
-            <Button fx:id="buttonfilConnexion1" layoutX="10.0" layoutY="10.0" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Interface employé" textFill="#424242">
+            <Button fx:id="boutonFilArianeEmploye" layoutX="10.0" layoutY="10.0" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Interface employé" textFill="#424242">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
