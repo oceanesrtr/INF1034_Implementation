@@ -1,6 +1,6 @@
 package ca.delicivite.motDePasseOublieConfirmation;
 
-/*Classe Controller : gère les controlleurs de l'interface d'envoi d'e-mail
+/*Classe ControllerProprietaire : gère les controlleurs de l'interface d'envoi d'e-mail
  * de récupération de mot de passe*/
 
 

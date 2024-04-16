@@ -1,6 +1,6 @@
 package ca.delicivite.motDePasseOublie;
 
-/*Classe controller : gère les Controller de l'interface de récupération de mot de passe oublié*/
+/*Classe controller : gère les ControllerProprietaire de l'interface de récupération de mot de passe oublié*/
 
 import ca.delicivite.modele.ModeleUtilisateur;
 import ca.delicivite.outils.ClasseUtilitaire;

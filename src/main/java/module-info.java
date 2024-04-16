@@ -56,4 +56,7 @@ module ca.delicivite {
 
     exports ca.delicivite.inscription.inscriptionLivreur;
     opens ca.delicivite.inscription.inscriptionLivreur to javafx.fxml;
+
+    exports ca.delicivite.inscription.historique;
+    opens ca.delicivite.inscription.historique to javafx.fxml;
 }

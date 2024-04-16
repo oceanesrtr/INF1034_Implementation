@@ -90,7 +90,7 @@ Taille de police : moyenne -->
             </Menu>
             <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos"/>
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation" "/>
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation"/>
             </Menu>
         </MenuBar>
     </top>

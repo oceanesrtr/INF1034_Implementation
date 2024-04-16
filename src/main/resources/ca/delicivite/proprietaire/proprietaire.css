@@ -25,13 +25,13 @@
     -fx-font-size: 12px;
 }
 
-#copyrightMention, #boutonFilArianeEmploye, #buttonfilConnexion {
+#copyrightMention, #boutonFilArianeEmploye, #buttonFilConnexion {
     -fx-font-family: "Lexend Light";
     -fx-font-size: 12px;
     -fx-text-fill: #424242;
 }
 
-#boutonFilArianeEmploye:hover, #buttonfilConnexion :hover {
+#boutonFilArianeEmploye:hover, #buttonFilConnexion :hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
 }

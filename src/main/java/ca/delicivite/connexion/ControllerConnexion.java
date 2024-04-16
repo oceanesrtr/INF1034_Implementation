@@ -9,10 +9,8 @@ import ca.delicivite.patronObservateur.ObservateurEntree;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
@@ -26,7 +24,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 
 import java.net.URL;
@@ -149,7 +146,7 @@ public class ControllerConnexion implements Initializable {
         boutonSeConnecter.setOnAction(actionEvent -> ModeleUtilisateur.clientSeConnecte(actionEvent, entreeCourriel.getText().trim(), motDePasseCache.getText().trim()));
 
         //TODO : Créer les pages non faîtes inscription et accueil pour non-connecté
-        boutonInscription.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale.fxml", "Inscription", null));
+        boutonInscription.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Inscription", null));
         boutonAccueil.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "ControllerAccueil", null));
 
         boutonMotDePasseOublie.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/motDePasseOublie/VueMDPOublieMoyenne.fxml", "Mot de passe oublié", null));

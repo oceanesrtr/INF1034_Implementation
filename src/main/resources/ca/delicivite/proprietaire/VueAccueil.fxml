@@ -93,16 +93,6 @@
         </MenuBar>
     </top>
 
-    <!--    <center>
-            <AnchorPane prefHeight="900.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
-                <children>
-                    <StackPane fx:id="contentArea" prefHeight="900.0" prefWidth="1100.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
-                </children>
-
-
-            </AnchorPane>
-        </center>-->
-
     <right>
         <Pane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0">
             <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.1">
@@ -212,7 +202,7 @@
             </Text>
 
             <HBox alignment="CENTER_RIGHT" spacing="-15">
-                <Button fx:id="buttonfilConnexion" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                <Button fx:id="buttonFilConnexion" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

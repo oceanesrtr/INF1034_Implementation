@@ -1,0 +1,40 @@
+/*Fichier CSS
+ Interface : Connexion
+ FXML : VueConnexionTailleMoyenne */
+
+
+#titreInscription {
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+#sousTitreLogo, #soustitre, #sousTitreLogo2 {
+    -fx-font-family: "Lexend Deca SemiBold";
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+#copyrightMention, #buttonFilConnexion, #boutonFilArianeEmploye{
+    -fx-font-family: "Lexend Light";
+    -fx-font-size: 12px;
+    -fx-text-fill: #424242;
+}
+
+#boutonSuivant,  #boutonReinitialiser, #boutonRetourConnexion, #entreePrenomInscrit, #entreeNomInscrit, #entreeDateNaissanceInscrit {
+    -fx-font-family:"Lexend Light";
+    -fx-font-size: 14px;
+}
+
+#buttonFilConnexion:hover, #boutonFilArianeEmploye:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}
+
+#entreeDateNaissanceInscrit > .text-field  {
+    -fx-alignment: center;
+}
+
+
+
+

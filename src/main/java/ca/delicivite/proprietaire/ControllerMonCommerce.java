@@ -36,7 +36,7 @@ public class ControllerMonCommerce implements Initializable {
     public Button buttonDeconnexion;
     // Bouton pour retourner a l'interface connexion
     @FXML
-    public Button buttonfilConnexion;
+    public Button buttonFilConnexion;
     // Bouton pour aller a l'interface propriétaire (Cela reset la page)
     @FXML
     public Button buttonProprio;
@@ -172,7 +172,7 @@ public class ControllerMonCommerce implements Initializable {
             // Redirection vers la vue de connexion
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
+            Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
             stage.setScene(scene);
         }
     }

@@ -3,6 +3,7 @@ des utilisateurs en général */
 package ca.delicivite.modele;
 
 import ca.delicivite.connexion.ControllerConnexion;
+import ca.delicivite.modele.ModeleItemMenu.TypeUtilisateur;
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -10,6 +11,46 @@ import javafx.scene.control.Alert;
 import java.sql.*;
 
 public class ModeleUtilisateur {
+
+
+    //Données essentielles d'un utilisateur
+    private String prenom;
+    private String nom;
+
+
+    //Informations page 1 Inscription
+    private TypeUtilisateur typeUtilisateur;
+    private String adresseCourriel;
+    private String motDePasse;
+
+
+    //Informations page 2 Inscription client
+    private String adresseClient;
+    private String codePostalClient;
+    private String telephoneClient;
+
+    //Objet utilisateur unique qui changera en fonction de l'inscription
+    private static ModeleUtilisateur objetUtilisateur;
+
+    public ModeleUtilisateur() {
+    }
+
+    // Méthode statique pour obtenir l'instance unique de la classe
+    public static ModeleUtilisateur getObjetUtilisateur() {
+        if (objetUtilisateur == null) {
+            objetUtilisateur = new ModeleUtilisateur();
+        }
+        return objetUtilisateur;
+    }
+
+    // Méthode pour réinitialiser les informations d'inscription une fois l'inscription terminée
+    public void reinitialiserModeleUtilisateur() {
+        this.prenom = null;
+        this.nom = null;
+        this.typeUtilisateur = null;
+        this.adresseCourriel = null;
+        this.motDePasse = null;
+    }
 
     //[1] : Inscrit l'utilisateur et l'insère dans la base de données
     public static void inscription(ActionEvent event, String adresseCourrielIdentifiant, String motDePasse, String prenom, String nom) {
@@ -268,6 +309,51 @@ public class ModeleUtilisateur {
                 }
             }
         }
+    }
+
+    /*=============================
+     * Getter et setter
+     * ============================*/
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+
+
+    public String getAdresseCourriel() {
+        return adresseCourriel;
+    }
+
+    public void setAdresseCourriel(String adresseCourriel) {
+        this.adresseCourriel = adresseCourriel;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
+
+    public TypeUtilisateur getTypeUtilisateur() {
+        return typeUtilisateur;
+    }
+
+    public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
+        this.typeUtilisateur = typeUtilisateur;
     }
 }
 

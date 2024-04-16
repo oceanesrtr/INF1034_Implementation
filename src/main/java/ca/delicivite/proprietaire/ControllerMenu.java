@@ -51,7 +51,7 @@ public class ControllerMenu implements Initializable{
     public Button buttonDeconnexion;
     // Bouton pour retourner a l'interface connexion
     @FXML
-    public Button buttonfilConnexion;
+    public Button buttonFilConnexion;
     // Bouton pour aller a l'interface propriétaire (Cela reset la page)
     @FXML
     public Button buttonProprio;
@@ -240,7 +240,7 @@ public class ControllerMenu implements Initializable{
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonfilConnexion.getScene().getWindow();
+            Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
         }
