@@ -24,47 +24,88 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static ca.delicivite.outils.ClasseUtilitaire.afficherPopUp;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerClient implements Initializable {
+    @FXML
     public BorderPane root;
+    @FXML
     public MenuBar barreMenu;
+    @FXML
     public MenuItem stAnnulerAction;
+    @FXML
     public Menu titreMenuApplication;
+    @FXML
     public MenuItem stRefaireAction;
+    @FXML
     public MenuItem stQuitterApp;
+    @FXML
     public Menu titreMenuApparence;
+    @FXML
     public MenuItem modeSombreMenuItem;
+    @FXML
     public MenuItem modeClairMenuItem;
+    @FXML
     public Menu titreMenuVue;
+    @FXML
     public Menu taillePoliceMenu;
+    @FXML
     public MenuItem petiteTailleMenuItem;
+    @FXML
     public MenuItem moyenneTailleMenuItem;
+    @FXML
     public MenuItem grandeTailleMenuItem;
+    @FXML
     public Menu menuAide;
+    @FXML
     public MenuItem stAPropos;
+    @FXML
     public MenuItem stGuideUtilisation;
+    @FXML
     public ScrollPane scrollPane;
+    @FXML
     public VBox container;
+    @FXML
     public AnchorPane anchorPane;
+    @FXML
     public Text sousTitreLogo;
+    @FXML
     public Text sousTitreLogo2;
+    @FXML
     public Group groupeBarre;
+    @FXML
     public ProgressBar barreProgression;
+    @FXML
     public Button boutonReinitialiser;
-    @FXML public Button boutonRetourPagePrecedente;
+    @FXML
+    public Button boutonRetourPagePrecedente;
+    @FXML
     public Button boutonSuivant;
+    @FXML
     public Text copyrightMention;
-    public GridPane tableauChoixSpecialiteRestaurant;
+    @FXML
+    public GridPane tableauCuisineFavorite;
+    @FXML
     public Rectangle barreEtat;
+    @FXML
     public Pane filArianeBarreEtat;
     @FXML
     public Button buttonFilConnexion;
+    @FXML
     public Button boutonFilArianeEmploye;
+    @FXML
     public Button boutonRetourConnexion;
-    public TextField entreeAdresseInscrit;
-    public TextField entreeCodePostalInscrit;
-    public TextField entreeCellulaireInscrit;
+    @FXML
+    public TextField entree1;
+    @FXML
+    public TextField entree2;
+    @FXML
+    public TextField entree3;
+    @FXML
+    public Text titreInscription;
+    @FXML
+    public Text sousTitre;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,11 +113,13 @@ public class ControllerClient implements Initializable {
         //[a] Associer fonctionnalités aux options de la barre de menu
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
+        boutonSuivant.setOnAction(event -> {
+            validationChamp();
+        });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
         buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
-        boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
-        //TODO : utiliser une pile pour garder les informations de la dernière page ??
+        boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Connexion", null));
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
@@ -141,43 +184,94 @@ public class ControllerClient implements Initializable {
     @FXML
     private void reinitialiserChamp() {
 
-        // Vérifiez si au moins une case est cochée dans le GridPane
-        boolean auMoinsUneCaseCochee = false;
-        for (Node node : tableauChoixSpecialiteRestaurant.getChildren()) {
-            if (node instanceof ToggleButton) {
-                ToggleButton bouton = (ToggleButton) node;
-                if (bouton.isSelected()) {
-                    auMoinsUneCaseCochee = true;
-                    break;
-                }
-            }
-        }
 
-
-        if (entreeAdresseInscrit.getText().isBlank() &&
-                entreeCellulaireInscrit.getText().isBlank() &&
-                entreeCodePostalInscrit.getText().isBlank() && !auMoinsUneCaseCochee
+        if (entree1.getText().isBlank() &&
+                entree3.getText().isBlank() &&
+                entree2.getText().isBlank() && !(auMoinsUneSpecialiteSelectionnee())
         ) {
-            entreeAdresseInscrit.setStyle("-fx-border-color: #FD2528");
-            entreeCellulaireInscrit.setStyle("-fx-border-color: #FD2528");
-            entreeCodePostalInscrit.setStyle("-fx-border-color: #FD2528");
-            tableauChoixSpecialiteRestaurant.setStyle("-fx-border-color: #FD2528");
+            entree1.setStyle("-fx-border-color: #FD2528");
+            entree3.setStyle("-fx-border-color: #FD2528");
+            entree2.setStyle("-fx-border-color: #FD2528");
+            tableauCuisineFavorite.setStyle("-fx-border-color: #FD2528");
 
             ClasseUtilitaire.afficherPopUp("Erreur", "Aucune donnée à réinitialiser", "Aucun champ n'est rempli.", Alert.AlertType.WARNING);
         } else {
             // Sinon, réinitialiser les champs uniquement si l'utilisateur confirme son choix
             if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Confirmation d'annulation", "Êtes-vous sûr de vouloir annuler cette action ?")) {
-                entreeAdresseInscrit.clear();
-                entreeCodePostalInscrit.clear();
-                entreeCellulaireInscrit.clear();
+                entree1.clear();
+                entree2.clear();
+                entree3.clear();
 
-                entreeAdresseInscrit.setStyle("-fx-border-color: #424242");
-                entreeCodePostalInscrit.setStyle("-fx-border-color: #424242");
-                entreeCellulaireInscrit.setStyle("-fx-border-color: #424242");
-                tableauChoixSpecialiteRestaurant.setStyle("-fx-border-color: #424242");
+                entree1.setStyle("-fx-border-color: #424242");
+                entree2.setStyle("-fx-border-color: #424242");
+                entree3.setStyle("-fx-border-color: #424242");
+                tableauCuisineFavorite.setStyle("-fx-border-color: #424242");
             }
         }
-
     }
+
+    /*===================================================
+     * [] : Valider les champs avant de passer à la page suivante
+     *  et les sauvegarder pour la base de données
+     * ==================================================*/
+
+    @FXML
+    private void validationChamp() {
+
+        String adresse = entree1.getText().trim();
+        String codePostal = entree2.getText().trim();
+        String cellulaire = entree3.getText().trim();
+
+        // ---------------VALIDATION-------------------------
+
+        // Valider l'adresse
+        if (!adresse.matches("[a-zA-Z0-9À-ÿ\\-' ]+")) {
+            afficherPopUp("Erreur", "Adresse incorrecte", "L'adresse doit contenir uniquement des lettres, des chiffres et des caractères spéciaux.", Alert.AlertType.ERROR);
+            entree1.setStyle("-fx-border-color: #FD2528");
+            return;
+        }
+
+        // Valider le code postal
+        if (!codePostal.matches("[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d")) {
+            afficherPopUp("Erreur", "Code postal incorrect", "Veuillez entrer un code postal valide.", Alert.AlertType.ERROR);
+            entree2.setStyle("-fx-border-color: #FD2528");
+            return;
+        }
+
+        // Valider le numéro de téléphone
+        if (!cellulaire.matches("[0-9\\-]+") || cellulaire.length() > 10) {
+            afficherPopUp("Erreur", "Numéro de téléphone incorrect", "Veuillez entrer un numéro de téléphone valide (maximum 10 chiffres).", Alert.AlertType.ERROR);
+            entree3.setStyle("-fx-border-color: #FD2528");
+            return;
+        }
+
+
+        if (auMoinsUneSpecialiteSelectionnee() == false) {
+            afficherPopUp("Champ incomplet", "Spécialités non sélectionnées", "Veuillez sélectionner au moins une spécialité de cuisine.", Alert.AlertType.ERROR);
+            tableauCuisineFavorite.setStyle("-fx-border-color: #FD2528");
+        }
+
+        //Si tout est valide :
+        boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null));
+    }
+
+    /*=================
+     * Méthode utilitaire : vérifier si au moins une spécialité a été cochée par le client
+     * =================*/
+
+    private boolean auMoinsUneSpecialiteSelectionnee() {
+        boolean auMoinsUneSpecialiteSelectionnee = false;
+        for (Node node : tableauCuisineFavorite.getChildren()) {
+            if (node instanceof ToggleButton) {
+                ToggleButton bouton = (ToggleButton) node;
+                if (bouton.isSelected()) {
+                    auMoinsUneSpecialiteSelectionnee = true;
+                    break;
+                }
+            }
+        }
+        return auMoinsUneSpecialiteSelectionnee;
+    }
+
 
 }

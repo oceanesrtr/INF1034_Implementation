@@ -1,6 +1,6 @@
 package ca.delicivite.inscription.inscriptionLivreur;
 
-import ca.delicivite.inscription.historique.HistoriqueNavigation;
+
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
@@ -24,57 +25,60 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static ca.delicivite.outils.ClasseUtilitaire.afficherPopUp;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerLivreur implements Initializable {
-    public BorderPane root;
-    public MenuBar barreMenu;
-    public MenuItem stAnnulerAction;
-    public Menu titreMenuApplication;
-    public MenuItem stRefaireAction;
-    public MenuItem stQuitterApp;
-    public Menu titreMenuApparence;
-    public MenuItem modeSombreMenuItem;
-    public MenuItem modeClairMenuItem;
-    public Menu titreMenuVue;
-    public Menu taillePoliceMenu;
-    public MenuItem petiteTailleMenuItem;
-    public MenuItem moyenneTailleMenuItem;
-    public MenuItem grandeTailleMenuItem;
-    public Menu menuAide;
-    public MenuItem stAPropos;
-    public MenuItem stGuideUtilisation;
-    public ScrollPane scrollPane;
-    public VBox container;
-    public AnchorPane anchorPane;
-    public Text sousTitreLogo;
-    public Text sousTitreLogo2;
-    public Group groupeBarre;
-    public ProgressBar barreProgression;
-    public Button boutonReinitialiser;
-    public Button boutonRetourPagePrecedente;
-    public Button boutonSuivant;
-    public Rectangle barreEtat;
-    public Pane filArianeBarreEtat;
+   @FXML public BorderPane root;
+    @FXML   public MenuBar barreMenu;
+    @FXML  public MenuItem stAnnulerAction;
+    @FXML   public Menu titreMenuApplication;
+    @FXML   public MenuItem stRefaireAction;
+    @FXML   public MenuItem stQuitterApp;
+    @FXML  public Menu titreMenuApparence;
+    @FXML  public MenuItem modeSombreMenuItem;
+    @FXML  public MenuItem modeClairMenuItem;
+    @FXML  public Menu titreMenuVue;
+    @FXML  public Menu taillePoliceMenu;
+    @FXML   public MenuItem petiteTailleMenuItem;
+    @FXML  public MenuItem moyenneTailleMenuItem;
+    @FXML    public MenuItem grandeTailleMenuItem;
+    @FXML   public Menu menuAide;
+    @FXML   public MenuItem stAPropos;
+    @FXML   public MenuItem stGuideUtilisation;
+    @FXML   public ScrollPane scrollPane;
+    @FXML   public VBox container;
+    @FXML   public AnchorPane anchorPane;
+    @FXML   public Text sousTitreLogo;
+    @FXML   public Text sousTitreLogo2;
+    @FXML   public Group groupeBarre;
+    @FXML  public ProgressBar barreProgression;
+    @FXML   public Button boutonReinitialiser;
+    @FXML   public Button boutonRetourPagePrecedente;
+    @FXML    public Button boutonSuivant;
+    @FXML    public Rectangle barreEtat;
+    @FXML   public Pane filArianeBarreEtat;
     @FXML
     public Button buttonFilConnexion;
-    public Button boutonFilArianeEmploye;
-    public TextField entreeCellulaireInscritLivreur;
-    public Text copyrightMention;
-    public Button boutonRetourConnexion;
+    @FXML   public Button boutonFilArianeEmploye;
+    @FXML   public TextField entreeCellulaireInscritLivreur;
+    @FXML   public Text copyrightMention;
+    @FXML   public Button boutonRetourConnexion;
+    @FXML
+    public GridPane tableauDisponibilites;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //[a] Associer fonctionnalités aux options de la barre de menu
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
-
+        boutonSuivant.setOnAction(event -> {
+            validationChamp();
+        });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
         buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
-        boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
-
-        //TODO : utiliser une pile pour garder les informations de la dernière page ??
+        boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Connexion", null));
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
@@ -138,16 +142,72 @@ public class ControllerLivreur implements Initializable {
      * ========================================================*/
     @FXML
     private void reinitialiserChamp() {
-        if (entreeCellulaireInscritLivreur.getText().isBlank()
+
+        if (entreeCellulaireInscritLivreur.getText().isBlank() && !(auMoinsUneCaseCochee())
         ) {
             entreeCellulaireInscritLivreur.setStyle("-fx-border-color: #FD2528");
             ClasseUtilitaire.afficherPopUp("Erreur", "Aucune donnée à réinitialiser", "Aucun champ n'est rempli.", Alert.AlertType.WARNING);
         } else {
-            // Sinon, réinitialiser les champs uniquement si l'utilisateur confirme son choix
             if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Confirmation d'annulation", "Êtes-vous sûr de vouloir annuler cette action ?")) {
                 entreeCellulaireInscritLivreur.clear();
+
+
+                // Parcours des enfants du GridPane
+                for (Node node : tableauDisponibilites.getChildren()) {
+                    if (node instanceof CheckBox) {
+                        CheckBox checkBox = (CheckBox) node;
+                        if (checkBox.isSelected()) {
+                            checkBox.setSelected(false);
+                        }
+                    }
+                }
+
+
                 entreeCellulaireInscritLivreur.setStyle("-fx-border-color: #424242");
+                tableauDisponibilites.setStyle("-fx-border-color: #424242");
             }
+
         }
     }
+
+
+    private void validationChamp() {
+        String cellulaireLivreur = entreeCellulaireInscritLivreur.getText().trim();
+
+        if (!cellulaireLivreur.matches("[0-9\\-]+") || cellulaireLivreur.length() > 10) {
+            afficherPopUp("Erreur", "Numéro de téléphone incorrect", "Veuillez entrer un numéro de téléphone valide (maximum 10 chiffres).", Alert.AlertType.ERROR);
+            entreeCellulaireInscritLivreur.setStyle("-fx-border-color: #FD2528");
+            return;
+        }
+
+        if (!(auMoinsUneCaseCochee())) {
+            afficherPopUp("Champ incomplet", "Disponibilités non sélectionnées", "Veuillez sélectionner au moins une disponibilité.", Alert.AlertType.ERROR);
+            tableauDisponibilites.setStyle("-fx-border-color: #FD2528");
+        }
+
+        //Si tout est valide :
+        boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null));
+    }
+
+
+    /*====================================
+     * Méthode utilitaire pour vérifier si le livreur a bien coché au moins une case
+     * ==================================*/
+
+    private boolean auMoinsUneCaseCochee() {
+        // Parcours des enfants du GridPane pour vérifier si au moins une case est cochée
+        boolean auMoinsUneCaseCochee = false;
+        for (Node node : tableauDisponibilites.getChildren()) {
+            if (node instanceof CheckBox) {
+                CheckBox checkBox = (CheckBox) node;
+                if (checkBox.isSelected()) {
+                    auMoinsUneCaseCochee = true;
+                    break;
+                }
+            }
+        }
+        return auMoinsUneCaseCochee;
+    }
+
+
 }

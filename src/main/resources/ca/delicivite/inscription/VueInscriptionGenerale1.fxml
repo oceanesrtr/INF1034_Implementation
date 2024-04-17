@@ -106,9 +106,6 @@
                                     <Font name="Lexend SemiBold" />
                                 </font>
                             </Text>
-                            <ImageView fitHeight="143.0" fitWidth="247.0" layoutX="8.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@/images/logoDelicivite-removebg-preview.png" />
-                            </ImageView>
                             <ImageView fx:id="etape1" fitHeight="209.0" fitWidth="198.0" layoutY="224.0">
                                 <Image url="@/images/sushi.png" />
                             </ImageView>
@@ -119,10 +116,8 @@
                             </Text>
                         </AnchorPane>
                         <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
-                            <ImageView fitHeight="550.0" fitWidth="734.0" opacity="0.099">
-                                <image>
-                                    <Image url="@../../../../../../../../INF1034/LOGO/background_doodle_food.jpeg" />
-                                </image>
+                            <ImageView fitHeight="552.0" fitWidth="736.0" layoutX="-1.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@/images/PatternNourriture.jpeg" />
                             </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
@@ -233,7 +228,7 @@
                                     <Font name="Lexend Light" size="14.0" />
                                 </font>
                             </Text>
-                            <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="212.0" spacing="10.0">
+                            <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="283.0" spacing="10.0">
                                 <children>
                                     <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Réinitialiser" textAlignment="CENTER" textFill="#ffae57" wrapText="true">
                                         <font>
@@ -246,7 +241,7 @@
                                             <Cursor fx:constant="HAND" />
                                         </cursor>
                                     </Button>
-                                    <Button fx:id="boutonSuivant"  alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onAction="#validationChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FFAE57; -fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onAction="#validationChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FFAE57; -fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -282,7 +277,7 @@
                                     <Image url="@/images/livreurIcone2.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="imageClient" fitHeight="101.0" fitWidth="108.0" layoutX="69.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imageClient" fitHeight="108.0" fitWidth="115.0" layoutX="61.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@/images/clientIcone2.jpeg" />
                                 </image>

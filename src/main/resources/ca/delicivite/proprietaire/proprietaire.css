@@ -37,11 +37,11 @@
 }
 
 
-/*.buttonMenu:hover, .buttonAction:hover,
+.buttonMenu:hover, .buttonAction:hover,
 .buttonMenu:focused, .boutonHover:hover
 {
     -fx-background-color: #3DBDD2;
-}*/
+}
 
 .list-cell {
     -fx-background-color: #ffff; /* Couleur de fond */

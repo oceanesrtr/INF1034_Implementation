@@ -16,18 +16,10 @@ public class ModeleUtilisateur {
     //Données essentielles d'un utilisateur
     private String prenom;
     private String nom;
-
-
-    //Informations page 1 Inscription
     private TypeUtilisateur typeUtilisateur;
     private String adresseCourriel;
     private String motDePasse;
 
-
-    //Informations page 2 Inscription client
-    private String adresseClient;
-    private String codePostalClient;
-    private String telephoneClient;
 
     //Objet utilisateur unique qui changera en fonction de l'inscription
     private static ModeleUtilisateur objetUtilisateur;
@@ -53,62 +45,32 @@ public class ModeleUtilisateur {
     }
 
     //[1] : Inscrit l'utilisateur et l'insère dans la base de données
-    public static void inscription(ActionEvent event, String adresseCourrielIdentifiant, String motDePasse, String prenom, String nom) {
+    public static void inscription(String nom, String prenom, String adresseCourriel, String motDePasse, String typeUtilisateur) {
         Connection connection = null;
-        PreparedStatement preparedStatementInsererCourriel = null;
-        PreparedStatement preparedStatementClientExisteDeja = null;
-        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
 
-        //Connexion avec la base de données pour valider l'inscription et éviter les doublons au niveau du courriel
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/delicivite", "root", "OceSQL2005.");
-            preparedStatementClientExisteDeja = connection.prepareStatement("SELECT * FROM inscription WHERE courriel_inscrit = ?"); // ? : rempli par ce que l'user va typer
-            preparedStatementClientExisteDeja.setString(1, adresseCourrielIdentifiant);
+            preparedStatement = connection.prepareStatement("INSERT INTO inscription (nom_inscrit, prenom_inscrit, courriel_inscrit, mot_de_passe_inscrit, type_utilisateur) VALUES (?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, nom);
+            preparedStatement.setString(2, prenom);
+            preparedStatement.setString(3, adresseCourriel);
+            preparedStatement.setString(4, motDePasse);
+            preparedStatement.setString(5, typeUtilisateur);
 
-            //Apres la requete SQL...
-            resultSet = preparedStatementClientExisteDeja.executeQuery();
-
-            //Si resultSet est vide on aura false sinon oui (courriel deja pris)
-            if (resultSet.isBeforeFirst()) {
-                System.out.println("L'utilisateur existe déjà");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Courriel déjà pris.");
-                alert.show();
-            } else {
-                preparedStatementInsererCourriel = connection.prepareStatement("INSERT INTO inscription (courriel_inscrit, mot_de_passe_inscrit) VALUES (?, ?)");
-                preparedStatementInsererCourriel.setString(1, adresseCourrielIdentifiant);
-                preparedStatementInsererCourriel.setString(2, motDePasse);
-                preparedStatementInsererCourriel.executeUpdate();
-
-                ClasseUtilitaire.changerScene(event, "accueilClientConnecte.fxmml", "ControllerAccueil", adresseCourrielIdentifiant);
-            }
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            //ORDRE 1 : FERMER LES RESULTSET
-            if (resultSet != null) {
+            // ORDRE 1 : FERMER LES PREPARED STATEMENT
+            if (preparedStatement != null) {
                 try {
-                    resultSet.close();
+                    preparedStatement.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            //ORDRE 2 : FERMER LES PREPARED STATEMENT
-            if (preparedStatementInsererCourriel != null) {
-                try {
-                    preparedStatementInsererCourriel.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (preparedStatementClientExisteDeja != null) {
-                try {
-                    preparedStatementClientExisteDeja.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            //ORDRE 3 : CONNECTION
+            // ORDRE 3 : CONNECTION
             if (connection != null) {
                 try {
                     connection.close();
@@ -207,34 +169,32 @@ public class ModeleUtilisateur {
     }
 
 
-    //[3] Obtenir le prénom de l'utilisateur pour personnaliser sa page d'accueil
-    public static String obtenirPrenomUtilisateur(String adresseCourriel) {
+    /*===============================================
+    * [3] Vérifier si l'email de l'inscrit existe deja dans la base de données
+    * Pour les interfaces inscriptions
+    * Retourne un booléen
+    =================================================
+     */
+
+    public static boolean verifierEmail(String email) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String prenomUtilisateur = null;
+
+        boolean emailExiste = false;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/delicivite", "root", "OceSQL2005.");
-            preparedStatement = connection.prepareStatement("SELECT prenom_inscrit FROM inscription WHERE courriel_inscrit = ?");
-            preparedStatement.setString(1, adresseCourriel);
+            preparedStatement = connection.prepareStatement("SELECT courriel_inscrit FROM inscription WHERE courriel_inscrit = ?");
+            preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
 
-            if (!resultSet.isBeforeFirst()) {
-                System.out.println("L'utilisateur n'a pas été retrouvé dans la base de données");
+            emailExiste = resultSet.next(); // Si resultSet.next() retourne true, l'e-mail existe
 
-                ClasseUtilitaire.afficherPopUp("Erreur", "Erreur lors de la tentative", "Le courriel ou le mot de passe est incorrect", Alert.AlertType.ERROR);
-            } else if (resultSet.next()) {
-                prenomUtilisateur = resultSet.getString("prenom_inscrit");
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            // ORDRE 1 : FERMER LES RESULTSET
+            // Fermeture des ressources
             if (resultSet != null) {
                 try {
                     resultSet.close();
@@ -242,7 +202,6 @@ public class ModeleUtilisateur {
                     e.printStackTrace();
                 }
             }
-            // ORDRE 2 : FERMER LES PREPARED STATEMENT
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
@@ -250,7 +209,6 @@ public class ModeleUtilisateur {
                     e.printStackTrace();
                 }
             }
-            // ORDRE 3 : CONNECTION
             if (connection != null) {
                 try {
                     connection.close();
@@ -260,12 +218,12 @@ public class ModeleUtilisateur {
             }
         }
 
-        return prenomUtilisateur;
+        return emailExiste;
     }
 
-
     /*==============================================
-    4] : Vérifie si l'e-mail existe dans la base de données
+    4] : Vérifie si l'e-mail existe dans la base de données pour l'interface mot de passe oublié
+    Retourne : void
     =================================================*/
     public static void verifierEmailMotDePasseOublie(ActionEvent event, String email) {
         Connection connection = null;

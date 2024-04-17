@@ -21,7 +21,7 @@
     -fx-text-fill: #424242;
 }
 
-#boutonSuivant,  #boutonReinitialiser, #boutonRetourConnexion, #entreePrenomInscrit, #entreeNomInscrit, #entreeDateNaissanceInscrit {
+#boutonSuivant,  #boutonReinitialiser, #boutonRetourPagePrecedente, #entreeNomRestaurant, #entreeCellulaireRestaurant, #entreeAdresseRestaurant, #entreeCodePostalRestaurant, #tableauChoixSpecialiteRestaurant {
     -fx-font-family:"Lexend Light";
     -fx-font-size: 14px;
 }
@@ -29,10 +29,7 @@
 #buttonFilConnexion:hover, #boutonFilArianeEmploye:hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
-}
 
-#entreeDateNaissanceInscrit > .text-field  {
-    -fx-alignment: center;
 }
 
 

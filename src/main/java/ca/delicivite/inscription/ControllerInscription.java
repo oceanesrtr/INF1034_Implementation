@@ -1,6 +1,6 @@
 package ca.delicivite.inscription;
 
-import ca.delicivite.inscription.historique.HistoriqueNavigation;
+
 import ca.delicivite.modele.ModeleItemMenu.TypeUtilisateur;
 import ca.delicivite.modele.ModeleUtilisateur;
 import ca.delicivite.outils.ClasseUtilitaire;
@@ -39,43 +39,43 @@ import java.util.ResourceBundle;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerInscription implements Initializable {
-    public BorderPane root;
-    public Menu titreMenuApplication;
-    public MenuItem stAnnulerAction;
-    public MenuItem stRefaireAction;
-    public Menu titreMenuApparence;
-    public MenuItem modeSombreMenuItem;
-    public MenuItem modeClairMenuItem;
-    public Menu titreMenuVue;
-    public Menu taillePoliceMenu;
-    public MenuItem petiteTailleMenuItem;
-    public MenuItem moyenneTailleMenuItem;
-    public MenuItem grandeTailleMenuItem;
-    public Menu menuAide;
-    public ScrollPane scrollPane;
-    public VBox container;
-    public Text sousTitreLogo;
-    public AnchorPane anchorPane;
-    public Text sousTitreLogo2;
-    public Group groupeBarre;
-    public ProgressBar barreProgression;
-    public TextField entreePrenomInscrit;
-    public TextField entreeNomInscrit;
-    public DatePicker entreeDateNaissanceInscrit;
-    public RadioButton boutonLivreur;
-    public Button boutonReinitialiser;
-    public Button boutonSuivant;
-    public Button boutonFilArianeEmploye;
-    public RadioButton boutonClient;
-    public RadioButton boutonRestaurateur;
-    public Text copyrightMention;
-    public Rectangle barreEtat;
-   @FXML
-   public Button buttonFilConnexion;
-    public Button boutonRetourConnexion;
-    public Pane filArianeBarreEtat;
-    public ImageView etape1;
-    public Text titreInscription;
+    @FXML  public BorderPane root;
+    @FXML  public Menu titreMenuApplication;
+    @FXML  public MenuItem stAnnulerAction;
+    @FXML   public MenuItem stRefaireAction;
+    @FXML  public Menu titreMenuApparence;
+    @FXML  public MenuItem modeSombreMenuItem;
+    @FXML public MenuItem modeClairMenuItem;
+    @FXML  public Menu titreMenuVue;
+    @FXML   public Menu taillePoliceMenu;
+    @FXML  public MenuItem petiteTailleMenuItem;
+    @FXML   public MenuItem moyenneTailleMenuItem;
+    @FXML  public MenuItem grandeTailleMenuItem;
+    @FXML  public Menu menuAide;
+    @FXML   public ScrollPane scrollPane;
+    @FXML  public VBox container;
+    @FXML public Text sousTitreLogo;
+    @FXML  public AnchorPane anchorPane;
+    @FXML   public Text sousTitreLogo2;
+    @FXML    public Group groupeBarre;
+    @FXML   public ProgressBar barreProgression;
+    @FXML   public TextField entreePrenomInscrit;
+    @FXML   public TextField entreeNomInscrit;
+    @FXML  public DatePicker entreeDateNaissanceInscrit;
+    @FXML  public RadioButton boutonLivreur;
+    @FXML  public Button boutonReinitialiser;
+    @FXML  public Button boutonSuivant;
+    @FXML  public Button boutonFilArianeEmploye;
+    @FXML   public RadioButton boutonClient;
+    @FXML   public RadioButton boutonRestaurateur;
+    @FXML   public Text copyrightMention;
+    @FXML   public Rectangle barreEtat;
+    @FXML
+    public Button buttonFilConnexion;
+    @FXML   public Button boutonRetourConnexion;
+    @FXML  public Pane filArianeBarreEtat;
+    @FXML  public ImageView etape1;
+    @FXML    public Text titreInscription;
     @FXML
     public ToggleGroup groupeBouton;
     @FXML
@@ -97,10 +97,16 @@ public class ControllerInscription implements Initializable {
         //[a] Associer fonctionnalités aux options de la barre de menu
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
+        boutonSuivant.setOnAction(event -> {
+            validationChamp();
+        });
+
+
+        boutonRetourConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
+
 
         //[b] Fil d'Ariane : Retour à la page de connexion
         buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
-        boutonRetourConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
 
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
@@ -112,6 +118,9 @@ public class ControllerInscription implements Initializable {
             }
         });
 
+        //[d] Initialiser les informations de l'utilisateur inscrit
+        ModeleUtilisateur modeleUtilisateur = ModeleUtilisateur.getObjetUtilisateur();
+        modeleUtilisateur.reinitialiserModeleUtilisateur();
     }
 
 
@@ -171,12 +180,12 @@ public class ControllerInscription implements Initializable {
                 entreePrenomInscrit.getText().isBlank() &&
                 entreeDateNaissanceInscrit.getValue() == null &&
                 groupeBouton.getSelectedToggle() == null) {
-                entreePrenomInscrit.setStyle("-fx-border-color: #FD2528");
-                entreeNomInscrit.setStyle("-fx-border-color: #FD2528");
-                entreeDateNaissanceInscrit.setStyle("-fx-border-color:#FD2528");
-                boutonRestaurateur.setStyle("-fx-border-color: #FD2528");
-                boutonClient.setStyle("-fx-border-color: #FD2528");
-                boutonLivreur.setStyle("-fx-border-color: #FD2528");
+            entreePrenomInscrit.setStyle("-fx-border-color: #FD2528");
+            entreeNomInscrit.setStyle("-fx-border-color: #FD2528");
+            entreeDateNaissanceInscrit.setStyle("-fx-border-color:#FD2528");
+            boutonRestaurateur.setStyle("-fx-border-color: #FD2528");
+            boutonClient.setStyle("-fx-border-color: #FD2528");
+            boutonLivreur.setStyle("-fx-border-color: #FD2528");
             ClasseUtilitaire.afficherPopUp("Erreur", "Aucune donnée à réinitialiser", "Aucun champ n'est rempli.", Alert.AlertType.WARNING);
         } else {
             // Sinon, réinitialiser les champs uniquement si l'utilisateur confirme son choix
@@ -246,7 +255,7 @@ public class ControllerInscription implements Initializable {
         TypeUtilisateur typeUtilisateurSelectionne = associerBoutonTypeUtilisateur();
 
         // Sauvegarde des 3 données et redirection vers la page correspondante au type choisi
-        sauvegarderDonnees(prenom, nom, typeUtilisateurSelectionne);
+        sauvegarderDonnees(prenom, nom, typeUtilisateurSelectionne, null, null);
 
 
         // Redirection vers la page suivante
@@ -290,7 +299,7 @@ public class ControllerInscription implements Initializable {
      * [] Méthode utilitaire : Sauvegarde des données (nom, prénom et type d'utilisateur)
      * ===================================================================*/
 
-    private void sauvegarderDonnees(String nom, String prenom, TypeUtilisateur typeUtilisateur) {
+    private void sauvegarderDonnees(String nom, String prenom, TypeUtilisateur typeUtilisateur, String motDePasse, String adresseCourriel) {
 
         //Récupérer le modèle d'objet utilisateur unique dans lequel on va sauvegarder les informations de l'utilisateur temporairement
         ModeleUtilisateur utilisateur = ModeleUtilisateur.getObjetUtilisateur();
@@ -299,9 +308,9 @@ public class ControllerInscription implements Initializable {
         utilisateur.setPrenom(prenom);
         utilisateur.setNom(nom);
         utilisateur.setTypeUtilisateur(typeUtilisateur);
+        utilisateur.setAdresseCourriel(null);
+        utilisateur.setMotDePasse(null);
     }
-
-
 
 
 }
