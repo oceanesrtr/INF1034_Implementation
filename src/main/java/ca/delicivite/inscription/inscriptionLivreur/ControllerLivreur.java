@@ -73,7 +73,7 @@ public class ControllerLivreur implements Initializable {
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
         boutonSuivant.setOnAction(event -> {
-            validationChamp();
+            validationChamp(event);
         });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
@@ -171,7 +171,7 @@ public class ControllerLivreur implements Initializable {
     }
 
 
-    private void validationChamp() {
+    private void validationChamp(ActionEvent event) {
         String cellulaireLivreur = entreeCellulaireInscritLivreur.getText().trim();
 
         if (!cellulaireLivreur.matches("[0-9\\-]+") || cellulaireLivreur.length() > 10) {
@@ -186,7 +186,7 @@ public class ControllerLivreur implements Initializable {
         }
 
         //Si tout est valide :
-        boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null));
+        changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.net.URL?>
 <BorderPane maxWidth="624.0" prefHeight="400.0" prefWidth="624.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.proprietaire.ControllerAjoutItem">
     <stylesheets>
         <URL value="@proprietaire.css" />
@@ -24,11 +24,11 @@
             <ChoiceBox fx:id="groupe" prefHeight="30.0" prefWidth="264.0" style="-fx-background-color: #FFFF; -fx-border-color: #424242;" value="Choisissez un groupe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <AnchorPane GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6">
                 <HBox spacing="10.0" AnchorPane.rightAnchor="0">
-                    <Button onAction="#annuler" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #FF9728; -fx-border-radius: 5;" styleClass="buttonAction" text="Annuler" textFill="#424242">
+                    <Button onAction="#annuler" prefHeight="31.0" prefWidth="170.0" style="-fx-border-radius: 5;" styleClass="buttonAction" text="Annuler" textFill="#424242">
                   <font>
                      <Font name="Lexend Light" size="12.0" />
                   </font></Button>
-                    <Button minWidth="37.0" onAction="#ajouter" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #F8CD29; -fx-border-radius: 5;" styleClass="buttonAction" text="Ajouter" textFill="#424242">Ajouter</Button>
+                    <Button minWidth="37.0" onAction="#ajouter" prefHeight="31.0" prefWidth="170.0" style="-fx-border-radius: 5;" styleClass="buttonAction" text="Ajouter" textFill="#424242">Ajouter</Button>
                 </HBox>
             </AnchorPane>
          <columnConstraints>

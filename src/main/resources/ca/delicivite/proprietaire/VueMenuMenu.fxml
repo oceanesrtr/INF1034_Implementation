@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.net.URL?>
-<Pane maxWidth="624.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.proprietaire.ControllerMenuMenu">
+<Pane maxWidth="624.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.proprietaire.ControllerMenuMenu">
 
     <stylesheets>
         <URL value="@proprietaire.css" />
     </stylesheets><!--<fx:include source="imageDeFond2.fxml"/>-->
     <children>
 
-        <VBox fx:id="vbox" maxWidth="624.0" prefWidth="600.0" spacing="10" HBox.hgrow="ALWAYS">
-            <ListView fx:id="listeItems" maxWidth="624.0" prefHeight="625.0" prefWidth="600.0" style="-fx-border-width: 0; -fx-padding: 0;" />
+        <VBox fx:id="vbox" layoutX="13.0" maxWidth="624.0" prefHeight="625.0" prefWidth="574.0" spacing="10" HBox.hgrow="ALWAYS">
+            <ListView fx:id="listeItems" prefHeight="625.0" prefWidth="478.0" style="-fx-border-width: 0; -fx-padding: 0;" />
         </VBox>
     </children>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
 
 </Pane>

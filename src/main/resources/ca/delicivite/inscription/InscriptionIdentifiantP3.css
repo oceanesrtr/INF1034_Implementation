@@ -21,9 +21,19 @@
     -fx-text-fill: #424242;
 }
 
-#boutonSuivant,  #boutonReinitialiser, #boutonRetourPagePrecedente, #entreeCourrielIdentifiant, #entreeMotDePasse, #confirmerMotDePasse{
+#boutonSuivant,  #boutonReinitialiser, #boutonPagePrecedente, #entreeCourrielIdentifiant, #entreeMotDePasse, #confirmerMotDePasse{
     -fx-font-family:"Lexend Light";
     -fx-font-size: 14px;
+}
+
+#boutonPagePrecedente, #boutonSuivant, #boutonReinitialiser{
+    -fx-background-color:  #FFAE57;
+    -fx-font-weight: bold;
+}
+
+
+#boutonPagePrecedente:hover, #boutonSuivant, #boutonReinitialiser{
+    -fx-background-color: rgba(255, 174, 87, 0.31);
 }
 
 #buttonFilConnexion:hover, #boutonFilArianeEmploye:hover {

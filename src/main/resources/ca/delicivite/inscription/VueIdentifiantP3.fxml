@@ -124,15 +124,15 @@
                      </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
-                                    <ProgressBar fx:id="barreProgression" prefHeight="10.0" prefWidth="580.0" progress="0.77" style="-fx-accent: #ffae57; -fx-box-border: #ffae57;">
+                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="0.77" style="-fx-accent: #ffae57; -fx-box-border: #ffae57;">
                                         <cursor>
                                             <Cursor fx:constant="DEFAULT" />
                                         </cursor>
                                     </ProgressBar>
                                     <Group layoutX="127.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" radius="24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                            <Text fill="WHITE" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                            <Circle fill="#ffae57" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                            <Text fill="WHITE" layoutX="-11.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
                                                 </font>
@@ -141,7 +141,7 @@
                                     </Group>
                                     <Group layoutX="300.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" layoutX="-10.0" radius="24.0" stroke="#ffae57" strokeType="INSIDE" />
+                                            <Circle fill="#ffae57" layoutX="-10.0" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
                                             <Text fill="WHITE" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -151,7 +151,7 @@
                                     </Group>
                                     <Group layoutX="453.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" radius="24.0" stroke="#ffae57" strokeType="INSIDE" />
+                                            <Circle fill="#ffae57" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
                                             <Text fill="WHITE" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -163,7 +163,7 @@
                             </Group>
                             <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="212.0" spacing="10.0">
                                 <children>
-                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Réinitialiser" textAlignment="CENTER" textFill="#ffae57" wrapText="true">
+                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Réinitialiser" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -174,7 +174,7 @@
                                             <Cursor fx:constant="HAND" />
                                         </cursor>
                                     </Button>
-                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FFAE57; -fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -188,7 +188,7 @@
                                 </children>
                             </HBox>
                             <Group layoutX="29.0" layoutY="494.0" />
-                            <Button fx:id="boutonPagePrecedente" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" onAction="#retourPage" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #F8CD29; -fx-background-radius: 6;" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                            <Button fx:id="boutonPagePrecedente" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" onAction="#retourPage" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                 <font>
                                     <Font name="Lexend Light" />
                                 </font>
@@ -199,7 +199,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Text fx:id="titreInscription" fill="#424242" layoutX="208.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous y êtes presque ! ">
+                            <Text fx:id="titreInscription" fill="#424242" layoutX="175.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous y êtes presque ! ">
                                 <font>
                                     <Font name="Lexend Deca SemiBold" size="20.0" />
                                 </font>

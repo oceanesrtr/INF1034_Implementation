@@ -27,7 +27,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'ca.delicivite'
-    mainClass = 'ca.delicivite.ApplicationPrincipale'
+    mainClass = 'ca.delicivite.Launcher'
 }
 
 javafx {

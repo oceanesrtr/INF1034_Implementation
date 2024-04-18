@@ -121,21 +121,21 @@
                             </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
-                                    <ProgressBar fx:id="barreProgression" prefHeight="10.0" prefWidth="580.0" progress="0.25" style="-fx-accent: #ffae57; -fx-box-border: #ffae57;">
+                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="0.25" style="-fx-accent: #ffae57; -fx-box-border: #ffae57;">
                                         <cursor>
                                             <Cursor fx:constant="DEFAULT" />
                                         </cursor>
                                     </ProgressBar>
                                     <Group layoutX="127.0" layoutY="5.0">
-                                        <Circle fill="#ffae57" radius="24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                        <Text fill="WHITE" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                        <Circle fill="#ffae57" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                        <Text fill="WHITE" layoutX="-8.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                                             <font>
                                                 <Font name="Lexend Deca Regular" size="25.0" />
                                             </font>
                                         </Text>
                                     </Group>
                                     <Group layoutX="300.0" layoutY="5.0">
-                                        <Circle fill="WHITE" layoutX="-10.0" radius="24.0" stroke="#ffae57" strokeType="INSIDE" />
+                                        <Circle fill="WHITE" layoutX="-10.0" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
                                         <Text fill="#ffae57" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                                             <font>
                                                 <Font name="Lexend Deca Regular" size="25.0" />
@@ -143,7 +143,7 @@
                                         </Text>
                                     </Group>
                                     <Group layoutX="453.0" layoutY="5.0">
-                                        <Circle fill="WHITE" radius="24.0" stroke="#ffae57" strokeType="INSIDE" />
+                                        <Circle fill="WHITE" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
                                         <Text fill="#ffae57" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                                             <font>
                                                 <Font name="Lexend Deca Regular" size="25.0" />
@@ -152,7 +152,7 @@
                                     </Group>
                                 </children>
                             </Group>
-                            <Text fx:id="titreInscription" fill="#424242" layoutX="223.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscrivez-vous !">
+                            <Text fx:id="titreInscription" fill="#424242" layoutX="223.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscrivez-vous !">
                                 <font>
                                     <Font name="Lexend Deca SemiBold" size="25.0" />
                                 </font>
@@ -213,12 +213,12 @@
 
                         </children>
                      </Group>
-                            <Text fx:id="soustitre" fill="#424242" layoutX="255.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qui êtes-vous?">
+                            <Text fx:id="sousTitre" fill="#424242" layoutX="260.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qui êtes-vous?">
                                 <font>
                                     <Font name="Lexend Deca SemiBold" size="20.0" />
                                 </font>
                             </Text>
-                            <Text layoutX="312.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Livreur">
+                            <Text layoutX="320.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Livreur">
                                 <font>
                                     <Font name="Lexend Light" size="14.0" />
                                 </font>
@@ -230,7 +230,7 @@
                             </Text>
                             <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="283.0" spacing="10.0">
                                 <children>
-                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Réinitialiser" textAlignment="CENTER" textFill="#ffae57" wrapText="true">
+                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Réinitialiser" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -241,7 +241,7 @@
                                             <Cursor fx:constant="HAND" />
                                         </cursor>
                                     </Button>
-                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onAction="#validationChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FFAE57; -fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onAction="#validationChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -256,7 +256,7 @@
                             </HBox>
 
                             <Line endX="433.00006103515625" layoutX="173.0" layoutY="279.0" opacity="0.23" startX="-131.6666717529297" />
-                            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #F8CD29; -fx-background-radius: 6;" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                 <font>
                                     <Font name="Lexend Light" />
                                 </font>
@@ -272,7 +272,7 @@
                                     <Image url="@/images/restaurantIcone2.jpeg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="imageLivreur" fitHeight="108.0" fitWidth="108.0" layoutX="272.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 5;">
+                            <ImageView fx:id="imageLivreur" fitHeight="108.0" fitWidth="108.0" layoutX="279.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 5;">
                                 <image>
                                     <Image url="@/images/livreurIcone2.jpg" />
                                 </image>

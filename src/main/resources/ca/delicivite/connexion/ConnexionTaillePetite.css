@@ -27,6 +27,32 @@
     -fx-font-family:"Lexend Light";
     -fx-font-size: 7px;
 }
+#boutonAnnulerConnexion{
+    -fx-background-color:  #94dae5;
+}
+
+
+
+#boutonAnnulerConnexion:hover{
+    -fx-background-color: rgba(148, 218, 229, 0.59);
+}
+
+#boutonSeConnecter{
+    -fx-background-color: #424242;
+}
+
+#boutonSeConnecter,  #boutonAnnulerConnexion{
+    -fx-font-family: "Lexend Light";
+    -fx-font-weight: bold;
+}
+
+#boutonSeConnecter:hover{
+    -fx-background-color: rgba(66, 66, 66, 0.57);
+}
+
+#boutonMotDePasseOublie:hover, #boutonAccueil:hover, #boutonInscription:hover{
+    -fx-text-fill: #22636c;
+}
 
 #filConnexion:hover {
     -fx-text-fill: black;

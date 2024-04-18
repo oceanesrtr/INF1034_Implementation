@@ -89,7 +89,7 @@ Taille de police : petite -->
             </Menu>
             <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos"/>
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation" "/>
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation"/>
             </Menu>
         </MenuBar>
     </top>
@@ -163,8 +163,8 @@ Taille de police : petite -->
                        style="-fx-background-color: #FFFF; -fx-border-color: #424242;"/>
             <Button fx:id="boutonAnnulerMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0"
                     layoutX="224.0" layoutY="403.0" onMouseClicked="#annulerEntree" prefHeight="30.0" prefWidth="215.0"
-                    style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Annuler"
-                    textAlignment="CENTER" textFill="#94dae5" wrapText="true">
+                    style=" -fx-background-radius: 6;" text="Annuler"
+                    textAlignment="CENTER" textFill="#424242" wrapText="true">
                 <font>
                     <Font name="Lexend Light"/>
                 </font>
@@ -177,8 +177,8 @@ Taille de police : petite -->
             </Button>
             <Button fx:id="boutonEnvoyerMailMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0"
                     layoutX="461.0" layoutY="402.0" prefHeight="30.0" prefWidth="215.0"
-                    style="-fx-background-color: #94dae5; -fx-background-radius: 6;" text="Envoyer"
-                    textAlignment="CENTER" textFill="#424242" wrapText="true">
+                    style="-fx-background-radius: 6;" text="Envoyer"
+                    textAlignment="CENTER" wrapText="true">
                 <font>
                     <Font name="Lexend Light"/>
                 </font>

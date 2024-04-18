@@ -4,6 +4,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -94,36 +95,6 @@
     </top>
 
 
-    <right>
-        <VBox spacing="10.0" BorderPane.alignment="CENTER">
-        <Pane prefHeight="40.0" prefWidth="573.0" BorderPane.alignment="CENTER">
-            <children>
-                <HBox alignment="CENTER" layoutX="12.0" prefHeight="40.0" prefWidth="586.0" spacing="10.0">
-                    <Button fx:id="buttonApercu" maxHeight="30.0" onAction="#apercu" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3DBDD2; -fx-border-radius: 5;" styleClass="boutonMenuHaut" text="APERCU">
-                     <font>
-                        <Font name="Lexend Light" size="12.0" />
-                     </font></Button>
-                    <Button fx:id="buttonModifier" maxHeight="30.0" onAction="#modifier" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3DBDD2; -fx-border-radius: 5;" styleClass="boutonMenuHaut" text="MODIFIER LES GROUPES" />
-                    <Button fx:id="buttonMenu" maxHeight="30.0" onAction="#menu" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3DBDD2; -fx-border-radius: 5;" styleClass="boutonMenuHaut" text="AFFICHER LES MENUS" />
-                </HBox>
-            </children>
-        </Pane>
-         <ScrollPane prefHeight="470.0" prefWidth="624.0" style="-fx-background-color: #FFFF; -fx-border-color: #FFFF;">
-           <content>
-             <AnchorPane minHeight="0.0" minWidth="597.0" prefHeight="480.0" prefWidth="599.0">
-                  <children>
-                      <StackPane fx:id="contentArea" maxWidth="616.0" prefHeight="417.0" prefWidth="610.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
-                  </children>
-               </AnchorPane>
-           </content>
-         </ScrollPane>
-         <BorderPane.margin>
-            <Insets left="7.0" right="5.0" top="20.0" />
-         </BorderPane.margin>
-        </VBox>
-    </right>
-
-
     <left>
         <Pane maxHeight="548.0" prefHeight="548.0" prefWidth="263.0" BorderPane.alignment="CENTER">
             <VBox maxHeight="549.0" maxWidth="263.0" prefHeight="549.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;">
@@ -191,7 +162,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button fx:id="buttonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242" onMouseClicked="#onConnexion">
+                <Button fx:id="buttonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" onMouseClicked="#onConnexion" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -233,4 +204,51 @@
 
         </Pane>
     </bottom>
+   <right>
+      <AnchorPane maxWidth="535.0" prefHeight="549.0" prefWidth="535.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="550.0" fitWidth="636.0" layoutX="5.0" layoutY="-1.0" opacity="0.21">
+               <image>
+                  <Image url="@/images/PatternNourriture.jpeg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="6.0" layoutY="15.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                       <Pane prefHeight="40.0" prefWidth="573.0" style="-fx-background-color: transparent;">
+                           <children>
+                               <HBox alignment="CENTER" layoutX="24.0" maxHeight="35.0" prefHeight="35.0" prefWidth="586.0" spacing="10.0">
+                                   <Button fx:id="buttonApercu" maxHeight="40.0" onAction="#apercu" prefHeight="35.0" prefWidth="184.0" style="-fx-border-radius: 5;" styleClass="boutonMenuHaut" text="APERCU">
+                                    <font>
+                                       <Font name="Lexend Light" size="12.0" />
+                                    </font>
+                                 </Button>
+                                   <Button fx:id="buttonModifier" maxHeight="41.0" onAction="#modifier" prefHeight="35.0" prefWidth="193.0" style="-fx-border-radius: 5;" styleClass="boutonMenuHaut" text="MODIFIER LES GROUPES" />
+                                   <Button fx:id="buttonMenu" maxHeight="40.0" onAction="#menu" prefHeight="40.0" prefWidth="197.0" style="-fx-border-radius: 5;" styleClass="boutonMenuHaut" text="AFFICHER LES MENUS" />
+                               </HBox>
+                           </children>
+                       </Pane>
+                        <ScrollPane prefHeight="470.0" prefWidth="604.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #FFFFFF;">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="597.0" prefHeight="466.0" prefWidth="599.0" style="-fx-background-color: #FFFFFF;">
+                                 <children>
+                                     <StackPane fx:id="contentArea" maxWidth="616.0" prefHeight="459.0" prefWidth="602.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                                       <padding>
+                                          <Insets left="-5.0" right="10.0" />
+                                       </padding></StackPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>

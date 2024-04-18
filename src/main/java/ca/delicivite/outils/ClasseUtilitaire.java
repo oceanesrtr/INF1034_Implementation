@@ -52,9 +52,9 @@ public class ClasseUtilitaire {
         stage.show();
     }
 
-    /*===================================================================================
+  /*  *//*===================================================================================
     * Surcharge changerScene avec une autre signature
-    * =================================================================*/
+    * =================================================================*//*
     public static void changerScene(Node node, String fxmlFile, String titreFenêtre, String courrielClientConnecte) {
         Parent root = null;
 
@@ -87,7 +87,7 @@ public class ClasseUtilitaire {
         stage.show();
     }
 
-
+*/
     /*==========================================================================================
     Méthode 2 : change la taille de la police en chargeant une nouvelle scène FXML
     * ==========================================================================================*/

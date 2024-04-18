@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -75,7 +76,7 @@ public class ControllerProprietaire implements Initializable {
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
         boutonSuivant.setOnAction(event -> {
-            validationChamp();
+            validationChamp(event);
         });
 
 
@@ -183,7 +184,7 @@ public class ControllerProprietaire implements Initializable {
 
 
     @FXML
-    private void validationChamp(){
+    private void validationChamp(ActionEvent event){
         String adresse = entreeAdresseRestaurant.getText().trim();
         String codePostal = entreeCodePostalRestaurant.getText().trim();
         String cellulaire = entreeCellulaireRestaurant.getText().trim();
@@ -218,13 +219,13 @@ public class ControllerProprietaire implements Initializable {
             return;
         }
 
-        if (auMoinsUneCaseCochee() == false) {
+        if (!auMoinsUneCaseCochee()) {
             afficherPopUp("Champ incomplet", "Spécialités non sélectionnées", "Veuillez sélectionner au moins une spécialité de cuisine.", Alert.AlertType.ERROR);
             tableauChoixSpecialiteRestaurant.setStyle("-fx-border-color: #FD2528");
         }
 
         //Si tout est valide :
-        boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null));
+        changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
     /*====================================
@@ -232,17 +233,6 @@ public class ControllerProprietaire implements Initializable {
      * ==================================*/
 
     private boolean auMoinsUneCaseCochee() {
-        // Parcours des enfants du GridPane pour vérifier si au moins une case est cochée
-        boolean auMoinsUneCaseCochee = false;
-        for (Node node : tableauChoixSpecialiteRestaurant.getChildren()) {
-            if (node instanceof CheckBox) {
-                CheckBox checkBox = (CheckBox) node;
-                if (checkBox.isSelected()) {
-                    auMoinsUneCaseCochee = true;
-                    break;
-                }
-            }
-        }
-        return auMoinsUneCaseCochee;
+        return Cuisine.getSelectedToggle() != null;
     }
 }

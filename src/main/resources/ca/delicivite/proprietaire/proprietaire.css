@@ -23,6 +23,11 @@
     -fx-font-family: "Lexend Deca Light";
     -fx-cursor: hand;
     -fx-font-size: 12px;
+    -fx-background-color:  #F8CD29;
+}
+
+.buttonAction:hover{
+    -fx-background-color: rgba(248, 205, 41, 0.35);
 }
 
 #copyrightMention, #boutonFilArianeEmploye, #buttonFilConnexion {
@@ -37,8 +42,8 @@
 }
 
 
-.buttonMenu:hover, .buttonAction:hover,
-.buttonMenu:focused, .boutonHover:hover
+
+.boutonHover:hover, .buttonMenu:hover, .boutonMenuHaut:hover
 {
     -fx-background-color: #3DBDD2;
 }
@@ -71,7 +76,6 @@
 #titre1, #titre2 {
     -fx-font-family: "Lexend Deca SemiBold";
     -fx-font-size: 20px;
-    -fx-font-style: bold;
 }
 
 .Button, .TextField, .ChoiceBox {

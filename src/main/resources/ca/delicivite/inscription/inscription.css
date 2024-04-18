@@ -26,6 +26,16 @@
     -fx-font-size: 14px;
 }
 
+#boutonSuivant, #boutonReinitialiser, #boutonRetourConnexion{
+    -fx-background-color:  #FFAE57;
+    -fx-font-weight: bold;
+}
+
+
+#boutonSuivant:hover, #boutonReinitialiser:hover, #boutonRetourConnexion:hover{
+    -fx-background-color: rgba(255, 174, 87, 0.31);
+}
+
 #buttonFilConnexion:hover, #boutonFilArianeEmploye:hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;

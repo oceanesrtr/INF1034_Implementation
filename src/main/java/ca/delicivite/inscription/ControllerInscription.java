@@ -30,6 +30,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -39,43 +40,78 @@ import java.util.ResourceBundle;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerInscription implements Initializable {
-    @FXML  public BorderPane root;
-    @FXML  public Menu titreMenuApplication;
-    @FXML  public MenuItem stAnnulerAction;
-    @FXML   public MenuItem stRefaireAction;
-    @FXML  public Menu titreMenuApparence;
-    @FXML  public MenuItem modeSombreMenuItem;
-    @FXML public MenuItem modeClairMenuItem;
-    @FXML  public Menu titreMenuVue;
-    @FXML   public Menu taillePoliceMenu;
-    @FXML  public MenuItem petiteTailleMenuItem;
-    @FXML   public MenuItem moyenneTailleMenuItem;
-    @FXML  public MenuItem grandeTailleMenuItem;
-    @FXML  public Menu menuAide;
-    @FXML   public ScrollPane scrollPane;
-    @FXML  public VBox container;
-    @FXML public Text sousTitreLogo;
-    @FXML  public AnchorPane anchorPane;
-    @FXML   public Text sousTitreLogo2;
-    @FXML    public Group groupeBarre;
-    @FXML   public ProgressBar barreProgression;
-    @FXML   public TextField entreePrenomInscrit;
-    @FXML   public TextField entreeNomInscrit;
-    @FXML  public DatePicker entreeDateNaissanceInscrit;
-    @FXML  public RadioButton boutonLivreur;
-    @FXML  public Button boutonReinitialiser;
-    @FXML  public Button boutonSuivant;
-    @FXML  public Button boutonFilArianeEmploye;
-    @FXML   public RadioButton boutonClient;
-    @FXML   public RadioButton boutonRestaurateur;
-    @FXML   public Text copyrightMention;
-    @FXML   public Rectangle barreEtat;
+    @FXML
+    public BorderPane root;
+    @FXML
+    public Menu titreMenuApplication;
+    @FXML
+    public MenuItem stAnnulerAction;
+    @FXML
+    public MenuItem stRefaireAction;
+    @FXML
+    public Menu titreMenuApparence;
+    @FXML
+    public MenuItem modeSombreMenuItem;
+    @FXML
+    public MenuItem modeClairMenuItem;
+    @FXML
+    public Menu titreMenuVue;
+    @FXML
+    public Menu taillePoliceMenu;
+    @FXML
+    public MenuItem petiteTailleMenuItem;
+    @FXML
+    public MenuItem moyenneTailleMenuItem;
+    @FXML
+    public MenuItem grandeTailleMenuItem;
+    @FXML
+    public Menu menuAide;
+    @FXML
+    public ScrollPane scrollPane;
+    @FXML
+    public VBox container;
+    @FXML
+    public Text sousTitreLogo;
+    @FXML
+    public AnchorPane anchorPane;
+    @FXML
+    public Text sousTitreLogo2;
+    @FXML
+    public Group groupeBarre;
+    @FXML
+    public ProgressBar barreProgression;
+    @FXML
+    public TextField entreePrenomInscrit;
+    @FXML
+    public TextField entreeNomInscrit;
+    @FXML
+    public DatePicker entreeDateNaissanceInscrit;
+    @FXML
+    public RadioButton boutonLivreur;
+    @FXML
+    public Button boutonReinitialiser;
+    @FXML
+    public Button boutonSuivant;
+    @FXML
+    public Button boutonFilArianeEmploye;
+    @FXML
+    public RadioButton boutonClient;
+    @FXML
+    public RadioButton boutonRestaurateur;
+    @FXML
+    public Text copyrightMention;
+    @FXML
+    public Rectangle barreEtat;
     @FXML
     public Button buttonFilConnexion;
-    @FXML   public Button boutonRetourConnexion;
-    @FXML  public Pane filArianeBarreEtat;
-    @FXML  public ImageView etape1;
-    @FXML    public Text titreInscription;
+    @FXML
+    public Button boutonRetourConnexion;
+    @FXML
+    public Pane filArianeBarreEtat;
+    @FXML
+    public ImageView etape1;
+    @FXML
+    public Text titreInscription;
     @FXML
     public ToggleGroup groupeBouton;
     @FXML
@@ -98,7 +134,7 @@ public class ControllerInscription implements Initializable {
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
         boutonSuivant.setOnAction(event -> {
-            validationChamp();
+            validationChamp(event);
         });
 
 
@@ -138,12 +174,7 @@ public class ControllerInscription implements Initializable {
         VBox content = new VBox();
         content.setAlignment(Pos.CENTER);
         content.setSpacing(10);
-        content.getChildren().addAll(
-                new Label("DELICIVITE"),
-                new Label("Version: 1.0"),
-                new Label("Pour Windows 64 bit"),
-                new Label("Copyright © INF1034")
-        );
+        content.getChildren().addAll(new Label("DELICIVITE"), new Label("Version: 1.0"), new Label("Pour Windows 64 bit"), new Label("Copyright © INF1034"));
         Scene scene = new Scene(content, 300, 200);
 
         // Effet de fond flou
@@ -176,10 +207,7 @@ public class ControllerInscription implements Initializable {
      * ========================================================*/
     @FXML
     private void reinitialiserChamp() {
-        if (entreeNomInscrit.getText().isBlank() &&
-                entreePrenomInscrit.getText().isBlank() &&
-                entreeDateNaissanceInscrit.getValue() == null &&
-                groupeBouton.getSelectedToggle() == null) {
+        if (entreeNomInscrit.getText().isBlank() && entreePrenomInscrit.getText().isBlank() && entreeDateNaissanceInscrit.getValue() == null && groupeBouton.getSelectedToggle() == null) {
             entreePrenomInscrit.setStyle("-fx-border-color: #FD2528");
             entreeNomInscrit.setStyle("-fx-border-color: #FD2528");
             entreeDateNaissanceInscrit.setStyle("-fx-border-color:#FD2528");
@@ -212,7 +240,7 @@ public class ControllerInscription implements Initializable {
      * ==================================================*/
 
     @FXML
-    private void validationChamp() {
+    private void validationChamp(ActionEvent event) {
 
         String prenom = entreePrenomInscrit.getText().trim();
         String nom = entreeNomInscrit.getText().trim();
@@ -226,21 +254,21 @@ public class ControllerInscription implements Initializable {
             return;
         }
 
-        if (!(nom.matches("[a-zA-ZÀ-ÿ\\-' ]+"))) {
+        else if (!(nom.matches("[a-zA-ZÀ-ÿ\\-' ]+"))) {
             ClasseUtilitaire.afficherPopUp("Erreur", "Nom incorrect", "Le nom doit être alphabétique.", Alert.AlertType.ERROR);
             entreeNomInscrit.setStyle("-fx-border-color: #FD2528");
             return;
         }
 
         // Date de naissance inférieure ou égale à aujourd'hui
-        if (dateNaissance == null || dateNaissance.isAfter(LocalDate.now())) {
+        else if (dateNaissance == null || dateNaissance.isAfter(LocalDate.now())) {
             ClasseUtilitaire.afficherPopUp("Erreur", "Date incorrecte", "Veuillez entrer une date valide.", Alert.AlertType.ERROR);
             entreeDateNaissanceInscrit.setStyle("-fx-border-color: #FD2528");
             return;
         }
 
         // Type d'utilisateur non nul
-        if (!boutonClient.isSelected() && !boutonLivreur.isSelected() && !boutonRestaurateur.isSelected()) {
+        else if (!boutonClient.isSelected() && !boutonLivreur.isSelected() && !boutonRestaurateur.isSelected()) {
             ClasseUtilitaire.afficherPopUp("Erreur", "Champ incomplet", "Veuillez sélectionner votre catégorie d'utilisateur.", Alert.AlertType.ERROR);
             boutonClient.setStyle("-fx-border-color: #FD2528");
             boutonLivreur.setStyle("-fx-border-color: #FD2528");
@@ -250,27 +278,32 @@ public class ControllerInscription implements Initializable {
 
         //--------------------SAUVEGARDE TEMPORAIRE DES 3 DONNÉES-----------------------------------------
 
-
+        else {
         //Obtenez le type d'utilisateur en fonction de l'index du bouton sélectionné dans le ToggleGroup
-        TypeUtilisateur typeUtilisateurSelectionne = associerBoutonTypeUtilisateur();
+            TypeUtilisateur typeUtilisateurSelectionne = associerBoutonTypeUtilisateur();
 
-        // Sauvegarde des 3 données et redirection vers la page correspondante au type choisi
-        sauvegarderDonnees(prenom, nom, typeUtilisateurSelectionne, null, null);
+            // Sauvegarde des 3 données et redirection vers la page correspondante au type choisi
+            sauvegarderDonnees(prenom, nom, typeUtilisateurSelectionne, null, null);
 
 
-        // Redirection vers la page suivante
-        switch (Objects.requireNonNull(typeUtilisateurSelectionne)) {
-            case client:
-                boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/inscriptionClient/VueInscriptionClient2.fxml", "Connexion", null));
-                break;
-            case livreur:
-                boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/inscriptionLivreur/VueInscriptionLivreur2.fxml", "Connexion", null));
-                break;
-            case proprietaire:
-                boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/inscriptionProprietaire/VueInscriptionProprietaire2.fxml", "Connexion", null));
-                break;
+
+            // Redirection vers la page suivante
+            switch (Objects.requireNonNull(typeUtilisateurSelectionne)) {
+
+
+                case client:
+                    changerScene(event, "/ca/delicivite/inscription/inscriptionClient/VueInscriptionClient2.fxml", "Connexion", null);
+                    break;
+                case livreur:
+                    changerScene(event, "/ca/delicivite/inscription/inscriptionLivreur/VueInscriptionLivreur2.fxml", "Connexion", null);
+                    break;
+                case proprietaire:
+                    changerScene(event, "/ca/delicivite/inscription/inscriptionProprietaire/VueInscriptionProprietaire2.fxml", "Connexion", null);
+                    break;
+            }
         }
     }
+
 
     /*===================================
      * [] Méthode utilitaire : associer un bouton à un type d'utilisateur
