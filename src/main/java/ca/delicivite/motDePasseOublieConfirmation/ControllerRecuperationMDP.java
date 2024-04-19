@@ -59,7 +59,7 @@ public class ControllerRecuperationMDP implements Initializable {
     @FXML
     public Label descriptionMDPOublie;
     @FXML
-    public Menu menuAide;
+    public Menu menuInformations;
     @FXML
     public MenuItem stGuideUtilisation;
     @FXML
@@ -131,7 +131,7 @@ public class ControllerRecuperationMDP implements Initializable {
 
 
     /*=============================================================
-     * [2] Méthodes pour les fonctionnalités du sous-menu Aide
+     * [2] Méthodes pour les fonctionnalités du sous-menu Informations
      * [2] Afficher la fenêtre d'information A propos
      * ============================================================*/
     @FXML
@@ -168,7 +168,7 @@ public class ControllerRecuperationMDP implements Initializable {
     }
 
     /*=======================================================
-     * Méthodes pour le sous-menu Aide
+     * Méthodes pour le sous-menu Informations
      *  [3] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML

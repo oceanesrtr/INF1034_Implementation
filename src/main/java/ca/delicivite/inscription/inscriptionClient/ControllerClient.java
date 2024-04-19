@@ -57,7 +57,7 @@ public class ControllerClient implements Initializable {
     @FXML
     public MenuItem grandeTailleMenuItem;
     @FXML
-    public Menu menuAide;
+    public Menu menuInformations;
     @FXML
     public MenuItem stAPropos;
     @FXML
@@ -114,7 +114,7 @@ public class ControllerClient implements Initializable {
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
         boutonSuivant.setOnAction(event -> {
-            validationChamp();
+            validationChamp(event);
         });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
@@ -132,7 +132,7 @@ public class ControllerClient implements Initializable {
     }
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
@@ -216,7 +216,7 @@ public class ControllerClient implements Initializable {
      * ==================================================*/
 
     @FXML
-    private void validationChamp() {
+    private void validationChamp(ActionEvent event) {
 
         String adresse = entree1.getText().trim();
         String codePostal = entree2.getText().trim();
@@ -252,7 +252,7 @@ public class ControllerClient implements Initializable {
         }
 
         //Si tout est valide :
-        boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null));
+        changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
     /*=================
@@ -262,9 +262,9 @@ public class ControllerClient implements Initializable {
     private boolean auMoinsUneSpecialiteSelectionnee() {
         boolean auMoinsUneSpecialiteSelectionnee = false;
         for (Node node : tableauCuisineFavorite.getChildren()) {
-            if (node instanceof ToggleButton) {
-                ToggleButton bouton = (ToggleButton) node;
-                if (bouton.isSelected()) {
+            if (node instanceof CheckBox) {
+                CheckBox checkBox = (CheckBox) node;
+                if (checkBox.isSelected()) {
                     auMoinsUneSpecialiteSelectionnee = true;
                     break;
                 }

@@ -8,13 +8,7 @@
 
 #titreConnexion {
     -fx-font-family: "Lexend Deca SemiBold";
-    -fx-font-size: 46px;
-    -fx-font-weight: bold;
-}
-
-#sousTitreLogo, #sousTitreLogo2 {
-    -fx-font-family: "Lexend Deca SemiBold";
-    -fx-font-size: 32px;
+    -fx-font-size: 66px;
     -fx-font-weight: bold;
 }
 
@@ -22,39 +16,32 @@
     -fx-font-family: "Lexend Light";
     -fx-font-size: 12px;
 }
-
 #boutonSeConnecter,  #boutonAnnulerConnexion, #entreeCourriel, #motDePasseCache, #motDePasseRevele, #boutonInscription, #boutonMotDePasseOublie, #boutonAccueil,#texteGeneral1, #texteGeneral2  {
     -fx-font-family:"Lexend Light";
     -fx-font-size: 18px;
 }
 
-#boutonAnnulerConnexion{
-    -fx-background-color:  #94dae5;
-}
-
-
-
-#boutonAnnulerConnexion:hover{
-    -fx-background-color: rgba(148, 218, 229, 0.59);
-}
-
-#boutonSeConnecter{
-    -fx-background-color: #424242;
-}
-
 #boutonSeConnecter,  #boutonAnnulerConnexion{
     -fx-font-family: "Lexend Light";
     -fx-font-weight: bold;
+    -fx-border-radius: 10px;
+    -fx-background-color: #F44322;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
 }
 
-#boutonSeConnecter:hover{
-    -fx-background-color: rgba(66, 66, 66, 0.57);
+#boutonSeConnecter:hover, #boutonAnnulerConnexion:hover{
+    -fx-background-color: #FF0000;
+}
+
+#boutonInscription, #boutonMotDePasseOublie, #boutonAccueil{
+    -fx-text-fill: #0118e1;
 }
 
 #boutonMotDePasseOublie:hover, #boutonAccueil:hover, #boutonInscription:hover{
     -fx-text-fill: #22636c;
 }
-
 
 
 #filConnexion:hover {

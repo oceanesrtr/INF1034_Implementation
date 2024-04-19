@@ -18,28 +18,36 @@
     -fx-font-size: 12px;
 }
 
-#boutonRetourEntreeMDPOublie, #boutonRetourConnexion, #descriptionMDPOublie, #messageSoutienTechnique, #mailSoutienTechnique {
+#boutonAnnulerMDP,  #boutonEnvoyerMailMDP, #champMailMDPOublie, #descriptionMDPOublie {
     -fx-font-family:"Lexend Light";
-    -fx-font-size: 7px;
-}
-#boutonAnnulerMDP{
-    -fx-background-color:  #94dae5;
-    -fx-font-weight: bold;
+    -fx-font-size: 10px;
 }
 
+#boutonAnnulerMDP{
+    -fx-background-color:  #FFD324;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+}
+
+
 #boutonEnvoyerMailMDP{
-    -fx-background-color:#424242 ;
+    -fx-background-color:#F44322 ;
     -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-background-radius: 15px;
 }
 
 #boutonEnvoyerMailMDP:hover{
-    -fx-background-color: #a8a8a8;
+    -fx-background-color: #FF0000;
 }
 
 #boutonAnnulerMDP:hover{
-    -fx-background-color: #b7f1f1;
+    -fx-background-color: #FFE50D;
 }
+
 
 
 #filConnexion:hover {

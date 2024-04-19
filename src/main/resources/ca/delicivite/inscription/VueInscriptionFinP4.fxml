@@ -25,7 +25,7 @@
             <BorderPane.margin>
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -55,7 +55,7 @@
                 <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
@@ -85,7 +85,7 @@
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
                 <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
@@ -97,27 +97,20 @@
             <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
                 <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
                     <HBox alignment="CENTER" maxWidth="885.0" opacity="0.83" prefHeight="549.0" prefWidth="885.0">
-                        <AnchorPane maxWidth="263.0" prefHeight="529.0" prefWidth="263.0" style="-fx-background-color: #94DAE5#94DAE5;">
-                            <Text fx:id="sousTitreLogo" fill="#424242" layoutX="7.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SI BON ET SI RAPIDE !" textAlignment="CENTER" wrappingWidth="228.9060516357422">
-                                <font>
-                                    <Font name="Lexend SemiBold" />
-                                </font>
-                            </Text>
-                            <ImageView fitHeight="143.0" fitWidth="247.0" layoutX="8.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@/images/logoDelicivite-removebg-preview.png" />
-                            </ImageView>
-                            <ImageView fitHeight="253.0" fitWidth="263.0" layoutY="180.0">
-                                <Image url="@/images/sushi.png" />
-                            </ImageView>
-                            <Text fx:id="sousTitreLogo2" fill="#424242" layoutX="3.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LIVRAISON DE REPAS À TROIS-RIVIÈRES" textAlignment="CENTER" wrappingWidth="256.9060516357422">
-                                <font>
-                                    <Font size="14.0" />
-                                </font>
-                            </Text>
+                        <AnchorPane maxHeight="654.0" maxWidth="267.0" minHeight="635.0" minWidth="263.0" prefHeight="654.0" prefWidth="267.0" style="-fx-background-color: #94DAE5#94DAE5;">
+                     <children>
+                        <ImageView fitHeight="549.0" fitWidth="272.0" layoutX="-3.0">
+                           <image>
+                              <Image url="@/images/banniereMoyenne.png" />
+                           </image>
+                        </ImageView>
+                     </children>
                         </AnchorPane>
                         <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
-                            <ImageView fitHeight="550.0" fitWidth="734.0" opacity="0.05">
-                            </ImageView>
+                            <ImageView fitHeight="550.0" fitWidth="734.0" opacity="0.03">
+                        <image>
+                           <Image url="@/images/PatternNourriture.jpeg" />
+                        </image></ImageView>
                      <ImageView fitHeight="463.0" fitWidth="463.0" layoutX="84.0" layoutY="52.0" opacity="0.6">
                         <image>
                            <Image url="@/images/confettiFond.png" />
@@ -125,14 +118,14 @@
                      </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
-                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="1.0" style="-fx-accent: #ffae57; -fx-box-border: #ffae57;">
+                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="1.0" style="-fx-accent: #F44322; -fx-box-border: #F44322;">
                                         <cursor>
                                             <Cursor fx:constant="DEFAULT" />
                                         </cursor>
                                     </ProgressBar>
                                     <Group layoutX="127.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                            <Circle fill="#f44322" radius="18.0" stroke="#f44322" strokeType="INSIDE" strokeWidth="0.0" />
                                             <Text fill="WHITE" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -142,7 +135,7 @@
                                     </Group>
                                     <Group layoutX="300.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" layoutX="-10.0" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
+                                            <Circle fill="#f44322" layoutX="-10.0" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
                                             <Text fill="WHITE" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -152,7 +145,7 @@
                                     </Group>
                                     <Group layoutX="453.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
+                                            <Circle fill="#f44322" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
                                             <Text fill="WHITE" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -163,7 +156,7 @@
                                 </children>
                             </Group>
                             <Group layoutX="29.0" layoutY="494.0" />
-                            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="258.0" layoutY="423.0" prefHeight="30.0" prefWidth="140.0" style="-fx-background-radius: 6;" text="Connectez-vous" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="254.0" layoutY="435.0" prefHeight="30.0" prefWidth="140.0" text="Connectez-vous" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                 <font>
                                     <Font name="Lexend Light" />
                                 </font>
@@ -174,17 +167,17 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Text fx:id="titreInscription" fill="#424242" layoutX="129.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue dans la famille Delicivite ! ">
+                            <Text fx:id="titreInscription" fill="#424242" layoutX="69.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue dans la famille Delicivite ! ">
                                 <font>
                                     <Font name="Lexend Deca SemiBold" size="23.0" />
                                 </font>
                             </Text>
-                     <Label fx:id="description" layoutX="79.0" layoutY="358.0" prefHeight="62.0" prefWidth="497.0" text="Votre compte a bien été créé. Il ne vous reste plus qu'à vous connecter...     et vous régaler." textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                     <Label fx:id="description" layoutX="79.0" layoutY="358.0" prefHeight="62.0" prefWidth="464.0" text="Votre compte a bien été créé. Il ne vous reste plus qu'à vous connecter...     et vous régaler !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                         <font>
                            <Font name="Lexend Light" size="14.0" />
                         </font>
                      </Label>
-                     <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="61.0" layoutY="284.0">
+                     <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="109.0" layoutY="245.0">
                         <image>
                            <Image url="@/images/gifConfetti.gif" />
                         </image>

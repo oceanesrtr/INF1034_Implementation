@@ -45,7 +45,7 @@ public class ControllerInscriptionIdentifiant implements Initializable {
     @FXML  public MenuItem petiteTailleMenuItem;
     @FXML   public MenuItem moyenneTailleMenuItem;
     @FXML  public MenuItem grandeTailleMenuItem;
-    @FXML   public Menu menuAide;
+    @FXML   public Menu menuInformations;
     @FXML   public MenuItem stAPropos;
     @FXML  public MenuItem stGuideUtilisation;
     @FXML   public ScrollPane scrollPane;
@@ -78,7 +78,7 @@ public class ControllerInscriptionIdentifiant implements Initializable {
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
         boutonSuivant.setOnAction(event -> {
-            validationChamp();
+            validationChamp(event);
         });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
@@ -98,7 +98,7 @@ public class ControllerInscriptionIdentifiant implements Initializable {
 
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
@@ -179,7 +179,7 @@ public class ControllerInscriptionIdentifiant implements Initializable {
      * ==================================================*/
 
     @FXML
-    private void validationChamp() {
+    private void validationChamp(ActionEvent event) {
 
         String identifiant = entreeCourrielIdentifiant.getText().trim();
         String motDePasse = entreeMotDePasse.getText();
@@ -221,7 +221,7 @@ public class ControllerInscriptionIdentifiant implements Initializable {
         ModeleUtilisateur.inscription(modeleUtilisateur.getNom(),modeleUtilisateur.getPrenom(), identifiant, motDePasse, modeleUtilisateur.getTypeUtilisateur().toString() );
         modeleUtilisateur.reinitialiserModeleUtilisateur();
 
-        boutonSuivant.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionFinP4.fxml", "Connexion", null));
+      changerScene(event, "/ca/delicivite/inscription/VueInscriptionFinP4.fxml", "Connexion", null);
     }
 
 

@@ -26,7 +26,7 @@
             <BorderPane.margin>
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -56,7 +56,7 @@
                 <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
@@ -86,7 +86,7 @@
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
                 <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
@@ -95,7 +95,7 @@
 
     <right>
         <Pane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0">
-            <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.1">
+            <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.03">
                 <Image url="@/images/PatternNourriture.jpeg" />
             </ImageView>
             <Label layoutX="413.0" layoutY="399.0" text="Nous sommes en processus de développement. À bientôt !" textFill="black" />
@@ -115,8 +115,8 @@
 
     <left>
         <Pane maxHeight="548.0" prefHeight="548.0" prefWidth="263.0" BorderPane.alignment="CENTER">
-            <VBox maxHeight="549.0" maxWidth="263.0" prefHeight="549.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;">
-                <Button fx:id="boutonAccueil" maxWidth="263.0" mnemonicParsing="false" onAction="#accueil" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #3DBDD2;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Accueil" textFill="#424242">
+            <VBox maxHeight="549.0" maxWidth="263.0" prefHeight="549.0" prefWidth="263.0" style="-fx-background-color: #FFD324;">
+                <Button fx:id="boutonAccueil" maxWidth="263.0" mnemonicParsing="false" onAction="#accueil" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #FFD324;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Accueil" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>

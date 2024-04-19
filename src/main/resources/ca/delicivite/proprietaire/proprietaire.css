@@ -1,6 +1,4 @@
 
-
-
 .buttonMonCommerce {
     -fx-text-fill: #424242;
     -fx-font-weight: bold;
@@ -9,25 +7,49 @@
     -fx-font-size: 14px;
 }
 
+/*Boutons de la barre latérale*/
 .boutonHover, .boutonMenuHaut {
-    -fx-text-fill: #424242;
     -fx-font-weight: bold;
     -fx-cursor: hand;
     -fx-font-family: "Lexend Deca Light";
     -fx-font-size: 14px;
-    -fx-background-color: #94DAE5;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #f44322;
+
 }
 
+
+.boutonHover:hover, .buttonMenu:hover, .boutonMenuHaut:hover {
+    -fx-background-color: #FFD324;
+    -fx-text-fill: #424242;
+
+}
+
+
+
+/*3 boutons du haut*/
+.boutonMenuHaut {
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+
+}
+
+/*Boutons de : section Ajout Item, section ApercuMenu*/
 .buttonAction {
     -fx-text-fill: #424242;
     -fx-font-family: "Lexend Deca Light";
     -fx-cursor: hand;
+    -fx-font-weight: bold;
     -fx-font-size: 12px;
-    -fx-background-color:  #F8CD29;
+    -fx-background-color: #FFD324;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
 }
 
-.buttonAction:hover{
-    -fx-background-color: rgba(248, 205, 41, 0.35);
+.buttonAction:hover {
+    -fx-background-color: #FFE50D;
 }
 
 #copyrightMention, #boutonFilArianeEmploye, #buttonFilConnexion {
@@ -39,13 +61,6 @@
 #boutonFilArianeEmploye:hover, #buttonFilConnexion :hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
-}
-
-
-
-.boutonHover:hover, .buttonMenu:hover, .boutonMenuHaut:hover
-{
-    -fx-background-color: #3DBDD2;
 }
 
 .list-cell {
@@ -66,18 +81,20 @@
 }
 
 .choice-box {
-    -fx-background-color: #FFFFFF; /* Couleur de fond */
-    -fx-border-color: gray; /* Couleur du contour */
-    -fx-border-radius: 5px; /* Rayon des coins */
-    -fx-background-radius: 5px; /* Rayon des coins pour le fond */
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: gray;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-cursor: hand;
 }
 
 #titre1, #titre2 {
     -fx-font-family: "Lexend Deca SemiBold";
     -fx-font-size: 20px;
+    -fx-text-fill: #424242;
 }
 
 .Button, .TextField, .ChoiceBox {
-    -fx-border-radius : 5px;
+    -fx-border-radius: 5px;
 }
+

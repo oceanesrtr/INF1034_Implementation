@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--FXML de l'interface Connexion
 Taille de police : petite -->
+
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -10,60 +12,57 @@ Taille de police : petite -->
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="root" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ca.delicivite.connexion.ControllerConnexion">
+<BorderPane fx:id="root" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.connexion.ControllerConnexion">
 
     <!--[1] : Barre de menu -->
     <top>
-        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;"
-                 BorderPane.alignment="CENTER">
+        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
             <BorderPane.margin>
-                <Insets left="-4.0" right="-4.0"/>
+                <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Annuler"/>
-                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z"/>
+                            <Label style="-fx-text-fill: black;" text="Annuler" />
+                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z" />
                         </HBox>
                     </graphic>
                 </MenuItem>
                 <MenuItem fx:id="stRefaireAction" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Refaire"/>
-                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y"/>
+                            <Label style="-fx-text-fill: black;" text="Refaire" />
+                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y" />
                         </HBox>
                     </graphic>
                 </MenuItem>
                 <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Quitter"/>
-                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q"/>
+                            <Label style="-fx-text-fill: black;" text="Quitter" />
+                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q" />
                         </HBox>
                     </graphic>
                 </MenuItem>
             </Menu>
             <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
-                <MenuItem fx:id="modeSombreMenuItem" text="Mode sombre"/>
-                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair"/>
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
+                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false" onAction="#petitePolice">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Petite"/>
-                                <Label style="-fx-text-fill: gray;" text="      Ctrl -"/>
+                                <Label style="-fx-text-fill: black;" text="Petite" />
+                                <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
                             </HBox>
                         </graphic>
                     </MenuItem>
@@ -71,8 +70,8 @@ Taille de police : petite -->
                     <MenuItem fx:id="moyenneTailleMenuItem" mnemonicParsing="false" onAction="#moyennePolice">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Moyenne"/>
-                                <Label style="-fx-text-fill: gray;" text="Ctrl 0"/>
+                                <Label style="-fx-text-fill: black;" text="Moyenne" />
+                                <Label style="-fx-text-fill: gray;" text="Ctrl 0" />
                             </HBox>
                         </graphic>
                     </MenuItem>
@@ -80,48 +79,44 @@ Taille de police : petite -->
                     <MenuItem fx:id="grandeTailleMenuItem" mnemonicParsing="false" onAction="#grandePolice">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Grand"/>
-                                <Label style="-fx-text-fill: gray;" text="     Ctrl +"/>
+                                <Label style="-fx-text-fill: black;" text="Grand" />
+                                <Label style="-fx-text-fill: gray;" text="     Ctrl +" />
                             </HBox>
                         </graphic>
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
-                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos"/>
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation" "/>
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
+                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
         </MenuBar>
     </top>
 
     <!--Lien avec le fichier CSS correspondant-->
     <stylesheets>
-        <URL value="@ConnexionTaillePetite.css"/>
+        <URL value="@ConnexionTaillePetite.css" />
     </stylesheets>
 
     <!--[2] Barre d'état et fil d'Ariane -->
     <bottom>
-        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: transparent;"
-              BorderPane.alignment="CENTER">
-            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0"
-                       stroke="#c5c5c5" strokeType="INSIDE" width="907.0"/>
-            <Text fx:id="copyrightMention" fill="#424242" layoutX="693.0" layoutY="17.0" strokeWidth="0.0"
-                  text="© Copyright - Tous droits réservés">
+        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
+            <Text fx:id="copyrightMention" fill="#424242" layoutX="693.0" layoutY="17.0" strokeWidth="0.0" text="© Copyright - Tous droits réservés">
                 <font>
-                    <Font name="Lexend Light"/>
+                    <Font name="Lexend Light" />
                 </font>
             </Text>
             <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="162.0">
                 <padding>
-                    <Insets left="2.0" right="5.0"/>
+                    <Insets left="2.0" right="5.0" />
                 </padding>
-                <Button fx:id="filConnexion" alignment="CENTER_RIGHT" minHeight="0.0" minWidth="0.0"
-                        style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                <Button fx:id="filConnexion" alignment="CENTER_RIGHT" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                     <font>
-                        <Font name="Lexend Light" size="12.0"/>
+                        <Font name="Lexend Light" size="12.0" />
                     </font>
                 </Button>
             </HBox>
@@ -130,193 +125,153 @@ Taille de police : petite -->
 
     <!--[3] Zone de travail et barre latérale gauche -->
     <center>
-        <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0"
-                    style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-            <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0"
-                  prefWidth="885.0">
-                <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0"
-                            prefWidth="885.0">
+        <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
+                <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
                     <HBox maxWidth="885.0" prefHeight="549.0" prefWidth="885.0">
-                        <AnchorPane maxWidth="263.0" prefHeight="529.0" prefWidth="263.0"
-                                    style="-fx-background-color: #94DAE5#94DAE5;">
-                            <Text fx:id="sousTitreLogo" fill="#424242" layoutX="10.0" layoutY="168.0"
-                                  strokeType="OUTSIDE" strokeWidth="0.0" text="SI BON ET SI RAPIDE !"
-                                  textAlignment="CENTER" wrappingWidth="228.9060516357422">
-                                <font>
-                                    <Font name="Lexend SemiBold"/>
-                                </font>
-                            </Text>
-                            <ImageView fitHeight="85.0" fitWidth="147.0" layoutX="51.0" layoutY="75.0"
-                                       pickOnBounds="true" preserveRatio="true">
-                                <Image url="@/images/logoDelicivite-removebg-preview.png"/>
-                            </ImageView>
-                            <ImageView fitHeight="158.0" fitWidth="164.0" layoutX="47.0" layoutY="209.0">
-                                <Image url="@/images/sushi.png"/>
-                            </ImageView>
-                            <Text fx:id="sousTitreLogo2" fill="#424242" layoutX="2.0" layoutY="444.0"
-                                  strokeType="OUTSIDE" strokeWidth="0.0" text="LIVRAISON DE REPAS À TROIS-RIVIÈRES"
-                                  textAlignment="CENTER" wrappingWidth="256.9060516357422">
-                                <font>
-                                    <Font size="14.0"/>
-                                </font>
-                            </Text>
+                        <AnchorPane maxHeight="549.0" maxWidth="263.0" minHeight="529.0" minWidth="263.0" prefHeight="547.0" prefWidth="263.0">
+                            <children>
+                                <ImageView fitHeight="551.0" fitWidth="290.0" layoutX="-3.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/bannierePetie.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
                         </AnchorPane>
-                        <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0"
-                                    style="-fx-background-color: #FFFF;">
-                            <ImageView fitHeight="550.0" fitWidth="734.0" layoutY="-3.0" opacity="0.08">
+
+                        <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
+                            <ImageView fitHeight="550.0" fitWidth="734.0" layoutY="-3.0" opacity="0.03">
                                 <image>
-                                    <Image url="@/images/PatternNourriture.jpeg"/>
+                                    <Image url="@/images/PatternNourriture.jpeg" />
                                 </image>
                             </ImageView>
-                            <Text fx:id="titreConnexion" fill="#424242" layoutX="276.0" layoutY="108.0"
-                                  strokeType="OUTSIDE" strokeWidth="0.0" text="Connexion"/>
-                            <Button fx:id="boutonSeConnecter" alignment="CENTER" contentDisplay="CENTER"
-                                    graphicTextGap="0.0" layoutX="315.0" layoutY="299.0" prefHeight="26.0"
-                                    prefWidth="137.0" style="-fx-background-color: #94dae5; -fx-background-radius: 6;"
-                                    text="Se connecter" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                            <Text fx:id="titreConnexion" fill="#424242" layoutX="206.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNEXION" />
+                            <Button fx:id="boutonSeConnecter" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="315.0" layoutY="308.0" prefHeight="26.0" prefWidth="137.0" text="Se connecter" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                 <font>
-                                    <Font name="Lexend Light"/>
+                                    <Font name="Lexend Light" />
                                 </font>
                                 <opaqueInsets>
-                                    <Insets/>
+                                    <Insets />
                                 </opaqueInsets>
                                 <cursor>
-                                    <Cursor fx:constant="HAND"/>
+                                    <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <TextField fx:id="entreeCourriel" alignment="CENTER" layoutX="169.0" layoutY="161.0"
-                                       maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
-                                       promptText="Votre adresse courriel"
-                                       style="-fx-background-color: #FFFF; -fx-border-color: #424242;">
+                            <TextField fx:id="entreeCourriel" alignment="CENTER" layoutX="169.0" layoutY="171.0" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Votre adresse courriel" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 10;">
                                 <font>
-                                    <Font name="Lexend Light"/>
+                                    <Font name="Lexend Light" />
                                 </font>
                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                 </padding>
                                 <cursor>
-                                    <Cursor fx:constant="TEXT"/>
+                                    <Cursor fx:constant="TEXT" />
                                 </cursor>
                             </TextField>
-                            <HBox layoutX="256.0" layoutY="435.0" maxWidth="277.0" prefHeight="34.0" prefWidth="131.0">
-                                <Text fx:id="texteGeneral2" fill="#424242" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Trop faim ? Aller directement à l' ">
+                            <HBox layoutX="224.0" layoutY="422.0" maxWidth="277.0" prefHeight="34.0" prefWidth="180.0">
+                                <Text fx:id="texteGeneral2" fill="#424242" strokeType="OUTSIDE" strokeWidth="0.0" text="Trop faim ? Aller directement à l' ">
                                     <font>
-                                        <Font name="Lexend Light"/>
+                                        <Font name="Lexend Light" />
                                     </font>
                                     <HBox.margin>
-                                        <Insets right="-3.0" top="3.0"/>
+                                        <Insets right="-3.0" top="3.0" />
                                     </HBox.margin>
                                 </Text>
-                                <Button fx:id="boutonAccueil" mnemonicParsing="false"
-                                        style="-fx-background-color: transparent;" text="accueil" textFill="#246fe4"
-                                        underline="true">
+                                <Button fx:id="boutonAccueil" mnemonicParsing="false" style="-fx-background-color: transparent;" text="accueil" textFill="#246fe4" underline="true">
                                     <HBox.margin>
-                                        <Insets left="-10.0" top="-2.0"/>
+                                        <Insets left="-10.0" top="-2.0" />
                                     </HBox.margin>
                                     <cursor>
-                                        <Cursor fx:constant="HAND"/>
+                                        <Cursor fx:constant="HAND" />
                                     </cursor>
                                     <opaqueInsets>
-                                        <Insets/>
+                                        <Insets />
                                     </opaqueInsets>
                                     <padding>
-                                        <Insets left="11.0" top="4.5"/>
+                                        <Insets left="11.0" top="4.5" />
                                     </padding>
                                 </Button>
                             </HBox>
-                            <HBox layoutX="259.0" layoutY="408.0" maxWidth="247.0" prefHeight="29.0" prefWidth="123.0">
-                                <Text fx:id="texteGeneral1" fill="#424242" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Nouveau sur la plateforme ? ">
+                            <HBox layoutX="230.0" layoutY="395.0" maxWidth="247.0" prefHeight="29.0" prefWidth="173.0">
+                                <Text fx:id="texteGeneral1" fill="#424242" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouveau sur la plateforme ? ">
                                     <font>
-                                        <Font name="Lexend Light"/>
+                                        <Font name="Lexend Light" />
                                     </font>
                                     <HBox.margin>
-                                        <Insets right="-3.0" top="4.0"/>
+                                        <Insets right="-3.0" top="4.0" />
                                     </HBox.margin>
                                 </Text>
-                                <Button fx:id="boutonInscription" mnemonicParsing="false"
-                                        style="-fx-background-color: transparent;" text="S'inscrire" textFill="#246fe4"
-                                        underline="true">
+                                <Button fx:id="boutonInscription" mnemonicParsing="false" style="-fx-background-color: transparent;" text="S'inscrire" textFill="#246fe4" underline="true">
                                     <HBox.margin>
-                                        <Insets left="-6.0" top="-1.0"/>
+                                        <Insets left="-6.0" top="-1.0" />
                                     </HBox.margin>
                                     <cursor>
-                                        <Cursor fx:constant="HAND"/>
+                                        <Cursor fx:constant="HAND" />
                                     </cursor>
                                     <padding>
-                                        <Insets left="8.0" top="4.0"/>
+                                        <Insets left="8.0" top="4.0" />
                                     </padding>
                                 </Button>
                             </HBox>
-                            <Button fx:id="boutonAnnulerConnexion" alignment="CENTER" contentDisplay="CENTER"
-                                    graphicTextGap="2.0" layoutX="171.0" layoutY="300.0"
-                                    onMouseClicked="#annulerConnexion" prefHeight="26.0" prefWidth="137.0"
-                                    style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Annuler"
-                                    textAlignment="CENTER" textFill="#94dae5" wrapText="true">
+                            <Button fx:id="boutonAnnulerConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="171.0" layoutY="309.0" onMouseClicked="#annulerConnexion" prefHeight="26.0" prefWidth="137.0" text="Annuler" textAlignment="CENTER" textFill="#94dae5" wrapText="true">
                                 <font>
-                                    <Font name="Lexend Light"/>
+                                    <Font name="Lexend Light" />
                                 </font>
                                 <opaqueInsets>
-                                    <Insets/>
+                                    <Insets />
                                 </opaqueInsets>
                                 <cursor>
-                                    <Cursor fx:constant="HAND"/>
+                                    <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Button fx:id="boutonMotDePasseOublie" layoutX="281.0" layoutY="256.0"
-                                    mnemonicParsing="false" style="-fx-background-color: transparent;"
-                                    text="Mot de passe oublié ? " textFill="#246fe4" underline="true">
+                            <Button fx:id="boutonMotDePasseOublie" layoutX="261.0" layoutY="265.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Mot de passe oublié ? " textFill="#246fe4" underline="true">
                                 <cursor>
-                                    <Cursor fx:constant="HAND"/>
+                                    <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <TextField fx:id="motDePasseRevele" alignment="CENTER" layoutX="169.0" layoutY="218.0"
-                                       maxHeight="32.0" maxWidth="283.0" prefHeight="31.0" prefWidth="283.0"
-                                       style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-opacity: 0">
+                            <TextField fx:id="motDePasseRevele" alignment="CENTER" layoutX="169.0" layoutY="229.0" maxHeight="32.0" maxWidth="283.0" prefHeight="31.0" prefWidth="283.0" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-opacity: 0">
                                 <font>
-                                    <Font name="Lexend Light"/>
+                                    <Font name="Lexend Light" />
                                 </font>
                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                 </padding>
                                 <cursor>
-                                    <Cursor fx:constant="TEXT"/>
+                                    <Cursor fx:constant="TEXT" />
                                 </cursor>
                             </TextField>
-                            <PasswordField fx:id="motDePasseCache" alignment="CENTER" layoutX="169.0" layoutY="218.0"
-                                           maxHeight="32.0" maxWidth="283.0" prefHeight="31.0" prefWidth="283.0"
-                                           promptText="Votre mot de passe"
-                                           style="-fx-background-color: #FFFF; -fx-border-color: #424242;">
+                            <PasswordField fx:id="motDePasseCache" alignment="CENTER" layoutX="169.0" layoutY="229.0" maxHeight="32.0" maxWidth="283.0" prefHeight="31.0" prefWidth="283.0" promptText="Votre mot de passe" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 10;">
                                 <font>
-                                    <Font name="Lexend Light"/>
+                                    <Font name="Lexend Light" />
                                 </font>
                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                 </padding>
                                 <cursor>
-                                    <Cursor fx:constant="TEXT"/>
+                                    <Cursor fx:constant="TEXT" />
                                 </cursor>
                             </PasswordField>
-                            <StackPane layoutX="427.0" layoutY="225.0" maxWidth="247.0" prefHeight="0.0"
-                                       prefWidth="0.0">
+                            <StackPane layoutX="427.0" layoutY="236.0" maxWidth="247.0" prefHeight="0.0" prefWidth="0.0">
                                 <ImageView fx:id="oeilOuvert" fitHeight="9.0" fitWidth="15.0">
-                                    <Image url="@/images/oeilouvert.png"/>
+                                    <Image url="@/images/oeilouvert.png" />
                                 </ImageView>
                                 <ImageView fx:id="oeilFerme" fitHeight="9.0" fitWidth="15.0" opacity="0.0">
-                                    <Image url="@/images/oeilferme.png"/>
+                                    <Image url="@/images/oeilferme.png" />
                                 </ImageView>
-                                <CheckBox fx:id="boutonRevelerMdp" mnemonicParsing="false"
-                                          onMouseClicked="#revelerMotDePasse" prefHeight="31.0" prefWidth="43.0"
-                                          style="-fx-opacity: 0;">
+                                <CheckBox fx:id="boutonRevelerMdp" mnemonicParsing="false" onMouseClicked="#revelerMotDePasse" prefHeight="31.0" prefWidth="43.0" style="-fx-opacity: 0;">
                                     <cursor>
-                                        <Cursor fx:constant="HAND"/>
+                                        <Cursor fx:constant="HAND" />
                                     </cursor>
                                     <opaqueInsets>
-                                        <Insets/>
+                                        <Insets />
                                     </opaqueInsets>
                                 </CheckBox>
+
                             </StackPane>
+                     <Line endX="190.0" layoutX="265.0" layoutY="386.0" opacity="0.28" startX="-100.0" strokeMiterLimit="20.0" />
                         </AnchorPane>
                     </HBox>
                 </AnchorPane>

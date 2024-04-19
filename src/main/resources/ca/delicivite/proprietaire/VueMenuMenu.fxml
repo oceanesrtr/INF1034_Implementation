@@ -13,7 +13,7 @@
     <children>
 
         <VBox fx:id="vbox" layoutX="13.0" maxWidth="624.0" prefHeight="625.0" prefWidth="574.0" spacing="10" HBox.hgrow="ALWAYS">
-            <ListView fx:id="listeItems" prefHeight="625.0" prefWidth="478.0" style="-fx-border-width: 0; -fx-padding: 0;" />
+            <ListView fx:id="listeItems" prefHeight="625.0" prefWidth="478.0" style="-fx-border-width: 0; -fx-padding: 0;" styleClass="list-cell" />
         </VBox>
     </children>
    <padding>

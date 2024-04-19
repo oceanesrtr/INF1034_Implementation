@@ -26,7 +26,7 @@ Taille de police : moyenne -->
             <BorderPane.margin>
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -53,10 +53,10 @@ Taille de police : moyenne -->
                 </MenuItem>
             </Menu>
             <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
-                <MenuItem fx:id="modeSombreMenuItem" text="Mode sombre" />
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false" onAction="#petitePolice">
                         <graphic>
@@ -86,7 +86,7 @@ Taille de police : moyenne -->
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
                 <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
@@ -136,20 +136,25 @@ Taille de police : moyenne -->
 
     <!--[3] Zone de travail et barre latérale gauche -->
     <center>
-        <AnchorPane maxHeight="543.0" maxWidth="928.0" prefHeight="543.0" prefWidth="928.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
-            <ImageView fitHeight="228.0" fitWidth="318.0" layoutX="278.0" layoutY="32.0">
+        <AnchorPane maxHeight="557.0" maxWidth="928.0" prefHeight="557.0" prefWidth="661.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+         <ImageView fitHeight="544.0" fitWidth="653.0" layoutX="7.0" opacity="0.03">
+            <image>
+               <Image url="@/images/PatternNourriture.jpeg" />
+            </image>
+         </ImageView>
+            <ImageView fitHeight="228.0" fitWidth="318.0" layoutX="176.0" layoutY="34.0">
                 <image>
                     <Image url="@/images/personnes_avec_cle.png" />
                 </image>
             </ImageView>
-            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="298.0" layoutY="218.0" prefHeight="63.0" prefWidth="304.0" text="Mot de passe oublié ? " wrapText="true">
+            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="192.0" layoutY="209.0" prefHeight="63.0" prefWidth="304.0" text="Mot de passe oublié ? " wrapText="true">
                 <font>
                     <Font name="Lexend Deca SemiBold" size="28.0" />
                 </font>
             </Label>
-            <Label fx:id="descriptionMDPOublie" layoutX="222.0" layoutY="279.0" prefHeight="54.0" prefWidth="455.0" text="Veuillez entrer l'adresse e-mail liée à votre compte et nous vous renverrons un lien pour réinitialiser votre mot de passe." textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-            <TextField fx:id="champMailMDPOublie" alignment="CENTER" layoutX="225.0" layoutY="352.0" prefHeight="32.0" prefWidth="449.0" promptText="Votre adresse e-mail" style="-fx-background-color: #FFFF; -fx-border-color: #424242;" />
-            <Button fx:id="boutonAnnulerMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="222.0" layoutY="409.0" onMouseClicked="#annulerEntree" prefHeight="30.0" prefWidth="215.0" style="-fx-background-radius: 6;" text="Annuler" textAlignment="CENTER" textFill="#424242" wrapText="true">
+            <Label fx:id="descriptionMDPOublie" layoutX="114.0" layoutY="260.0" prefHeight="54.0" prefWidth="443.0" text="Veuillez entrer l'adresse e-mail liée à votre compte et nous vous renverrons un lien pour réinitialiser votre mot de passe." textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <TextField fx:id="champMailMDPOublie" alignment="CENTER" layoutX="113.0" layoutY="334.0" prefHeight="32.0" prefWidth="449.0" promptText="Votre adresse e-mail" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 10;" />
+            <Button fx:id="boutonAnnulerMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="113.0" layoutY="405.0" onMouseClicked="#annulerEntree" prefHeight="30.0" prefWidth="215.0" style="-fx-background-radius: 10;" text="Annuler" textAlignment="CENTER" textFill="#424242" wrapText="true">
                 <font>
                     <Font name="Lexend Light" />
                 </font>
@@ -160,7 +165,7 @@ Taille de police : moyenne -->
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button fx:id="boutonEnvoyerMailMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="459.0" layoutY="409.0" onAction="#envoyerMail" prefHeight="30.0" prefWidth="215.0" style="-fx-background-radius: 6;" text="Envoyer" textAlignment="CENTER" textFill="#424242" wrapText="true">
+            <Button fx:id="boutonEnvoyerMailMDP" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="350.0" layoutY="405.0" onAction="#envoyerMail" prefHeight="30.0" prefWidth="215.0" style="-fx-background-radius: 10;" text="Envoyer" textAlignment="CENTER" textFill="#424242" wrapText="true">
                 <font>
                     <Font name="Lexend Light" />
                 </font>
@@ -173,5 +178,16 @@ Taille de police : moyenne -->
             </Button>
         </AnchorPane>
     </center>
+   <left>
+      <Pane maxHeight="635.0" maxWidth="263.0" prefHeight="635.0" prefWidth="263.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="547.0" fitWidth="263.0" layoutX="-2.0">
+               <image>
+                  <Image url="@/images/banniereMoyenne.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
 
 </BorderPane>

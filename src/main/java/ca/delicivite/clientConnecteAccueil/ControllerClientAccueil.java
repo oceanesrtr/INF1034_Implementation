@@ -38,7 +38,7 @@ public class ControllerClientAccueil implements Initializable {
 
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [4] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

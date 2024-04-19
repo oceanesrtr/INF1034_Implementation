@@ -65,7 +65,7 @@ public class ControllerInscription implements Initializable {
     @FXML
     public MenuItem grandeTailleMenuItem;
     @FXML
-    public Menu menuAide;
+    public Menu menuInformations;
     @FXML
     public ScrollPane scrollPane;
     @FXML
@@ -161,7 +161,7 @@ public class ControllerInscription implements Initializable {
 
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

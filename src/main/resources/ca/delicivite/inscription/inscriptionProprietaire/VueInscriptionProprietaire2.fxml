@@ -26,7 +26,7 @@
             <BorderPane.margin>
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -56,7 +56,7 @@
                 <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
@@ -86,7 +86,7 @@
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
                 <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
@@ -98,40 +98,31 @@
             <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
                 <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
                     <HBox alignment="CENTER" maxWidth="885.0" opacity="0.83" prefHeight="549.0" prefWidth="885.0">
-                        <AnchorPane maxWidth="263.0" prefHeight="529.0" prefWidth="263.0" style="-fx-background-color: #94DAE5#94DAE5;">
-                            <Text fx:id="sousTitreLogo" fill="#424242" layoutX="7.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SI BON ET SI RAPIDE !" textAlignment="CENTER" wrappingWidth="228.9060516357422">
-                                <font>
-                                    <Font name="Lexend SemiBold" />
-                                </font>
-                            </Text>
-                            <ImageView fitHeight="143.0" fitWidth="247.0" layoutX="8.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@/images/logoDelicivite-removebg-preview.png" />
-                            </ImageView>
-                            <ImageView fitHeight="253.0" fitWidth="263.0" layoutY="180.0">
-                                <Image url="@/images/sushi.png" />
-                            </ImageView>
-                            <Text fx:id="sousTitreLogo2" fill="#424242" layoutX="3.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LIVRAISON DE REPAS À TROIS-RIVIÈRES" textAlignment="CENTER" wrappingWidth="256.9060516357422">
-                                <font>
-                                    <Font size="14.0" />
-                                </font>
-                            </Text>
+                        <AnchorPane maxHeight="635.0" maxWidth="263.0" minHeight="635.0" minWidth="263.0" prefHeight="635.0" prefWidth="263.0" style="-fx-background-color: #94DAE5#94DAE5;">
+                     <children>
+                        <ImageView fitHeight="548.0" fitWidth="276.0" layoutX="-1.0" preserveRatio="true">
+                           <image>
+                              <Image url="@/images/banniereMoyenne.png" />
+                           </image>
+                        </ImageView>
+                     </children>
                         </AnchorPane>
                         <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
-                     <ImageView fitHeight="550.0" fitWidth="734.0" opacity="0.1">
+                     <ImageView fitHeight="550.0" fitWidth="734.0" opacity="0.03">
                         <image>
-                           <Image url="@../../../../../../../../../INF1034/LOGO/background_doodle_food.jpeg" />
+                           <Image url="@/images/PatternNourriture.jpeg" />
                         </image>
                      </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
-                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="0.52" style="-fx-accent: #ffae57; -fx-box-border: #ffae57;">
+                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="0.52" style="-fx-accent: #F44322; -fx-box-border: #F44322;">
                                         <cursor>
                                             <Cursor fx:constant="DEFAULT" />
                                         </cursor>
                                     </ProgressBar>
                                     <Group layoutX="127.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                            <Circle fill="#f44322" radius="18.0" stroke="#f44322" strokeType="INSIDE" strokeWidth="0.0" />
                                             <Text fill="WHITE" layoutX="-7.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -141,7 +132,7 @@
                                     </Group>
                                     <Group layoutX="300.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#ffae57" layoutX="-10.0" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
+                                            <Circle fill="#f44322" layoutX="-10.0" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
                                             <Text fill="WHITE" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
@@ -151,8 +142,8 @@
                                     </Group>
                                     <Group layoutX="453.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="WHITE" radius="18.0" stroke="#ffae57" strokeType="INSIDE" />
-                                            <Text fill="#ffae57" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                                            <Circle fill="WHITE" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
+                                            <Text fill="#f44322" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                                                 <font>
                                                     <Font name="Lexend Deca Regular" size="25.0" />
                                                 </font>
@@ -163,7 +154,7 @@
                             </Group>
                             <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="212.0" spacing="10.0">
                                 <children>
-                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Réinitialiser" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" text="Réinitialiser" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -174,7 +165,7 @@
                                             <Cursor fx:constant="HAND" />
                                         </cursor>
                                     </Button>
-                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" prefHeight="30.0" prefWidth="100.0" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -188,7 +179,7 @@
                                 </children>
                             </HBox>
                             <Group layoutX="29.0" layoutY="494.0" />
-                            <Button fx:id="boutonRetourPagePrecedente" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 6;" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                            <Button fx:id="boutonRetourPagePrecedente" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0" prefWidth="100.0" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                 <font>
                                     <Font name="Lexend Light" />
                                 </font>
@@ -199,14 +190,14 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Text fx:id="titreInscription" fill="#424242" layoutX="57.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dîtes-nous en plus sur votre restaurant! ">
+                            <Text fx:id="titreInscription" fill="#424242" layoutX="66.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dîtes-nous en plus sur votre restaurant! ">
                                 <font>
                                     <Font name="Lexend Deca SemiBold" size="20.0" />
                                 </font>
                             </Text>
                             <VBox layoutX="176.0" layoutY="119.0" prefHeight="183.0" prefWidth="285.0" spacing="15.0">
                                 <children>
-                                    <TextField fx:id="entreeNomRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Nom du restaurant" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 5;">
+                                    <TextField fx:id="entreeNomRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Nom du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                         <font>
                                             <Font name="Lexend Light" />
                                         </font>
@@ -217,7 +208,7 @@
                                             <Cursor fx:constant="TEXT" />
                                         </cursor>
                                     </TextField>
-                           <TextField fx:id="entreeCellulaireRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Cellulaire du restaurant" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 5;">
+                           <TextField fx:id="entreeCellulaireRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Cellulaire du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                               <font>
                                  <Font name="Lexend Light" />
                               </font>
@@ -228,7 +219,7 @@
                                  <Cursor fx:constant="TEXT" />
                               </cursor>
                            </TextField>
-                           <TextField fx:id="entreeAdresseRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Adresse du restaurant" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 5;">
+                           <TextField fx:id="entreeAdresseRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Adresse du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 5;">
                               <font>
                                  <Font name="Lexend Light" />
                               </font>
@@ -239,7 +230,7 @@
                                  <Cursor fx:constant="TEXT" />
                               </cursor>
                            </TextField>
-                           <TextField fx:id="entreeCodePostalRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Code postal du restaurant" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 5;">
+                           <TextField fx:id="entreeCodePostalRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Code postal du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 5;">
                               <font>
                                  <Font name="Lexend Light" />
                               </font>
@@ -252,13 +243,13 @@
                            </TextField>
                                 </children>
                             </VBox>
-                            <Text fx:id="sousTitre" fill="#424242" layoutX="242.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre spécialité ">
+                            <Text fx:id="sousTitre" fill="#424242" layoutX="212.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre spécialité ">
                                 <font>
                                     <Font name="Lexend Deca SemiBold" size="20.0" />
                                 </font>
                             </Text>
                             <Line endX="466.3333740234375" layoutX="136.0" layoutY="311.0" opacity="0.2" startX="-102.33332824707031" />
-                     <ScrollPane layoutX="179.0" layoutY="356.0" prefHeight="122.0" prefWidth="282.0" style="-fx-border-radius: 5; -fx-background-color: #FFFFFF; -fx-border-color: #424242;">
+                     <ScrollPane layoutX="179.0" layoutY="363.0" prefHeight="122.0" prefWidth="282.0" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                         <content>
                            <GridPane fx:id="tableauChoixSpecialiteRestaurant" prefHeight="638.0" prefWidth="209.0">
                               <columnConstraints>

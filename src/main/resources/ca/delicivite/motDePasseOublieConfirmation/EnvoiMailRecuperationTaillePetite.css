@@ -20,8 +20,51 @@
 
 #boutonRetourEntreeMDPOublie, #boutonRetourConnexion, #descriptionMDPOublie, #messageSoutienTechnique, #mailSoutienTechnique {
     -fx-font-family:"Lexend Light";
-    -fx-font-size: 7px;
+    -fx-font-size: 10px;
 }
+
+
+#mailSoutienTechnique{
+    -fx-text-fill: #0118e1;
+}
+
+#mailSoutienTechnique:hover{
+    -fx-text-fill: #22636c;
+}
+
+#boutonRetourEntreeMDPOublie{
+    -fx-background-color:  #FFD324;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+    -fx-background-radius:  15px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+}
+
+#boutonRetourEntreeMDPOublie:hover{
+    -fx-background-color: #FFE50D;
+
+}
+
+#boutonRetourConnexion{
+    -fx-background-color:#F44322 ;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+}
+
+
+#boutonRetourConnexion:hover{
+    -fx-background-color: #FF0000;
+
+}
+
+#filConnexion:hover {
+    -fx-text-fill: black;
+    -fx-cursor: HAND;
+}
+
+
 
 #filConnexion:hover {
     -fx-text-fill: black;

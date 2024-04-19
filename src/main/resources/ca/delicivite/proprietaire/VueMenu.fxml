@@ -27,7 +27,7 @@
             <BorderPane.margin>
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -57,7 +57,7 @@
                 <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
@@ -87,7 +87,7 @@
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
                 <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
@@ -130,7 +130,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button fx:id="boutonRedirectionMenu" maxWidth="263.0" mnemonicParsing="false" onAction="#menu" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #3DBDD2;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Menu" textFill="#424242">
+                <Button fx:id="boutonRedirectionMenu" maxWidth="263.0" mnemonicParsing="false" onAction="#menu" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #FFD324;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Menu" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -207,7 +207,7 @@
    <right>
       <AnchorPane maxWidth="535.0" prefHeight="549.0" prefWidth="535.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="550.0" fitWidth="636.0" layoutX="5.0" layoutY="-1.0" opacity="0.21">
+            <ImageView fitHeight="550.0" fitWidth="636.0" layoutX="5.0" layoutY="-1.0" opacity="0.03">
                <image>
                   <Image url="@/images/PatternNourriture.jpeg" />
                </image>
@@ -219,13 +219,13 @@
                        <Pane prefHeight="40.0" prefWidth="573.0" style="-fx-background-color: transparent;">
                            <children>
                                <HBox alignment="CENTER" layoutX="24.0" maxHeight="35.0" prefHeight="35.0" prefWidth="586.0" spacing="10.0">
-                                   <Button fx:id="buttonApercu" maxHeight="40.0" onAction="#apercu" prefHeight="35.0" prefWidth="184.0" style="-fx-border-radius: 5;" styleClass="boutonMenuHaut" text="APERCU">
+                                   <Button fx:id="buttonApercu" maxHeight="40.0" onAction="#apercu" prefHeight="35.0" prefWidth="184.0" styleClass="boutonMenuHaut" text="APERCU">
                                     <font>
                                        <Font name="Lexend Light" size="12.0" />
                                     </font>
                                  </Button>
-                                   <Button fx:id="buttonModifier" maxHeight="41.0" onAction="#modifier" prefHeight="35.0" prefWidth="193.0" style="-fx-border-radius: 5;" styleClass="boutonMenuHaut" text="MODIFIER LES GROUPES" />
-                                   <Button fx:id="buttonMenu" maxHeight="40.0" onAction="#menu" prefHeight="40.0" prefWidth="197.0" style="-fx-border-radius: 5;" styleClass="boutonMenuHaut" text="AFFICHER LES MENUS" />
+                                   <Button fx:id="buttonModifier" maxHeight="41.0" onAction="#modifier" prefHeight="35.0" prefWidth="193.0" styleClass="boutonMenuHaut" text="MODIFIER LES GROUPES" />
+                                   <Button fx:id="buttonMenu" maxHeight="40.0" onAction="#menu" prefHeight="40.0" prefWidth="197.0" styleClass="boutonMenuHaut" text="AFFICHER LES MENUS" />
                                </HBox>
                            </children>
                        </Pane>

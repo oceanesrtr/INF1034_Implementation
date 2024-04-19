@@ -60,7 +60,7 @@ public class ControllerConnexion implements Initializable {
     @FXML
     public Text copyrightMention;
     @FXML
-    public Menu menuAide;
+    public Menu menuInformations;
     @FXML
     public VBox container;
     @FXML
@@ -254,7 +254,7 @@ public class ControllerConnexion implements Initializable {
 
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [4] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

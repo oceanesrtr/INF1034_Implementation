@@ -9,11 +9,6 @@
     -fx-font-weight: bold;
 }
 
-#sousTitreLogo, #sousTitre, #sousTitreLogo2 {
-    -fx-font-family: "Lexend Deca SemiBold";
-    -fx-font-size: 21px;
-    -fx-font-weight: bold;
-}
 
 #copyrightMention, #buttonFilConnexion, #boutonFilArianeEmploye{
     -fx-font-family: "Lexend Light";
@@ -27,15 +22,17 @@
 
 }
 
-
 #boutonRetourConnexion{
-    -fx-background-color:  #FFAE57;
+    -fx-background-color:#F44322 ;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
+    -fx-background-radius:  15px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
 
 }
 
 #boutonRetourConnexion:hover {
-    -fx-background-color: rgba(255, 174, 87, 0.31);
+    -fx-background-color: #FF0000;
 
 }
 

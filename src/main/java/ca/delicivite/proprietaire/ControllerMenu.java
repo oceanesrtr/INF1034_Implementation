@@ -65,7 +65,7 @@ public class ControllerMenu implements Initializable{
     public MenuBar barreMenu;
     public MenuItem stAnnulerAction;
     public MenuItem stRefaireAction;
-    public Menu menuAide;
+    public Menu menuInformations;
     public MenuItem stQuitterApp;
     public MenuItem modeSombreMenuItem;
     public Menu titreMenuApparence;
@@ -234,15 +234,17 @@ public class ControllerMenu implements Initializable{
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
-        buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2");
-        boutonRedirectionMenu.setStyle("-fx-background-color: #94DAE5");
-
+        buttonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
+        }else{
+            buttonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
+
+
         }
     }
 
@@ -273,7 +275,7 @@ public class ControllerMenu implements Initializable{
     }
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [4] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

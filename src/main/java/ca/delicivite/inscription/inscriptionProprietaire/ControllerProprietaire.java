@@ -43,7 +43,7 @@ public class ControllerProprietaire implements Initializable {
     @FXML   public MenuItem petiteTailleMenuItem;
     @FXML   public MenuItem moyenneTailleMenuItem;
     @FXML   public MenuItem grandeTailleMenuItem;
-    @FXML   public Menu menuAide;
+    @FXML   public Menu menuInformations;
     @FXML   public MenuItem stAPropos;
     @FXML   public MenuItem stGuideUtilisation;
     @FXML   public ScrollPane scrollPane;
@@ -95,7 +95,7 @@ public class ControllerProprietaire implements Initializable {
     }
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

@@ -105,7 +105,7 @@ public class ControllerApercuMenu implements Initializable {
                 ajoutFenetre.getIcons().add(new Image("/images/logo_fond_grise.png"));
                 ajoutFenetre.setScene(scene);
                 ajoutFenetre.setAlwaysOnTop(true);
-                ajoutFenetre.setOnCloseRequest(event -> ajoutFenetre = null); // Réinitialiser la référence lorsque la fenêtre est fermée
+                ajoutFenetre.setOnHidden(event -> ajoutFenetre = null); // Réinitialiser la référence lorsque la fenêtre est fermée
                 ajoutFenetre.show();
 
                 // Fermeture de la fenêtre de suppression si ouverte
@@ -146,8 +146,7 @@ public class ControllerApercuMenu implements Initializable {
                 fenetreSupprimer.getIcons().add(new Image("/images/logo_fond_grise.png"));
                 fenetreSupprimer.setScene(scene);
                 fenetreSupprimer.setAlwaysOnTop(true);
-                fenetreSupprimer.setOnCloseRequest(event -> fenetreSupprimer = null); // Réinitialiser la référence lorsque la fenêtre est fermée
-
+                fenetreSupprimer.setOnHidden(event -> fenetreSupprimer = null); // Réinitialiser la référence lorsque la fenêtre est fermée
                 fenetreSupprimer.show();
 
                 // Fermeture de la fenêtre d'ajout si elle est ouverte

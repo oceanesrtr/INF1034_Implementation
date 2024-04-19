@@ -43,7 +43,7 @@ public class ControllerConfirmationInscription implements Initializable {
     @FXML    public MenuItem petiteTailleMenuItem;
     @FXML  public MenuItem moyenneTailleMenuItem;
     @FXML  public MenuItem grandeTailleMenuItem;
-    @FXML   public Menu menuAide;
+    @FXML   public Menu menuInformations;
     @FXML  public ScrollPane scrollPane;
     @FXML  public VBox container;
     @FXML  public Text sousTitreLogo;
@@ -106,7 +106,7 @@ public class ControllerConfirmationInscription implements Initializable {
     }
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

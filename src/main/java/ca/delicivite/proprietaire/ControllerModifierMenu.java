@@ -71,12 +71,18 @@ public class ControllerModifierMenu implements Initializable {
             ClasseUtilitaire.afficherPopUp("Erreur", "Champs incomplets", "Veuillez entrer un nom valide.", Alert.AlertType.ERROR);
 
         } else {
-            // Ajout du nouveau groupe à la liste des groupes
-            listeGroupes.add(nomGroupe);
-            nouveauGroupe.setText("");
+            // Confirmation de l'ajout
+            if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Ajout du groupe", "Voulez-vous vraiment ajouter ce groupe ?")) {
+                // Ajout du nouveau groupe à la liste des groupes
+                listeGroupes.add(nomGroupe);
+                nouveauGroupe.setText("");
+                // Affichage de la confirmation
+                ClasseUtilitaire.afficherPopUp("Succès", "Opération réussie", "Le groupe a été ajouté avec succès.", Alert.AlertType.INFORMATION);
+
+            }
+
+
         }
-
-
     }
 
     /*=========================================================================
@@ -91,9 +97,14 @@ public class ControllerModifierMenu implements Initializable {
         } else {
             // Récupération du groupe sélectionné
             String selectedItem = groupe.getSelectionModel().getSelectedItem();
-            // Suppression du groupe de la liste des groupes
-            if (selectedItem != null) {
-                listeGroupes.remove(selectedItem);
+            // Confirmation de la suppression
+            if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Suppression du groupe", "Voulez-vous vraiment supprimer ce groupe ?")) {
+                // Suppression du groupe de la liste des groupes
+                if (selectedItem != null) {
+                    listeGroupes.remove(selectedItem);
+                    // Affichage de la confirmation
+                    ClasseUtilitaire.afficherPopUp("Succès", "Opération réussie", "Le groupe a été supprimé avec succès.", Alert.AlertType.INFORMATION);
+                }
             }
         }
     }

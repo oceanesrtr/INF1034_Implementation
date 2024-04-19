@@ -16,13 +16,13 @@
     </stylesheets>
     <children>
 
-        <VBox layoutX="22.0" layoutY="37.0" maxWidth="600.0" prefWidth="400.0" spacing="15.0">
+        <VBox fillWidth="false" layoutX="22.0" layoutY="37.0" maxWidth="600.0" prefWidth="400.0" spacing="15.0">
             <Text fx:id="titre1" text="Ajouter un groupe">
             <font>
                <Font size="20.0" />
             </font></Text>
-            <TextField fx:id="nouveauGroupe" prefHeight="25.0" prefWidth="477.0" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 5px" VBox.vgrow="NEVER" />
-            <Button maxHeight="25.0" maxWidth="117.0" onAction="#onAjoutGroupe" prefHeight="25.0" prefWidth="115.0" styleClass="buttonAction" text="Ajouter">
+            <TextField fx:id="nouveauGroupe" prefHeight="28.0" prefWidth="267.0" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 15;" VBox.vgrow="NEVER" />
+            <Button maxHeight="25.0" maxWidth="267.0" onAction="#onAjoutGroupe" prefHeight="25.0" prefWidth="267.0" styleClass="buttonAction" text="Ajouter">
             <VBox.margin>
                <Insets bottom="5.0" />
             </VBox.margin></Button>
@@ -32,8 +32,8 @@
             <font>
                <Font size="20.0" />
             </font></Text>
-            <ChoiceBox fx:id="groupe" prefHeight="25" prefWidth="598.0" style="-fx-background-color: #FFFF; -fx-border-color: #424242;"> </ChoiceBox>
-            <Button maxHeight="25.0" maxWidth="116.0" onAction="#onSupprimerGroupe" prefHeight="25.0" prefWidth="115.0" styleClass="buttonAction" text="Supprimer"> Supprimer </Button>
+            <ChoiceBox fx:id="groupe" prefHeight="28.0" prefWidth="273.0" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 15;"> </ChoiceBox>
+            <Button maxHeight="25.0" maxWidth="273.0" onAction="#onSupprimerGroupe" prefHeight="25.0" prefWidth="273.0" styleClass="buttonAction" text="Supprimer"> Supprimer </Button>
         </VBox>
     </children>
 

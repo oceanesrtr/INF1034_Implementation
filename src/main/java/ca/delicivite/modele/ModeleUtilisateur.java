@@ -117,21 +117,21 @@ public class ModeleUtilisateur {
                     switch (typeUtilisateur) {
                         case "proprietaire":
                             // Redirection vers la page d'accueil du propriétaire
-                            ClasseUtilitaire.changerScene(event, "accueilProprietaire.fxml", "ControllerAccueil Propriétaire", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil Propriétaire", courriel);
                             break;
 
                         case "client":
                             // Redirection vers la page d'accueil du client
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "ControllerAccueil", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil Client", courriel);
                             break;
                         case "livreur":
                             // Redirection vers la page d'accueil du livreur
-                            ClasseUtilitaire.changerScene(event, "accueilLivreur.fxml", "ControllerAccueil Livreur", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil Livreur", courriel);
                             break;
 
                         case "employe":
                             // Redirection vers la page d'accueil du proprietare
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/proprietaire/VueAccueil.fxml", "Accueil Propriétaire", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil Employe", courriel);
                             break;
                     }
                 }

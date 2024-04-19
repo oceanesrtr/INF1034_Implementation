@@ -51,7 +51,7 @@ public class ControllerMDPOublie implements Initializable {
     @FXML
     public MenuItem grandeTailleMenuItem;
     @FXML
-    public Menu menuAide;
+    public Menu menuInformations;
     @FXML
     public Pane filArianeBarreEtat;
     @FXML
@@ -165,7 +165,7 @@ public class ControllerMDPOublie implements Initializable {
 
 
     /*=============================================================
-     *Méthodes pour les fonctionnalités du sous-menu Aide
+     *Méthodes pour les fonctionnalités du sous-menu Informations
      * [2] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML

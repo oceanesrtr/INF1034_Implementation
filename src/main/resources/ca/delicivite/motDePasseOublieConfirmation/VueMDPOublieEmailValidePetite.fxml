@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--FXML de l'interface de confirmation d'envoi de courriel de récupération de mot de passe
-Taille de police : petite -->
+Taille de police : moyenne-->
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane fx:id="root" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.motDePasseOublieConfirmation.ControllerRecuperationMDP">
+<BorderPane fx:id="root" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.motDePasseOublieConfirmation.ControllerRecuperationMDP">
     <!--[1] : Barre de menu -->
     <top>
         <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
@@ -35,8 +25,8 @@ Taille de police : petite -->
             <BorderPane.margin>
                 <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
-            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Application">
-                <MenuItem fx:id="stAnnulerAction"  disable="true" mnemonicParsing="false">
+            <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
+                <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
                             <Label style="-fx-text-fill: black;" text="Annuler" />
@@ -62,19 +52,18 @@ Taille de police : petite -->
                 </MenuItem>
             </Menu>
             <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
-                <MenuItem fx:id="modeSombreMenuItem" text="Mode sombre" />
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
                 <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
-            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Vue">
-                <Menu fx:id="taillePoliceMenu" text="Taille de la police">
-                    <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false" onAction="#petitePolice">
-                        <graphic>
-                            <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Petite" />
-                                <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
-                            </HBox>
-                        </graphic>
-                    </MenuItem>
+            <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
+                <Menu fx:id="taillePoliceMenu" text="Taille de la police">  <MenuItem fx:id="petiteTailleMenuItem" mnemonicParsing="false" onAction="#petitePolice">
+                    <graphic>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Label style="-fx-text-fill: black;" text="Petite" />
+                            <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
+                        </HBox>
+                    </graphic>
+                </MenuItem>
 
                     <MenuItem fx:id="moyenneTailleMenuItem" mnemonicParsing="false" onAction="#moyennePolice">
                         <graphic>
@@ -95,9 +84,9 @@ Taille de police : petite -->
                     </MenuItem>
                 </Menu>
             </Menu>
-            <Menu fx:id="menuAide" mnemonicParsing="false" text="Aide">
+            <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
                 <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" text="Guide d'utilisation" onAction="#ouvrirGuideUtilisation"/>
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
         </MenuBar>
     </top>
@@ -156,14 +145,19 @@ Taille de police : petite -->
 
     <!--[3] Zone de travail et barre latérale gauche -->
     <center>
-        <AnchorPane maxHeight="543.0" maxWidth="928.0" prefHeight="543.0" prefWidth="928.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
-            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="311.0" layoutY="188.0" prefHeight="63.0" prefWidth="500.0" text="Vérifiez votre boîte de réception !" wrapText="true">
+        <AnchorPane prefHeight="539.0" prefWidth="753.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="545.0" fitWidth="739.0" layoutX="138.0" layoutY="-5.0" opacity="0.03">
+                <image>
+                    <Image url="@/images/PatternNourriture.jpeg" />
+                </image>
+            </ImageView>
+            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="336.0" layoutY="207.0" prefHeight="63.0" prefWidth="258.0" text="Vérifiez votre boîte de réception !" wrapText="true">
                 <font>
                     <Font name="Lexend Deca SemiBold" size="28.0" />
                 </font>
             </Label>
-            <Label fx:id="descriptionMDPOublie" layoutX="273.0" layoutY="247.0" prefHeight="54.0" prefWidth="455.0" text="Un courriel vous a été envoyé, avec les instructions nécessaires pour récupérer votre compte. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-            <Button fx:id="boutonRetourEntreeMDPOublie" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="274.0" layoutY="330.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #424242; -fx-background-radius: 6;" text="Revenir" textAlignment="CENTER" textFill="#94dae5" wrapText="true">
+            <Label fx:id="descriptionMDPOublie" layoutX="258.0" layoutY="280.0" prefHeight="54.0" prefWidth="455.0" text="Un courriel vous a été envoyé, avec les instructions nécessaires pour récupérer votre compte. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="boutonRetourEntreeMDPOublie" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="231.0" layoutY="364.0" prefHeight="30.0" prefWidth="215.0" text="Revenir" textAlignment="CENTER" wrapText="true">
                 <font>
                     <Font name="Lexend Light" />
                 </font>
@@ -174,7 +168,7 @@ Taille de police : petite -->
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="431.0" layoutY="330.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #94dae5; -fx-background-radius: 6;" text="Aller à la page Connexion" textAlignment="CENTER" textFill="#424242" wrapText="true">
+            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="467.0" layoutY="364.0" prefHeight="30.0" prefWidth="215.0" text="Aller à la page Connexion" textAlignment="CENTER" textFill="#424242" wrapText="true">
                 <font>
                     <Font name="Lexend Light" />
                 </font>
@@ -185,11 +179,11 @@ Taille de police : petite -->
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <ImageView fx:id="boutonRevenir" fitHeight="119.0" fitWidth="113.0" layoutX="370.0" layoutY="95.0">
+            <ImageView fitHeight="140.0" fitWidth="133.0" layoutX="387.0" layoutY="77.0">
                 <Image url="@/images/pigeonVoyageur.jpeg" />
             </ImageView>
-            <Label fx:id="messageSoutienTechnique" layoutX="249.0" layoutY="482.0" opacity="0.5" prefHeight="54.0" prefWidth="423.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
-            <Button fx:id="mailSoutienTechnique" layoutX="488.0" layoutY="501.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="delicivite.soutien@gmail.com" textFill="#246fe4" underline="true">
+            <Label fx:id="messageSoutienTechnique" layoutX="191.0" layoutY="478.0" opacity="0.5" prefHeight="54.0" prefWidth="530.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="mailSoutienTechnique" layoutX="359.0" layoutY="505.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="delicivite.soutien@gmail.com" textFill="#246fe4" underline="true">
                 <font>
                     <Font name="Lexend Light" size="12.0" />
                 </font>
@@ -200,5 +194,16 @@ Taille de police : petite -->
             <Line endX="656.6666870117188" layoutX="244.0" layoutY="473.0" opacity="0.12" startX="-244.00001525878906" />
         </AnchorPane>
     </center>
+    <left>
+        <Pane prefHeight="635.0" prefWidth="263.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="547.0" fitWidth="272.0" layoutX="-8.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/banniereMoyenne.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+    </left>
 
 </BorderPane>

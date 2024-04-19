@@ -17,18 +17,18 @@
             </padding>
 
             <Label styleClass="policeMoyenne" text="Nom de l'item:" textFill="#424242" GridPane.columnIndex="0" GridPane.rowIndex="0">Nom de l'item:</Label>
-            <TextField fx:id="nomItem" editable="true" style="-fx-background-color: #FFFF; -fx-border-color: #424242; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="nomItem" editable="true" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
             <Label styleClass="policeMoyenne" textFill="#424242" GridPane.columnIndex="0" GridPane.rowIndex="1">Description:</Label>
-            <TextField fx:id="description" editable="true" style="-fx-border-color: #424242; -fx-background-color: #fFFF; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="description" editable="true" style="-fx-border-color: #424242; -fx-background-color: #FBFAFF; -fx-border-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label styleClass="policeMoyenne" textFill="#424242" GridPane.columnIndex="0" GridPane.rowIndex="2">Groupe:</Label>
-            <ChoiceBox fx:id="groupe" prefHeight="30.0" prefWidth="264.0" style="-fx-background-color: #FFFF; -fx-border-color: #424242;" value="Choisissez un groupe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="groupe" prefHeight="30.0" prefWidth="264.0" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 15;" value="Choisissez un groupe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <AnchorPane GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6">
                 <HBox spacing="10.0" AnchorPane.rightAnchor="0">
-                    <Button onAction="#annuler" prefHeight="31.0" prefWidth="170.0" style="-fx-border-radius: 5;" styleClass="buttonAction" text="Annuler" textFill="#424242">
+                    <Button onAction="#annuler" prefHeight="31.0" prefWidth="170.0" styleClass="buttonAction" text="Annuler" textFill="#424242">
                   <font>
                      <Font name="Lexend Light" size="12.0" />
                   </font></Button>
-                    <Button minWidth="37.0" onAction="#ajouter" prefHeight="31.0" prefWidth="170.0" style="-fx-border-radius: 5;" styleClass="buttonAction" text="Ajouter" textFill="#424242">Ajouter</Button>
+                    <Button minWidth="37.0" onAction="#ajouter" prefHeight="31.0" prefWidth="170.0" styleClass="buttonAction" text="Ajouter" textFill="#424242">Ajouter</Button>
                 </HBox>
             </AnchorPane>
          <columnConstraints>
