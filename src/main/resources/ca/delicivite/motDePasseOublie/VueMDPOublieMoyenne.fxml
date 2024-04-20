@@ -137,7 +137,7 @@ Taille de police : moyenne -->
     <!--[3] Zone de travail et barre latérale gauche -->
     <center>
         <AnchorPane maxHeight="557.0" maxWidth="928.0" prefHeight="557.0" prefWidth="661.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
-         <ImageView fitHeight="544.0" fitWidth="653.0" layoutX="7.0" opacity="0.03">
+         <ImageView fitHeight="544.0" fitWidth="653.0" layoutX="7.0" opacity="0.05">
             <image>
                <Image url="@/images/PatternNourriture.jpeg" />
             </image>

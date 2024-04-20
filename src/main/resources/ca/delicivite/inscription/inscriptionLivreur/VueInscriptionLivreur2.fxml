@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--fxml de l'interface d'inscription en tant que livreur-->
 
 <?import java.net.*?>
 <?import javafx.geometry.*?>
@@ -15,6 +16,8 @@
     <stylesheets>
         <URL value="@inscriptionLivreur.css" />
     </stylesheets>
+
+    <!--[1] : Barre de menu -->
     <top>
         <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
             <cursor>
@@ -93,6 +96,8 @@
         </MenuBar>
     </top>
 
+    <!--[2] Zone de travail et barre latérale gauche -->
+
     <center>
         <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
             <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
@@ -108,7 +113,7 @@
                      </children>
                         </AnchorPane>
                         <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
-                     <ImageView fitHeight="550.0" fitWidth="734.0" layoutX="-2.0" layoutY="-2.0" opacity="0.03">
+                     <ImageView fitHeight="550.0" fitWidth="734.0" layoutX="-2.0" layoutY="-2.0" opacity="0.05">
                         <image>
                            <Image url="@/images/PatternNourriture.jpeg" />
                         </image>
@@ -269,6 +274,7 @@
         </ScrollPane>
     </center>
 
+    <!--[3] Barre d'état et fil d'Ariane -->
     <bottom>
         <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
             <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
@@ -279,7 +285,7 @@
             </Text>
 
             <HBox alignment="CENTER_RIGHT" spacing="-15">
-                <Button fx:id="buttonFilConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                <Button fx:id="boutonFilConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

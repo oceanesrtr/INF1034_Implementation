@@ -26,45 +26,75 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
-//Non implémentée
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère les parametres de l'interface du propriétaire
+ d'un restaurant*/
+
+
 public class ControllerParametre implements Initializable {
 
 
-    // StacPane des différentes interfaces de l'interface proprietaire
+    // StackPane des différentes interfaces de l'interface proprietaire
     @FXML
-    public StackPane contentArea;
+    public StackPane conteneur;
     // Bouton de déconnexion
     @FXML
-    public Button buttonDeconnexion;
+    public Button boutonDeconnexion;
     // Bouton pour retourner a l'interface connexion
     @FXML
-    public Button buttonFilConnexion;
+    public Button boutonFilConnexion;
     // Bouton pour aller a l'interface propriétaire (Cela reset la page)
     @FXML
     public Button buttonProprio;
+    @FXML
     public MenuItem stAPropos;
+    @FXML
     public MenuItem stGuideUtilisation;
+    @FXML
     public Pane filArianeBarreEtat;
+    @FXML
     public Rectangle barreEtat;
+    @FXML
     public Text copyrightMention;
+    @FXML
     public BorderPane root;
+    @FXML
     public Menu titreMenuApplication;
+    @FXML
     public MenuBar barreMenu;
+    @FXML
     public MenuItem stAnnulerAction;
+    @FXML
     public MenuItem stRefaireAction;
+    @FXML
     public Menu menuInformations;
+    @FXML
     public MenuItem stQuitterApp;
+    @FXML
     public MenuItem modeSombreMenuItem;
+    @FXML
     public Menu titreMenuApparence;
+    @FXML
     public MenuItem modeClairMenuItem;
+    @FXML
     public MenuItem petiteTailleMenuItem;
+    @FXML
     public Menu titreMenuVue;
+    @FXML
     public Menu taillePoliceMenu;
+    @FXML
     public MenuItem moyenneTailleMenuItem;
+    @FXML
     public MenuItem grandeTailleMenuItem;
+    @FXML
     public Button boutonParametre;
 
     /*=========================================================================
@@ -72,17 +102,10 @@ public class ControllerParametre implements Initializable {
     * ========================================================================*/
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-        /*try {
-            // Chargement de la vue "Accueil" par défaut
-            Parent fxml = FXMLLoader.load(getClass().getResource("/ca/delicivite/proprietaire/VueAccueil.fxml"));
-            contentArea.getChildren().removeAll();
-            contentArea.getChildren().setAll(fxml);
-        } catch (IOException ex){
-            Logger.getLogger(ModuleLayer.ControllerProprietaire.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        //[a] : redirection vers des pages ou des actions
         stQuitterApp.setOnAction(event -> Platform.exit());
 
-        // [f] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
+        // [b] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
                 KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
@@ -160,30 +183,20 @@ public class ControllerParametre implements Initializable {
 
     }
 
-    /*=========================================================================
-    [10] Méthode pour se déconnecté
-    * ========================================================================*//*
-    public void onDeconnexion() throws IOException {
-        // Redirection vers la vue de connexion
-        Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) buttonDeconnexion.getScene().getWindow();
-        stage.setScene(scene);
-    }*/
 
     /*=========================================================================
-    [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
+    [10] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
-        buttonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
+        boutonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
+            Stage stage = (Stage) boutonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
         } else {
-            buttonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
+            boutonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
 
 
         }
@@ -195,29 +208,29 @@ public class ControllerParametre implements Initializable {
 
     // Bouton cliqué précédemment
     @FXML
-    private Button lastClickedButton;
+    private Button dernierBoutonClique;
 
     /*=========================================================================
-    [13] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
+    [11] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
     * ========================================================================*/
     @FXML
     private void onButtonClicked(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
 
         // Retrait de l'element "clicked-button" au bouton
-        if (lastClickedButton != null) {
-            lastClickedButton.getStyleClass().remove("clicked-button");
+        if (dernierBoutonClique != null) {
+            dernierBoutonClique.getStyleClass().remove("clicked-button");
         }
 
         // Ajout de l'element "clicked-button" au bouton
         clickedButton.getStyleClass().add("clicked-button");
 
-        lastClickedButton = clickedButton;
+        dernierBoutonClique = clickedButton;
     }
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [4] Afficher la fenêtre d'information A propos
+     * [12] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -253,7 +266,7 @@ public class ControllerParametre implements Initializable {
     }
 
     /*=======================================================
-     * [5] : Redirige vers le site JAVAFX
+     * [13] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {

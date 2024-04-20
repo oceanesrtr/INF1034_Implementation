@@ -1,5 +1,12 @@
 package ca.delicivite.inscription.inscriptionLivreur;
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
 
+Classe Controller : de la page d'inscription en tant que livreur */
 
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
@@ -29,41 +36,74 @@ import static ca.delicivite.outils.ClasseUtilitaire.afficherPopUp;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerLivreur implements Initializable {
-   @FXML public BorderPane root;
-    @FXML   public MenuBar barreMenu;
-    @FXML  public MenuItem stAnnulerAction;
-    @FXML   public Menu titreMenuApplication;
-    @FXML   public MenuItem stRefaireAction;
-    @FXML   public MenuItem stQuitterApp;
-    @FXML  public Menu titreMenuApparence;
-    @FXML  public MenuItem modeSombreMenuItem;
-    @FXML  public MenuItem modeClairMenuItem;
-    @FXML  public Menu titreMenuVue;
-    @FXML  public Menu taillePoliceMenu;
-    @FXML   public MenuItem petiteTailleMenuItem;
-    @FXML  public MenuItem moyenneTailleMenuItem;
-    @FXML    public MenuItem grandeTailleMenuItem;
-    @FXML   public Menu menuInformations;
-    @FXML   public MenuItem stAPropos;
-    @FXML   public MenuItem stGuideUtilisation;
-    @FXML   public ScrollPane scrollPane;
-    @FXML   public VBox container;
-    @FXML   public AnchorPane anchorPane;
-    @FXML   public Text sousTitreLogo;
-    @FXML   public Text sousTitreLogo2;
-    @FXML   public Group groupeBarre;
-    @FXML  public ProgressBar barreProgression;
-    @FXML   public Button boutonReinitialiser;
-    @FXML   public Button boutonRetourPagePrecedente;
-    @FXML    public Button boutonSuivant;
-    @FXML    public Rectangle barreEtat;
-    @FXML   public Pane filArianeBarreEtat;
     @FXML
-    public Button buttonFilConnexion;
-    @FXML   public Button boutonFilArianeEmploye;
-    @FXML   public TextField entreeCellulaireInscritLivreur;
-    @FXML   public Text copyrightMention;
-    @FXML   public Button boutonRetourConnexion;
+    public BorderPane root;
+    @FXML
+    public MenuBar barreMenu;
+    @FXML
+    public MenuItem stAnnulerAction;
+    @FXML
+    public Menu titreMenuApplication;
+    @FXML
+    public MenuItem stRefaireAction;
+    @FXML
+    public MenuItem stQuitterApp;
+    @FXML
+    public Menu titreMenuApparence;
+    @FXML
+    public MenuItem modeSombreMenuItem;
+    @FXML
+    public MenuItem modeClairMenuItem;
+    @FXML
+    public Menu titreMenuVue;
+    @FXML
+    public Menu taillePoliceMenu;
+    @FXML
+    public MenuItem petiteTailleMenuItem;
+    @FXML
+    public MenuItem moyenneTailleMenuItem;
+    @FXML
+    public MenuItem grandeTailleMenuItem;
+    @FXML
+    public Menu menuInformations;
+    @FXML
+    public MenuItem stAPropos;
+    @FXML
+    public MenuItem stGuideUtilisation;
+    @FXML
+    public ScrollPane scrollPane;
+    @FXML
+    public VBox container;
+    @FXML
+    public AnchorPane anchorPane;
+    @FXML
+    public Text sousTitreLogo;
+    @FXML
+    public Text sousTitreLogo2;
+    @FXML
+    public Group groupeBarre;
+    @FXML
+    public ProgressBar barreProgression;
+    @FXML
+    public Button boutonReinitialiser;
+    @FXML
+    public Button boutonRetourPagePrecedente;
+    @FXML
+    public Button boutonSuivant;
+    @FXML
+    public Rectangle barreEtat;
+    @FXML
+    public Pane filArianeBarreEtat;
+    @FXML
+    public Button boutonFilConnexion;
+    @FXML
+    public Button boutonFilArianeEmploye;
+    @FXML
+    public TextField entreeCellulaireInscritLivreur;
+    @FXML
+    public Text copyrightMention;
+    @FXML
+    public Button boutonRetourConnexion;
     @FXML
     public GridPane tableauDisponibilites;
 
@@ -77,7 +117,7 @@ public class ControllerLivreur implements Initializable {
         });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
-        buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
+        boutonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
         boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Connexion", null));
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
@@ -92,7 +132,7 @@ public class ControllerLivreur implements Initializable {
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [] Afficher la fenêtre d'information A propos
+     * [1] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -128,7 +168,7 @@ public class ControllerLivreur implements Initializable {
     }
 
     /*=======================================================
-     * [] : Redirige vers le site JAVAFX
+     * [2] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
@@ -138,7 +178,7 @@ public class ControllerLivreur implements Initializable {
 
 
     /*=========================================================
-     * [] : Réinitialiser les champas
+     * [3] : Réinitialiser les champas
      * ========================================================*/
     @FXML
     private void reinitialiserChamp() {
@@ -183,15 +223,15 @@ public class ControllerLivreur implements Initializable {
         if (!(auMoinsUneCaseCochee())) {
             afficherPopUp("Champ incomplet", "Disponibilités non sélectionnées", "Veuillez sélectionner au moins une disponibilité.", Alert.AlertType.ERROR);
             tableauDisponibilites.setStyle("-fx-border-color: #FD2528");
-        }
-
-        //Si tout est valide :
-        changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
+        } else
+            //Si tout est valide :
+            changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
 
     /*====================================
-     * Méthode utilitaire pour vérifier si le livreur a bien coché au moins une case
+     * [4] Méthode utilitaire pour vérifier si
+     *  le livreur a bien coché au moins une case
      * ==================================*/
 
     private boolean auMoinsUneCaseCochee() {
@@ -208,6 +248,4 @@ public class ControllerLivreur implements Initializable {
         }
         return auMoinsUneCaseCochee;
     }
-
-
 }

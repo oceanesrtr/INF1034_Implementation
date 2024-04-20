@@ -1,5 +1,13 @@
 package ca.delicivite.proprietaire;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère l'apercu du menu d'un restaurant */
 import ca.delicivite.modele.ModeleItemMenu.*;
 
 import javafx.collections.transformation.FilteredList;
@@ -68,24 +76,6 @@ public class ControllerApercuMenu implements Initializable {
         });
     }
 
-    /*public void initialize() {
-        // Ajout des items à la liste view
-        listeItems.setItems(items);
-        // Création de la liste filtrée basée sur la liste vies
-        listeFiltrer = new FilteredList<>(listeItems.getItems());
-
-        // Mise en place d'un écouteur sur le champ de recherche
-        recherche.textProperty().addListener((observable, oldValue, newValue) -> {
-            listeFiltrer.setPredicate(item -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-                return item.getNomItem().toLowerCase().contains(newValue.toLowerCase());
-            });
-            listeItems.setItems(listeFiltrer);
-        });
-
-    }*/
 
 
     /*=========================================================================

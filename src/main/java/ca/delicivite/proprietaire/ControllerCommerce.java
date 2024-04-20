@@ -28,7 +28,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//Non implémentée
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère les statistiques et performances d'un restaurant*/
+
 public class ControllerCommerce implements Initializable {
 
     // StacPane des différentes interfaces de l'interface proprietaire
@@ -36,35 +44,56 @@ public class ControllerCommerce implements Initializable {
     public StackPane contentArea;
     // Bouton de déconnexion
     @FXML
-    public Button buttonDeconnexion;
+    public Button boutonDeconnexion;
     // Bouton pour retourner a l'interface connexion
     @FXML
-    public Button buttonFilConnexion;
+    public Button boutonFilConnexion;
     // Bouton pour aller a l'interface propriétaire (Cela reset la page)
     @FXML
     public Button buttonProprio;
-    public MenuItem stAPropos;
+    @FXML
     public MenuItem stGuideUtilisation;
+
+    @FXML
+    public MenuItem stAPropos;
+
+    @FXML
     public Pane filArianeBarreEtat;
+    @FXML
     public Rectangle barreEtat;
+    @FXML
     public Text copyrightMention;
+    @FXML
     public BorderPane root;
+    @FXML
     public Menu titreMenuApplication;
+    @FXML
     public MenuBar barreMenu;
+    @FXML
     public MenuItem stAnnulerAction;
-    public MenuItem stRefaireAction;
+    @FXML
     public Menu menuInformations;
+    @FXML
     public MenuItem stQuitterApp;
+    @FXML
     public MenuItem modeSombreMenuItem;
+    @FXML
     public Menu titreMenuApparence;
+    @FXML
     public MenuItem modeClairMenuItem;
+    @FXML
     public MenuItem petiteTailleMenuItem;
+    @FXML
     public Menu titreMenuVue;
+    @FXML
     public Menu taillePoliceMenu;
+    @FXML
     public MenuItem moyenneTailleMenuItem;
+    @FXML
     public MenuItem grandeTailleMenuItem;
     @FXML
     public Button boutonCommerce;
+    @FXML
     public Button boutonRedirectionCommerce;
 
     /*=========================================================================
@@ -175,26 +204,27 @@ public class ControllerCommerce implements Initializable {
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
-        buttonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
+        boutonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
+            Stage stage = (Stage) boutonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
-        }else{
-            buttonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
+        } else {
+            boutonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
 
 
         }
     }
+
     // Variables pour la gestion du déplacement de la fenêtre
     double x, y;
 
 
     // Bouton cliqué précédemment
     @FXML
-    private Button lastClickedButton;
+    private Button dernierBoutonClique;
 
     /*=========================================================================
     [13] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
@@ -204,15 +234,16 @@ public class ControllerCommerce implements Initializable {
         Button clickedButton = (Button) event.getSource();
 
         // Retrait de l'element "clicked-button" au bouton
-        if (lastClickedButton != null) {
-            lastClickedButton.getStyleClass().remove("clicked-button");
+        if (dernierBoutonClique != null) {
+            dernierBoutonClique.getStyleClass().remove("clicked-button");
         }
 
         // Ajout de l'element "clicked-button" au bouton
         clickedButton.getStyleClass().add("clicked-button");
 
-        lastClickedButton = clickedButton;
+        dernierBoutonClique = clickedButton;
     }
+
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
      * [4] Afficher la fenêtre d'information A propos

@@ -1,5 +1,13 @@
 package ca.delicivite.proprietaire;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère la modification des menus d'un restaurant*/
 
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.fxml.Initializable;
@@ -15,8 +23,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 
 public class ControllerModifierMenu implements Initializable {
 
@@ -48,10 +54,6 @@ public class ControllerModifierMenu implements Initializable {
         groupe.setItems(listeGroupes);
     }
 
-    /*@FXML
-    public void initialize() {
-        groupe.setItems(listeGroupes);
-    }*/
 
     /*=========================================================================
     [3] Méthode pour ajouter un nouveau groupe

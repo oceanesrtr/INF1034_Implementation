@@ -1,6 +1,13 @@
 package ca.delicivite.modele.ModeleItemMenu;
 
-// Classe représentant les items du menu
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Modele qui regroupe les attributs d'un item en général (item de menu)  */
 
 public class Item {
 

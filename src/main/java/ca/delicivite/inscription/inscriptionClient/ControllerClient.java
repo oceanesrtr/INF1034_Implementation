@@ -1,5 +1,14 @@
 package ca.delicivite.inscription.inscriptionClient;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller : de la page d'inscription en tant que client */
+
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -91,7 +100,7 @@ public class ControllerClient implements Initializable {
     @FXML
     public Pane filArianeBarreEtat;
     @FXML
-    public Button buttonFilConnexion;
+    public Button boutonFilConnexion;
     @FXML
     public Button boutonFilArianeEmploye;
     @FXML
@@ -118,7 +127,7 @@ public class ControllerClient implements Initializable {
         });
 
         //[b] Fil d'Ariane : Retour à la page de connexion
-        buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
+        boutonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
         boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Connexion", null));
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
@@ -133,7 +142,7 @@ public class ControllerClient implements Initializable {
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [] Afficher la fenêtre d'information A propos
+     * [1] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -169,7 +178,7 @@ public class ControllerClient implements Initializable {
     }
 
     /*=======================================================
-     * [] : Redirige vers le site JAVAFX
+     * [2] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
@@ -179,7 +188,7 @@ public class ControllerClient implements Initializable {
 
 
     /*=========================================================
-     * [] : Réinitialiser les champas
+     * [3] : Réinitialiser les champas
      * ========================================================*/
     @FXML
     private void reinitialiserChamp() {
@@ -205,13 +214,13 @@ public class ControllerClient implements Initializable {
                 entree1.setStyle("-fx-border-color: #424242");
                 entree2.setStyle("-fx-border-color: #424242");
                 entree3.setStyle("-fx-border-color: #424242");
-                tableauCuisineFavorite.setStyle("-fx-border-color: #424242");
+                tableauCuisineFavorite.setStyle("-fx-border-color: transparent");
             }
         }
     }
 
     /*===================================================
-     * [] : Valider les champs avant de passer à la page suivante
+     * [4] : Valider les champs avant de passer à la page suivante
      *  et les sauvegarder pour la base de données
      * ==================================================*/
 
@@ -255,9 +264,10 @@ public class ControllerClient implements Initializable {
         changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
-    /*=================
-     * Méthode utilitaire : vérifier si au moins une spécialité a été cochée par le client
-     * =================*/
+    /*===========================================================
+     * [5] Méthode utilitaire : vérifier si au moins une spécialité
+     *  a été cochée par le client
+     * ================================================================*/
 
     private boolean auMoinsUneSpecialiteSelectionnee() {
         boolean auMoinsUneSpecialiteSelectionnee = false;
@@ -272,6 +282,4 @@ public class ControllerClient implements Initializable {
         }
         return auMoinsUneSpecialiteSelectionnee;
     }
-
-
 }

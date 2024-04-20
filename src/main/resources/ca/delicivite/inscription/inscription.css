@@ -1,6 +1,6 @@
 /*Fichier CSS
- Interface : Connexion
- FXML : VueConnexionTailleMoyenne */
+ Interface : Inscription
+ FXML : VueInscriptionGenerale1 */
 
 
 #titreInscription,  #sousTitre {
@@ -10,7 +10,7 @@
 }
 
 
-#copyrightMention, #buttonFilConnexion, #boutonFilArianeEmploye{
+#copyrightMention, #boutonFilConnexion, #boutonFilArianeEmploye{
     -fx-font-family: "Lexend Light";
     -fx-font-size: 12px;
     -fx-text-fill: #424242;
@@ -22,7 +22,7 @@
 }
 
 #entreePrenomInscrit, #entreeNomInscrit, #entreeDateNaissanceInscrit {
-    -fx-background-radius:  15px;
+    -fx-background-radius:  5px;
     -fx-border-radius: 5px;
 }
 
@@ -40,7 +40,7 @@
     -fx-background-color: #FF0000;
 }
 
-#buttonFilConnexion:hover, #boutonFilArianeEmploye:hover {
+#boutonFilConnexion:hover, #boutonFilArianeEmploye:hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
 }

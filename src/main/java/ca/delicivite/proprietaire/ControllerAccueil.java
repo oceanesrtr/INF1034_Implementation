@@ -1,5 +1,6 @@
 package ca.delicivite.proprietaire;
 
+
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -23,28 +24,30 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-// Classe non implémentée
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+
+CLASSE NON IMPLÉMENTÉE : Classe Accueil du propriétaire*/
+
 public class ControllerAccueil implements Initializable {
 
 
-    // StacPane des différentes interfaces de l'interface proprietaire
     @FXML
     public StackPane contentArea;
-    // Bouton de déconnexion
     @FXML
     public Button buttonDeconnexion;
-    // Bouton pour retourner a l'interface connexion
     @FXML
-    public Button buttonFilConnexion;
+    public Button boutonFilConnexion;
     // Bouton pour aller a l'interface propriétaire (Cela reset la page)
     @FXML
     public Button buttonProprio;
@@ -164,30 +167,19 @@ public class ControllerAccueil implements Initializable {
 
     }
 
-    /*=========================================================================
-    [10] Méthode pour se déconnecté
-    * ========================================================================*//*
-    public void onDeconnexion() throws IOException {
-        // Redirection vers la vue de connexion
-        Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) buttonDeconnexion.getScene().getWindow();
-        stage.setScene(scene);
-    }*/
 
     /*=========================================================================
-    [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
+    [10] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
         buttonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
+            Stage stage = (Stage) boutonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
-        }
-        else{
+        } else {
             buttonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
         }
     }
@@ -202,16 +194,16 @@ public class ControllerAccueil implements Initializable {
 
 
     /*=========================================================================
-    [13] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
+    [11] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
     * ========================================================================*/
     @FXML
     private void onButtonClicked(ActionEvent event) {
-       buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2");
+        buttonDeconnexion.setStyle("-fx-background-color: #3DBDD2");
     }
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [4] Afficher la fenêtre d'information A propos
+     * [12] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -247,7 +239,7 @@ public class ControllerAccueil implements Initializable {
     }
 
     /*=======================================================
-     * [5] : Redirige vers le site JAVAFX
+     * [13] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {

@@ -1,6 +1,14 @@
 package ca.delicivite.outils;
 
-/*Classe utilitaire : regroupe des méthodes utilitaires réutilisables */
+/*
+INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe utilitaire : regroupe des méthodes utilitaires réutilisables */
 
 
 import javafx.event.ActionEvent;
@@ -11,7 +19,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -52,42 +59,6 @@ public class ClasseUtilitaire {
         stage.show();
     }
 
-  /*  *//*===================================================================================
-    * Surcharge changerScene avec une autre signature
-    * =================================================================*//*
-    public static void changerScene(Node node, String fxmlFile, String titreFenêtre, String courrielClientConnecte) {
-        Parent root = null;
-
-        // Passage du courriel en paramètres car permet d'identifier l'utilisateur
-        if (courrielClientConnecte != null) {
-            try {
-                FXMLLoader loaderFichierFXML = new FXMLLoader(ClasseUtilitaire.class.getResource(fxmlFile));
-                root = loaderFichierFXML.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                root = FXMLLoader.load(ClasseUtilitaire.class.getResource(fxmlFile));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        // Récupérer la scène à partir du nœud source de l'événement
-        Scene scene = node.getScene();
-
-        // Créer une nouvelle scène
-        Stage stage = (Stage) scene.getWindow();
-        stage.setTitle(titreFenêtre);
-        stage.setScene(new Scene(root));
-        stage.getIcons().add(new Image("/images/logo_court_blanc.png"));
-        stage.setMinWidth(900);
-        stage.setMinHeight(600);
-        stage.show();
-    }
-
-*/
     /*==========================================================================================
     Méthode 2 : change la taille de la police en chargeant une nouvelle scène FXML
     * ==========================================================================================*/

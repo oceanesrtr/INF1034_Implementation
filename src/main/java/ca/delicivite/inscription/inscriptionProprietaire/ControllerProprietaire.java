@@ -1,4 +1,12 @@
 package ca.delicivite.inscription.inscriptionProprietaire;
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller : de la page d'inscription en tant que propriétaire */
 
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
@@ -21,7 +29,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,45 +36,82 @@ import static ca.delicivite.outils.ClasseUtilitaire.afficherPopUp;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerProprietaire implements Initializable {
-    @FXML   public BorderPane root;
-    @FXML   public MenuBar barreMenu;
-    @FXML   public MenuItem stAnnulerAction;
-    @FXML   public Menu titreMenuApplication;
-    @FXML   public MenuItem stRefaireAction;
-    @FXML  public MenuItem stQuitterApp;
-    @FXML  public Menu titreMenuApparence;
-    @FXML  public MenuItem modeSombreMenuItem;
-    @FXML   public MenuItem modeClairMenuItem;
-    @FXML   public Menu titreMenuVue;
-    @FXML   public Menu taillePoliceMenu;
-    @FXML   public MenuItem petiteTailleMenuItem;
-    @FXML   public MenuItem moyenneTailleMenuItem;
-    @FXML   public MenuItem grandeTailleMenuItem;
-    @FXML   public Menu menuInformations;
-    @FXML   public MenuItem stAPropos;
-    @FXML   public MenuItem stGuideUtilisation;
-    @FXML   public ScrollPane scrollPane;
-    @FXML  public VBox container;
-    @FXML   public AnchorPane anchorPane;
-    @FXML   public Text sousTitreLogo;
-    @FXML   public Text sousTitreLogo2;
-    @FXML  public Group groupeBarre;
-    @FXML  public ProgressBar barreProgression;
-    @FXML  public Button boutonReinitialiser;
-    @FXML  public Button boutonRetourPagePrecedente;
-    @FXML   public Button boutonSuivant;
-    @FXML   public TextField entreeNomRestaurant;
-    @FXML   public TextField entreeAdresseRestaurant;
-    @FXML   public Text copyrightMention;
-    @FXML   public TextField entreeCellulaireRestaurant;
-    @FXML   public TextField entreeCodePostalRestaurant;
-    @FXML   public GridPane tableauChoixSpecialiteRestaurant;
-    @FXML   public ToggleGroup Cuisine;
-    @FXML   public Rectangle barreEtat;
-    @FXML   public Pane filArianeBarreEtat;
     @FXML
-    public Button buttonFilConnexion;
-    @FXML   public Button boutonFilArianeEmploye;
+    public BorderPane root;
+    @FXML
+    public MenuBar barreMenu;
+    @FXML
+    public MenuItem stAnnulerAction;
+    @FXML
+    public Menu titreMenuApplication;
+    @FXML
+    public MenuItem stRefaireAction;
+    @FXML
+    public MenuItem stQuitterApp;
+    @FXML
+    public Menu titreMenuApparence;
+    @FXML
+    public MenuItem modeSombreMenuItem;
+    @FXML
+    public MenuItem modeClairMenuItem;
+    @FXML
+    public Menu titreMenuVue;
+    @FXML
+    public Menu taillePoliceMenu;
+    @FXML
+    public MenuItem petiteTailleMenuItem;
+    @FXML
+    public MenuItem moyenneTailleMenuItem;
+    @FXML
+    public MenuItem grandeTailleMenuItem;
+    @FXML
+    public Menu menuInformations;
+    @FXML
+    public MenuItem stAPropos;
+    @FXML
+    public MenuItem stGuideUtilisation;
+    @FXML
+    public ScrollPane scrollPane;
+    @FXML
+    public VBox container;
+    @FXML
+    public AnchorPane anchorPane;
+    @FXML
+    public Text sousTitreLogo;
+    @FXML
+    public Text sousTitreLogo2;
+    @FXML
+    public Group groupeBarre;
+    @FXML
+    public ProgressBar barreProgression;
+    @FXML
+    public Button boutonReinitialiser;
+    @FXML
+    public Button boutonRetourPagePrecedente;
+    @FXML
+    public Button boutonSuivant;
+    @FXML
+    public TextField entreeNomRestaurant;
+    @FXML
+    public TextField entreeAdresseRestaurant;
+    @FXML
+    public Text copyrightMention;
+    @FXML
+    public TextField entreeCellulaireRestaurant;
+    @FXML
+    public TextField entreeCodePostalRestaurant;
+    @FXML
+    public GridPane tableauChoixSpecialiteRestaurant;
+    @FXML
+    public ToggleGroup Cuisine;
+    @FXML
+    public Rectangle barreEtat;
+    @FXML
+    public Pane filArianeBarreEtat;
+    @FXML
+    public Button boutonFilConnexion;
+    @FXML
+    public Button boutonFilArianeEmploye;
 
 
     @Override
@@ -81,7 +125,7 @@ public class ControllerProprietaire implements Initializable {
 
 
         //[b] Fil d'Ariane : Retour à la page de connexion
-        buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
+        boutonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
         boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
@@ -96,7 +140,7 @@ public class ControllerProprietaire implements Initializable {
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [] Afficher la fenêtre d'information A propos
+     * [1] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -132,7 +176,7 @@ public class ControllerProprietaire implements Initializable {
     }
 
     /*=======================================================
-     * [] : Redirige vers le site JAVAFX
+     * [2] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
@@ -142,7 +186,7 @@ public class ControllerProprietaire implements Initializable {
 
 
     /*=========================================================
-     * [] : Réinitialiser les champas
+     * [3] : Réinitialiser les champas
      * ========================================================*/
     @FXML
     private void reinitialiserChamp() {
@@ -183,8 +227,11 @@ public class ControllerProprietaire implements Initializable {
     }
 
 
+    /*=========================================
+    * [4] Validation des champs
+    * ======================================*/
     @FXML
-    private void validationChamp(ActionEvent event){
+    private void validationChamp(ActionEvent event) {
         String adresse = entreeAdresseRestaurant.getText().trim();
         String codePostal = entreeCodePostalRestaurant.getText().trim();
         String cellulaire = entreeCellulaireRestaurant.getText().trim();
@@ -229,9 +276,9 @@ public class ControllerProprietaire implements Initializable {
     }
 
     /*====================================
-     * Méthode utilitaire pour vérifier si le livreur a bien coché au moins une case
+     * Méthode utilitaire pour vérifier si
+     *  le livreur a bien coché au moins une case
      * ==================================*/
-
     private boolean auMoinsUneCaseCochee() {
         return Cuisine.getSelectedToggle() != null;
     }

@@ -146,7 +146,7 @@ Taille de police : moyenne-->
     <!--[3] Zone de travail et barre latérale gauche -->
     <center>
         <AnchorPane prefHeight="539.0" prefWidth="753.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
-            <ImageView fitHeight="545.0" fitWidth="739.0" layoutX="138.0" layoutY="-5.0" opacity="0.03">
+            <ImageView fitHeight="545.0" fitWidth="739.0" layoutX="138.0" layoutY="-5.0" opacity="0.1">
                 <image>
                     <Image url="@/images/PatternNourriture.jpeg" />
                 </image>
@@ -182,7 +182,7 @@ Taille de police : moyenne-->
             <ImageView fitHeight="140.0" fitWidth="133.0" layoutX="387.0" layoutY="77.0">
                 <Image url="@/images/pigeonVoyageur.jpeg" />
             </ImageView>
-            <Label fx:id="messageSoutienTechnique" layoutX="191.0" layoutY="478.0" opacity="0.5" prefHeight="54.0" prefWidth="530.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
+            <Label fx:id="messageSoutienTechnique" layoutX="191.0" layoutY="478.0" opacity="0.05" prefHeight="54.0" prefWidth="530.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
             <Button fx:id="mailSoutienTechnique" layoutX="359.0" layoutY="505.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="delicivite.soutien@gmail.com" textFill="#246fe4" underline="true">
                 <font>
                     <Font name="Lexend Light" size="12.0" />

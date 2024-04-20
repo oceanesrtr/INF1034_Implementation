@@ -1,6 +1,13 @@
 package ca.delicivite.patronObservateur;
 
-/* Patron observateur : surveille les changements dans les champs
+/* INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Patron observateur : surveille les changements dans les champs
 de texte de l'interface connexion (mot de passe et courriel) et
 déclenche l'annulation et le rétablissement des champs quand ces
 champs changent. */

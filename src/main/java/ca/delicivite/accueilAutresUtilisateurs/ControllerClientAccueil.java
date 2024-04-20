@@ -1,4 +1,13 @@
-package ca.delicivite.clientConnecteAccueil;
+package ca.delicivite.accueilAutresUtilisateurs;
+
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller : Page d'accueil des autres utilisateurs */
 
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
@@ -36,10 +45,9 @@ public class ControllerClientAccueil implements Initializable {
     @FXML
     private MenuItem stAPropos;
 
-
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [4] Afficher la fenêtre d'information A propos
+     * [1] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -75,7 +83,7 @@ public class ControllerClientAccueil implements Initializable {
     }
 
     /*=======================================================
-     * [5] : Redirige vers le site JAVAFX
+     * [2] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
@@ -85,8 +93,10 @@ public class ControllerClientAccueil implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //[1] : Redirection vers page adéquate
         filConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
-        filMDPOublie.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Connexion", null));
+        filMDPOublie.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/accueilAutresUtilisateurs/VueClientConnecteAccueil.fxml", "Connexion", null));
         stQuitterApp.setOnAction(event -> Platform.exit());
 
         // [2] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application

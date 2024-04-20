@@ -1,5 +1,13 @@
 package ca.delicivite.inscription;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller : de la page d'inscription qui confirme l'inscription*/
 
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
@@ -31,43 +39,78 @@ import java.util.ResourceBundle;
 import static ca.delicivite.outils.ClasseUtilitaire.changerScene;
 
 public class ControllerConfirmationInscription implements Initializable {
-    @FXML  public BorderPane root;
-    @FXML  public Menu titreMenuApplication;
-    @FXML   public MenuItem stAnnulerAction;
-    @FXML   public MenuItem stRefaireAction;
-    @FXML  public Menu titreMenuApparence;
-    @FXML public MenuItem modeSombreMenuItem;
-    @FXML   public MenuItem modeClairMenuItem;
-    @FXML   public Menu titreMenuVue;
-    @FXML  public Menu taillePoliceMenu;
-    @FXML    public MenuItem petiteTailleMenuItem;
-    @FXML  public MenuItem moyenneTailleMenuItem;
-    @FXML  public MenuItem grandeTailleMenuItem;
-    @FXML   public Menu menuInformations;
-    @FXML  public ScrollPane scrollPane;
-    @FXML  public VBox container;
-    @FXML  public Text sousTitreLogo;
-    @FXML    public AnchorPane anchorPane;
-    @FXML  public Text sousTitreLogo2;
-    @FXML  public Group groupeBarre;
-    @FXML  public ProgressBar barreProgression;
-    @FXML  public TextField entreePrenomInscrit;
-    @FXML   public TextField entreeNomInscrit;
-    @FXML   public DatePicker entreeDateNaissanceInscrit;
-    @FXML   public RadioButton boutonLivreur;
-    @FXML   public Button boutonReinitialiser;
-    @FXML  public Button boutonSuivant;
-    @FXML  public Button boutonFilArianeEmploye;
-    @FXML  public RadioButton boutonClient;
-    @FXML   public RadioButton boutonRestaurateur;
-    @FXML   public Text copyrightMention;
-    @FXML   public Rectangle barreEtat;
     @FXML
-    public Button buttonFilConnexion;
-    @FXML   public Button boutonRetourConnexion;
-    @FXML   public Pane filArianeBarreEtat;
-    @FXML   public ImageView etape1;
-    @FXML   public Text titreInscription;
+    public BorderPane root;
+    @FXML
+    public Menu titreMenuApplication;
+    @FXML
+    public MenuItem stAnnulerAction;
+    @FXML
+    public MenuItem stRefaireAction;
+    @FXML
+    public Menu titreMenuApparence;
+    @FXML
+    public MenuItem modeSombreMenuItem;
+    @FXML
+    public MenuItem modeClairMenuItem;
+    @FXML
+    public Menu titreMenuVue;
+    @FXML
+    public Menu taillePoliceMenu;
+    @FXML
+    public MenuItem petiteTailleMenuItem;
+    @FXML
+    public MenuItem moyenneTailleMenuItem;
+    @FXML
+    public MenuItem grandeTailleMenuItem;
+    @FXML
+    public Menu menuInformations;
+    @FXML
+    public ScrollPane scrollPane;
+    @FXML
+    public VBox container;
+    @FXML
+    public Text sousTitreLogo;
+    @FXML
+    public AnchorPane anchorPane;
+    @FXML
+    public Text sousTitreLogo2;
+    @FXML
+    public Group groupeBarre;
+    @FXML
+    public ProgressBar barreProgression;
+    @FXML
+    public TextField entreePrenomInscrit;
+    @FXML
+    public TextField entreeNomInscrit;
+    @FXML
+    public DatePicker entreeDateNaissanceInscrit;
+    @FXML
+    public RadioButton boutonLivreur;
+    @FXML
+    public Button boutonReinitialiser;
+    @FXML
+    public Button boutonSuivant;
+    @FXML
+    public Button boutonFilArianeEmploye;
+    @FXML
+    public RadioButton boutonClient;
+    @FXML
+    public RadioButton boutonRestaurateur;
+    @FXML
+    public Text copyrightMention;
+    @FXML
+    public Rectangle barreEtat;
+    @FXML
+    public Button boutonFilConnexion;
+    @FXML
+    public Button boutonRetourConnexion;
+    @FXML
+    public Pane filArianeBarreEtat;
+    @FXML
+    public ImageView etape1;
+    @FXML
+    public Text titreInscription;
     @FXML
     public ToggleGroup groupeBouton;
     @FXML
@@ -80,10 +123,9 @@ public class ControllerConfirmationInscription implements Initializable {
     private MenuBar barreMenu;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//[a] Associer fonctionnalités aux options de la barre de menu
+        //[a] Associer fonctionnalités aux options de la barre de menu
         stQuitterApp.setOnAction(event -> Platform.exit());
         stGuideUtilisation.setOnAction(this::ouvrirGuideUtilisation);
 
@@ -91,7 +133,7 @@ public class ControllerConfirmationInscription implements Initializable {
 
 
         //[b] Fil d'Ariane : Retour à la page de connexion
-        buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
+        boutonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
 
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
@@ -107,7 +149,7 @@ public class ControllerConfirmationInscription implements Initializable {
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [] Afficher la fenêtre d'information A propos
+     * [1] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -143,13 +185,11 @@ public class ControllerConfirmationInscription implements Initializable {
     }
 
     /*=======================================================
-     * [] : Redirige vers le site JAVAFX
+     * [2] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
         String url = "https://docs.oracle.com/javase/8/javase-clienttechnologies.htm";
         ClasseUtilitaire.redirectionSiteInternet(url);
     }
-
-
 }

@@ -1,8 +1,17 @@
-/*Classe ModeleUtilisateur : classe modèe qui gère les données
-des utilisateurs en général */
+
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe ModeleUtilisateur : classe modèle qui gère les données
+des utilisateurs en général (inscription, connexion à la base de données, etc) */
+
+
 package ca.delicivite.modele;
 
-import ca.delicivite.connexion.ControllerConnexion;
 import ca.delicivite.modele.ModeleItemMenu.TypeUtilisateur;
 import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.event.ActionEvent;
@@ -35,7 +44,7 @@ public class ModeleUtilisateur {
         return objetUtilisateur;
     }
 
-    // Méthode pour réinitialiser les informations d'inscription une fois l'inscription terminée
+    // [1] Méthode pour réinitialiser les informations d'inscription une fois l'inscription terminée
     public void reinitialiserModeleUtilisateur() {
         this.prenom = null;
         this.nom = null;
@@ -44,7 +53,7 @@ public class ModeleUtilisateur {
         this.motDePasse = null;
     }
 
-    //[1] : Inscrit l'utilisateur et l'insère dans la base de données
+    // [2] : Inscrit l'utilisateur et l'insère dans la base de données
     public static void inscription(String nom, String prenom, String adresseCourriel, String motDePasse, String typeUtilisateur) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -82,7 +91,7 @@ public class ModeleUtilisateur {
     }
 
 
-    //[2] Authentifie et redirige l'utilisateur vers la page d'accueil correspondant à son type
+    //[3] Authentifie et redirige l'utilisateur vers la page d'accueil correspondant à son type
     public static void clientSeConnecte(ActionEvent event, String courriel, String motDePasse) {
 
         //Validation
@@ -122,16 +131,16 @@ public class ModeleUtilisateur {
 
                         case "client":
                             // Redirection vers la page d'accueil du client
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil Client", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/accueilAutresUtilisateurs/VueClientConnecteAccueil.fxml", "Accueil Client", courriel);
                             break;
                         case "livreur":
                             // Redirection vers la page d'accueil du livreur
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil Livreur", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/accueilAutresUtilisateurs/VueClientConnecteAccueil.fxml", "Accueil Livreur", courriel);
                             break;
 
                         case "employe":
                             // Redirection vers la page d'accueil du proprietare
-                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "Accueil Employe", courriel);
+                            ClasseUtilitaire.changerScene(event, "/ca/delicivite/accueilAutresUtilisateurs/VueClientConnecteAccueil.fxml", "Accueil Employe", courriel);
                             break;
                     }
                 }
@@ -170,7 +179,7 @@ public class ModeleUtilisateur {
 
 
     /*===============================================
-    * [3] Vérifier si l'email de l'inscrit existe deja dans la base de données
+    * [5] Vérifier si l'email de l'inscrit existe deja dans la base de données
     * Pour les interfaces inscriptions
     * Retourne un booléen
     =================================================
@@ -222,7 +231,7 @@ public class ModeleUtilisateur {
     }
 
     /*==============================================
-    4] : Vérifie si l'e-mail existe dans la base de données pour l'interface mot de passe oublié
+    [6] : Vérifie si l'e-mail existe dans la base de données pour l'interface mot de passe oublié
     Retourne : void
     =================================================*/
     public static void verifierEmailMotDePasseOublie(ActionEvent event, String email) {
@@ -270,7 +279,7 @@ public class ModeleUtilisateur {
     }
 
     /*=============================
-     * Getter et setter
+     * [7] Getter et setter
      * ============================*/
     public String getPrenom() {
         return prenom;
@@ -289,17 +298,8 @@ public class ModeleUtilisateur {
     }
 
 
-
-    public String getAdresseCourriel() {
-        return adresseCourriel;
-    }
-
     public void setAdresseCourriel(String adresseCourriel) {
         this.adresseCourriel = adresseCourriel;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
     }
 
     public void setMotDePasse(String motDePasse) {

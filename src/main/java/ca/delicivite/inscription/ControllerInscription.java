@@ -1,5 +1,13 @@
 package ca.delicivite.inscription;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller : de la paremière page d'inscription générale*/
 
 import ca.delicivite.modele.ModeleItemMenu.TypeUtilisateur;
 import ca.delicivite.modele.ModeleUtilisateur;
@@ -7,11 +15,9 @@ import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
@@ -20,7 +26,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -30,8 +35,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -103,7 +106,7 @@ public class ControllerInscription implements Initializable {
     @FXML
     public Rectangle barreEtat;
     @FXML
-    public Button buttonFilConnexion;
+    public Button boutonFilConnexion;
     @FXML
     public Button boutonRetourConnexion;
     @FXML
@@ -142,7 +145,7 @@ public class ControllerInscription implements Initializable {
 
 
         //[b] Fil d'Ariane : Retour à la page de connexion
-        buttonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
+        boutonFilConnexion.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/VueConnexionTailleMoyenne.fxml", "Connexion", null));
 
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
@@ -162,7 +165,7 @@ public class ControllerInscription implements Initializable {
 
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
-     * [] Afficher la fenêtre d'information A propos
+     * [2] Afficher la fenêtre d'information A propos
      *============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -193,7 +196,7 @@ public class ControllerInscription implements Initializable {
     }
 
     /*=======================================================
-     * [] : Redirige vers le site JAVAFX
+     * [3] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
@@ -203,17 +206,17 @@ public class ControllerInscription implements Initializable {
 
 
     /*=========================================================
-     * [] : Réinitialiser les champas
+     * [4] : Réinitialiser les champas
      * ========================================================*/
     @FXML
     private void reinitialiserChamp() {
         if (entreeNomInscrit.getText().isBlank() && entreePrenomInscrit.getText().isBlank() && entreeDateNaissanceInscrit.getValue() == null && groupeBouton.getSelectedToggle() == null) {
-            entreePrenomInscrit.setStyle("-fx-border-color: #FD2528");
-            entreeNomInscrit.setStyle("-fx-border-color: #FD2528");
-            entreeDateNaissanceInscrit.setStyle("-fx-border-color:#FD2528");
-            boutonRestaurateur.setStyle("-fx-border-color: #FD2528");
-            boutonClient.setStyle("-fx-border-color: #FD2528");
-            boutonLivreur.setStyle("-fx-border-color: #FD2528");
+            entreePrenomInscrit.setStyle("-fx-border-color: #FD2528; -fx-border-radius: 5px; -fx-background-radius: 5px");
+            entreeNomInscrit.setStyle("-fx-border-color: #FD2528; -fx-border-radius: 5px; -fx-background-radius: 5px");
+            entreeDateNaissanceInscrit.setStyle("-fx-border-color:#FD2528; -fx-border-radius: 5px; -fx-background-radius: 5px");
+            boutonRestaurateur.setStyle("-fx-border-color: #FD2528; -fx-border-radius: 5px; -fx-background-radius: 5px");
+            boutonClient.setStyle("-fx-border-color: #FD2528; -fx-border-radius: 5px; -fx-background-radius: 5px");
+            boutonLivreur.setStyle("-fx-border-color: #FD2528; -fx-border-radius: 5px; -fx-background-radius: 5px");
             ClasseUtilitaire.afficherPopUp("Erreur", "Aucune donnée à réinitialiser", "Aucun champ n'est rempli.", Alert.AlertType.WARNING);
         } else {
             // Sinon, réinitialiser les champs uniquement si l'utilisateur confirme son choix
@@ -222,12 +225,12 @@ public class ControllerInscription implements Initializable {
                 entreeNomInscrit.clear();
                 entreeDateNaissanceInscrit.setValue(null);
                 groupeBouton.selectToggle(null);
-                entreePrenomInscrit.setStyle("-fx-border-color: #424242");
-                entreeNomInscrit.setStyle("-fx-border-color: #424242");
-                entreeDateNaissanceInscrit.setStyle("-fx-border-color: #424242");
-                boutonRestaurateur.setStyle("-fx-border-color: transparent");
-                boutonClient.setStyle("-fx-border-color: transparent");
-                boutonLivreur.setStyle("-fx-border-color: transparent");
+                entreePrenomInscrit.setStyle("-fx-border-color: #424242; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: #424242;");
+                entreeNomInscrit.setStyle("-fx-border-color: #424242; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: #424242;");
+                entreeDateNaissanceInscrit.setStyle("-fx-border-color: #424242; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: #424242;");
+                boutonRestaurateur.setStyle("-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-radius: 5px;");
+                boutonClient.setStyle("-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-radius: 5px;");
+                boutonLivreur.setStyle("-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-radius: 5px;");
             }
         }
     }
@@ -235,7 +238,7 @@ public class ControllerInscription implements Initializable {
 
 
     /*===================================================
-     * [] : Valider les champs avant de passer à la page suivante
+     * [5] : Valider les champs avant de passer à la page suivante
      *  et les sauvegarder pour la base de données
      * ==================================================*/
 
@@ -252,9 +255,7 @@ public class ControllerInscription implements Initializable {
             ClasseUtilitaire.afficherPopUp("Erreur", "Prénom incorrect", "Le prénom doit être alphabétique.", Alert.AlertType.ERROR);
             entreePrenomInscrit.setStyle("-fx-border-color: #FD2528");
             return;
-        }
-
-        else if (!(nom.matches("[a-zA-ZÀ-ÿ\\-' ]+"))) {
+        } else if (!(nom.matches("[a-zA-ZÀ-ÿ\\-' ]+"))) {
             ClasseUtilitaire.afficherPopUp("Erreur", "Nom incorrect", "Le nom doit être alphabétique.", Alert.AlertType.ERROR);
             entreeNomInscrit.setStyle("-fx-border-color: #FD2528");
             return;
@@ -279,12 +280,11 @@ public class ControllerInscription implements Initializable {
         //--------------------SAUVEGARDE TEMPORAIRE DES 3 DONNÉES-----------------------------------------
 
         else {
-        //Obtenez le type d'utilisateur en fonction de l'index du bouton sélectionné dans le ToggleGroup
+            //Obtenez le type d'utilisateur en fonction de l'index du bouton sélectionné dans le ToggleGroup
             TypeUtilisateur typeUtilisateurSelectionne = associerBoutonTypeUtilisateur();
 
             // Sauvegarde des 3 données et redirection vers la page correspondante au type choisi
             sauvegarderDonnees(prenom, nom, typeUtilisateurSelectionne, null, null);
-
 
 
             // Redirection vers la page suivante
@@ -306,7 +306,7 @@ public class ControllerInscription implements Initializable {
 
 
     /*===================================
-     * [] Méthode utilitaire : associer un bouton à un type d'utilisateur
+     * [6] Méthode utilitaire : associer un bouton à un type d'utilisateur
      * ===============================*/
     private TypeUtilisateur associerBoutonTypeUtilisateur() {
         RadioButton boutonSelectionne = (RadioButton) groupeBouton.getSelectedToggle();
@@ -329,7 +329,7 @@ public class ControllerInscription implements Initializable {
     }
 
     /*======================================================================
-     * [] Méthode utilitaire : Sauvegarde des données (nom, prénom et type d'utilisateur)
+     * [7] Méthode utilitaire : Sauvegarde des données (nom, prénom et type d'utilisateur)
      * ===================================================================*/
 
     private void sauvegarderDonnees(String nom, String prenom, TypeUtilisateur typeUtilisateur, String motDePasse, String adresseCourriel) {

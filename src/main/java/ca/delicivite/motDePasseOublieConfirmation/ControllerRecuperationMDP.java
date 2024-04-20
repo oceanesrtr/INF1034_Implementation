@@ -1,6 +1,14 @@
 package ca.delicivite.motDePasseOublieConfirmation;
 
-/*Classe ControllerProprietaire : gère les controlleurs de l'interface d'envoi d'e-mail
+/*
+INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe ControllerProprietaire : gère les controlleurs de l'interface d'envoi d'e-mail
  * de récupération de mot de passe*/
 
 
@@ -132,7 +140,7 @@ public class ControllerRecuperationMDP implements Initializable {
 
     /*=============================================================
      * [2] Méthodes pour les fonctionnalités du sous-menu Informations
-     * [2] Afficher la fenêtre d'information A propos
+     * [3] Afficher la fenêtre d'information A propos
      * ============================================================*/
     @FXML
     private void afficherPopupAPropos() {
@@ -169,7 +177,7 @@ public class ControllerRecuperationMDP implements Initializable {
 
     /*=======================================================
      * Méthodes pour le sous-menu Informations
-     *  [3] : Redirige vers le site JAVAFX
+     *  [4] : Redirige vers le site JAVAFX
      * =======================================================*/
     @FXML
     private void ouvrirGuideUtilisation(ActionEvent event) {
@@ -182,21 +190,21 @@ public class ControllerRecuperationMDP implements Initializable {
      * Méthodes pour changer la taille de la police
      * =============================================*/
 
-    //[4] : Petite
+    //[5] : Petite
     @FXML
     private void petitePolice() {
         Stage stage = (Stage) root.getScene().getWindow();
         ClasseUtilitaire.changerTaillePolice("/ca/delicivite/motDePasseOublieConfirmation/VueMDPOublieEmailValidePetite.fxml", stage);
     }
 
-    //[5] : Grande
+    //[6] : Grande
     @FXML
     private void grandePolice() {
         Stage stage = (Stage) root.getScene().getWindow();
         ClasseUtilitaire.changerTaillePolice("/ca/delicivite/motDePasseOublieConfirmation/VueMDPOublieEmailValideGrande.fxml", stage);
     }
 
-    //[6] : Moyenne
+    //[7] : Moyenne
     @FXML
     private void moyennePolice() {
         Stage stage = (Stage) root.getScene().getWindow();

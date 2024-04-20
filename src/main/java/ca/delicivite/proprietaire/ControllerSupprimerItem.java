@@ -1,5 +1,16 @@
 package ca.delicivite.proprietaire;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère la suppresion d'item du menu
+d'un restaurant*/
+
+
 import ca.delicivite.modele.ModeleItemMenu.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,14 +26,12 @@ import java.util.ResourceBundle;
 
 public class ControllerSupprimerItem implements Initializable {
 
-    // Choix de l'élément à supprimer
+
     @FXML
     private ChoiceBox<Item> item;
 
-    // Liste des items du menu
     private ObservableList<Item> items;
 
-    // Liste des items affichée
     @FXML
     private ListView<Item> listeItems;
 
@@ -30,7 +39,6 @@ public class ControllerSupprimerItem implements Initializable {
     [1] Constructeur de la classe
     * ========================================================================*/
     public ControllerSupprimerItem() {
-        // Récupération de la liste des items du menu
         items = DonneesItem.getItemsMenu();
     }
 
@@ -42,26 +50,17 @@ public class ControllerSupprimerItem implements Initializable {
         item.setItems(items);
     }
 
-    /*@FXML
-    public void initialize() {
-        // Attribution de la liste des items au choix
-        item.setItems(items);
-    }*/
 
     /*=========================================================================
     [3] Méthode pour supprimer un item
     * ========================================================================*/
     @FXML
     private void supprimerItem(ActionEvent event) {
-        // Récupération de l'item sélectionné
         Item selectedItem = item.getSelectionModel().getSelectedItem();
-        // Vérification si un item est sélectionné
+        // Si un item est sélectionné
         if (selectedItem != null) {
-            // Suppression de l'item de la liste
             items.remove(selectedItem);
-            // Mise à jour de la liste affichée
             item.setItems(items);
-            // Fermeture de la fenêtre
             fermer((Node) event.getSource());
         }
     }
@@ -70,7 +69,6 @@ public class ControllerSupprimerItem implements Initializable {
     * ========================================================================*/
     @FXML
     private void annuler(ActionEvent event) {
-        // Fermeture de la fenêtre
         fermer((Node) event.getSource());
     }
 
@@ -78,7 +76,6 @@ public class ControllerSupprimerItem implements Initializable {
     [5] Méthode pour fermer la fenêtre
     * ========================================================================*/
     private void fermer(Node element) {
-        // Récupération de la fenêtre parente et fermeture
         Stage stage = (Stage) element.getScene().getWindow();
         stage.close();
     }

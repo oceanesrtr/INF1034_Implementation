@@ -1,6 +1,15 @@
 package ca.delicivite.proprietaire;
 
-/*Classe controller : affiche les items des menus d'un restaurant dans une section de la page Menu*/
+/*
+
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+Classe controller : affiche les items des menus d'un restaurant dans une section de la page Menu*/
+
 import ca.delicivite.modele.ModeleItemMenu.*;
 
 import javafx.collections.ObservableList;
@@ -63,33 +72,6 @@ public class ControllerMenuMenu implements Initializable {
             }
         });
     }
-
-   /* public void initialize() {
-        // Configuration de la liste des items
-        listeItems.setItems(items);
-        // Ajout de la feuille de style pour la liste des items
-        listeItems.getStylesheets().add("/del/delicivite/Style/proprietaire.css");
-        // Définition de la cellule personnalisée pour la liste des items
-        listeItems.setCellFactory(new Callback<ListView<Item>, ListCell<Item>>() {
-            @Override
-            public ListCell<Item> call(ListView<Item> itemListView) {
-                return new ListCell<>() {
-                    @Override
-                    protected void updateItem(Item item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty || item == null) {
-                            setText(null);
-                            setGraphic(null);
-                        } else {
-                            // Affichage du nom et de la description de l'item
-                            setText("Nom de l'item: " + item.getNomItem() + ": \n" +
-                                    "Description:" + "\n" + item.getDescription());
-                        }
-                    }
-                };
-            }
-        });
-    }*/
 
 
 }

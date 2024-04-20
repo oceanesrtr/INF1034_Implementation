@@ -26,10 +26,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
-// Classe non implémentée
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère les commandes d'un restaurant  */
 public class ControllerCommande implements Initializable {
 
 
@@ -38,10 +44,10 @@ public class ControllerCommande implements Initializable {
     public StackPane contentArea;
     // Bouton de déconnexion
     @FXML
-    public Button buttonDeconnexion;
+    public Button boutonDeconnexion;
     // Bouton pour retourner a l'interface connexion
     @FXML
-    public Button buttonFilConnexion;
+    public Button boutonFilConnexion;
     // Bouton pour aller a l'interface propriétaire (Cela reset la page)
     @FXML
     public Button buttonProprio;
@@ -176,15 +182,15 @@ public class ControllerCommande implements Initializable {
     [11] Méthode pour gérer la demande de déconnexion dans le fil d'ariane
     * ========================================================================*/
     public void onConnexion() throws IOException {
-        buttonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
+        boutonDeconnexion.setStyle("-fx-background-color: #FFD324;-fx-text-fill: #424242;");
         if (ClasseUtilitaire.afficherPopUpConfirmation("Déconnexion", "Confirmation de déconnexion", "Êtes-vous sûr de vouloir vous déconnecter?")) {
             Parent root = FXMLLoader.load(getClass().getResource("/ca/delicivite/VueConnexionTailleMoyenne.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonFilConnexion.getScene().getWindow();
+            Stage stage = (Stage) boutonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
         }else{
-            buttonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
+            boutonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
 
 
         }
@@ -196,7 +202,7 @@ public class ControllerCommande implements Initializable {
 
     // Bouton cliqué précédemment
     @FXML
-    private Button lastClickedButton;
+    private Button dernierBoutonClique;
 
     /*=========================================================================
     [13] Méthode appelée lors du clic sur un bouton du menu pour appliquer une couleur plus sombre
@@ -206,14 +212,14 @@ public class ControllerCommande implements Initializable {
         Button clickedButton = (Button) event.getSource();
 
         // Retrait de l'element "clicked-button" au bouton
-        if (lastClickedButton != null) {
-            lastClickedButton.getStyleClass().remove("clicked-button");
+        if (dernierBoutonClique != null) {
+            dernierBoutonClique.getStyleClass().remove("clicked-button");
         }
 
         // Ajout de l'element "clicked-button" au bouton
         clickedButton.getStyleClass().add("clicked-button");
 
-        lastClickedButton = clickedButton;
+        dernierBoutonClique = clickedButton;
     }
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations

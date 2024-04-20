@@ -1,5 +1,13 @@
 package ca.delicivite.proprietaire;
 
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Controller de l'interface propriétaire : gère l'ajout d'item dans un menu d'un restaurant*/
 import ca.delicivite.modele.ModeleItemMenu.Item;
 import ca.delicivite.modele.ModeleItemMenu.DonneesItem;
 
@@ -18,6 +26,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class ControllerAjoutItem implements Initializable {
 

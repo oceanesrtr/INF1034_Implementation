@@ -1,4 +1,11 @@
-/*Classe Modèle : gère les entrées utilisateurs via le modèle patron-observateur*/
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Modèle : gère les entrées utilisateurs via le modèle patron-observateur*/
 
 package ca.delicivite.patronObservateur;
 

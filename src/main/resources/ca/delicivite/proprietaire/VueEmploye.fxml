@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--fxml de l'interface proprietaire : section employe-->
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -14,7 +14,7 @@
     <stylesheets>
         <URL value="@proprietaire.css" />
     </stylesheets>
-
+    <!--[1] : Barre de menu -->
     <top>
         <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
             <cursor>
@@ -93,19 +93,10 @@
         </MenuBar>
     </top>
 
-    <!--    <center>
-            <AnchorPane prefHeight="900.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
-                <children>
-                    <StackPane fx:id="contentArea" prefHeight="900.0" prefWidth="1100.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
-                </children>
-
-
-            </AnchorPane>
-        </center>-->
-
+    <!--[2] Zone de travail et barre latérale gauche -->
     <right>
         <Pane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0">
-            <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.03">
+            <ImageView fitHeight="549.0" fitWidth="728.0" layoutX="263.0" layoutY="-2.0" opacity="0.05">
                 <Image url="@/images/PatternNourriture.jpeg" />
             </ImageView>
             <Label layoutX="413.0" layoutY="399.0" text="Nous sommes en processus de développement. À bientôt !" textFill="black" />
@@ -121,7 +112,6 @@
             </ImageView>
         </Pane>
     </right>
-
     <left>
         <Pane maxHeight="548.0" prefHeight="548.0" prefWidth="263.0" BorderPane.alignment="CENTER">
             <VBox maxHeight="549.0" maxWidth="263.0" prefHeight="549.0" prefWidth="263.0" style="-fx-background-color: #94DAE5;">
@@ -173,7 +163,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button fx:id="boutonEmploye" maxWidth="263.0" mnemonicParsing="false" onAction="#employes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #FFD324;" styleClass="buttonMonCommerce" stylesheets="@proprietaire.css" text="Employés" textFill="#424242">
+                <Button fx:id="boutonEmploye" maxWidth="263.0" mnemonicParsing="false" onAction="#employes" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: #FFD324;" styleClass="boutonMonCommerce" stylesheets="@proprietaire.css" text="Employés" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -189,7 +179,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </Button>
-                <Button fx:id="buttonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242">
+                <Button fx:id="boutonDeconnexion" maxWidth="263.0" mnemonicParsing="false" onAction="#onConnexion" prefHeight="62.0" prefWidth="263.0" styleClass="boutonHover" stylesheets="@proprietaire.css" text="Déconnexion" textFill="#424242">
                     <font>
                         <Font name="Lexend Light" size="12.0" />
                     </font>
@@ -200,7 +190,7 @@
             </VBox>
         </Pane>
     </left>
-
+    <!--[3] Barre d'état et fil d'Ariane -->
     <bottom>
         <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
             <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
@@ -211,7 +201,7 @@
             </Text>
 
             <HBox alignment="CENTER_RIGHT" spacing="-15">
-                <Button fx:id="buttonFilConnexion" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                <Button fx:id="boutonFilConnexion" onAction="#onConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

@@ -142,7 +142,7 @@ Taille de police : grande -->
                             </HBox.margin>
                         </AnchorPane>
                         <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
-                            <ImageView fitHeight="550.0" fitWidth="734.0" layoutY="-3.0" opacity="0.03">
+                            <ImageView fitHeight="550.0" fitWidth="734.0" layoutY="-3.0" opacity="0.05">
                                 <image>
                                     <Image url="@/images/PatternNourriture.jpeg" />
                                 </image>

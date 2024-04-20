@@ -1,6 +1,6 @@
 /*Fichier CSS
- Interface : Connexion
- FXML : VueConnexionTailleMoyenne */
+ Interface : Inscription
+ FXML : VueInscriptionFinP4 */
 
 
 #titreInscription {
@@ -10,7 +10,7 @@
 }
 
 
-#copyrightMention, #buttonFilConnexion, #boutonFilArianeEmploye{
+#copyrightMention, #boutonFilConnexion, #boutonFilArianeEmploye{
     -fx-font-family: "Lexend Light";
     -fx-font-size: 12px;
     -fx-text-fill: #424242;
@@ -36,7 +36,7 @@
 
 }
 
-#buttonFilConnexion:hover, #boutonFilArianeEmploye:hover {
+#boutonFilConnexion:hover, #boutonFilArianeEmploye:hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
 

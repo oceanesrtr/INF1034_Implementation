@@ -1,15 +1,23 @@
 package ca.delicivite.modele.ModeleItemMenu;
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe Modele : modélise les données concernant les item (produits affichés au menu)*/
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-// Classe contenant les données des items du menu
+
 public class DonneesItem {
 
-    // Liste représentant les items du menu
+    // Items du menu
     private static ObservableList<Item> items;
 
-    // Liste représentant les groupes du menu
+    //groupes du menu
     private static ObservableList<String> groupes;
 
     /*=========================================================================
@@ -42,7 +50,7 @@ public class DonneesItem {
     }
 
     /*=========================================================================
-    [2] Méthode pour obtenir la liste des groupes du menu
+    [3] Méthode pour obtenir la liste des groupes du menu
     * ========================================================================*/
     public static ObservableList<String> getGroupes() {
         if (groupes == null) {

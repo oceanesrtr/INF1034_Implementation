@@ -39,8 +39,8 @@ module ca.delicivite {
     exports ca.delicivite.patronObservateur;
     opens ca.delicivite.patronObservateur to javafx.fxml;
 
-    exports ca.delicivite.clientConnecteAccueil;
-    opens ca.delicivite.clientConnecteAccueil to javafx.fxml;
+    exports ca.delicivite.accueilAutresUtilisateurs;
+    opens ca.delicivite.accueilAutresUtilisateurs to javafx.fxml;
 
     exports ca.delicivite.proprietaire;
     opens ca.delicivite.proprietaire to javafx.fxml;

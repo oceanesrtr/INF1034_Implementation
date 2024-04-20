@@ -1,5 +1,8 @@
+/*Fichier CSS
+ Interface : Inscription
+ FXML : Tous les fichiers FXML du package proprietaire*/
 
-.buttonMonCommerce {
+.boutonMonCommerce {
     -fx-text-fill: #424242;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -36,7 +39,7 @@
 }
 
 /*Boutons de : section Ajout Item, section ApercuMenu*/
-.buttonAction {
+.boutonAction {
     -fx-text-fill: #424242;
     -fx-font-family: "Lexend Deca Light";
     -fx-cursor: hand;
@@ -48,17 +51,17 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
 }
 
-.buttonAction:hover {
+.boutonAction:hover {
     -fx-background-color: #FFE50D;
 }
 
-#copyrightMention, #boutonFilArianeEmploye, #buttonFilConnexion {
+#copyrightMention, #boutonFilArianeEmploye, #boutonFilConnexion {
     -fx-font-family: "Lexend Light";
     -fx-font-size: 12px;
     -fx-text-fill: #424242;
 }
 
-#boutonFilArianeEmploye:hover, #buttonFilConnexion :hover {
+#boutonFilArianeEmploye:hover, #boutonFilConnexion :hover {
     -fx-text-fill: black;
     -fx-cursor: HAND;
 }
@@ -94,7 +97,4 @@
     -fx-text-fill: #424242;
 }
 
-.Button, .TextField, .ChoiceBox {
-    -fx-border-radius: 5px;
-}
 

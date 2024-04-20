@@ -1,6 +1,13 @@
 package ca.delicivite.motDePasseOublie;
 
-/*Classe controller : gère les ControllerProprietaire de l'interface de récupération de mot de passe oublié*/
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe controller : gère les ControllerProprietaire de l'interface de récupération de mot de passe oublié*/
 
 import ca.delicivite.modele.ModeleUtilisateur;
 import ca.delicivite.outils.ClasseUtilitaire;
@@ -18,7 +25,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -133,7 +139,6 @@ public class ControllerMDPOublie implements Initializable {
         });
 
 
-
         // [f] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
@@ -160,8 +165,6 @@ public class ControllerMDPOublie implements Initializable {
             }
         });
     }
-
-
 
 
     /*=============================================================
@@ -218,9 +221,9 @@ public class ControllerMDPOublie implements Initializable {
     protected void annulerEntree() {
         if (champMailMDPOublie.getText().isBlank()) {
             afficherPopUp("Erreur", "Erreur lors de l'annulation", "Veuillez remplir au moins un champ avant d'annuler la connexion.", Alert.AlertType.WARNING);
-            champMailMDPOublie.setStyle("-fx-border-color: #FD2528;");
+            champMailMDPOublie.setStyle("-fx-border-color: #FD2528;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #FD2528;");
         } else {
-            champMailMDPOublie.setStyle("-fx-border-color: #424242;");
+            champMailMDPOublie.setStyle("-fx-border-color: #424242;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #424242;");
             if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Confirmation d'annulation", "Êtes-vous sûrs de vouloir annuler cette action ?"))
                 champMailMDPOublie.clear();
         }
@@ -282,11 +285,13 @@ public class ControllerMDPOublie implements Initializable {
     private void envoyerMail(ActionEvent actionEvent) {
         if (champMailMDPOublie.getText().isBlank()) {
             afficherPopUp("Erreur", "Erreur d'entrée", "Veuillez fournir votre courriel identifiant.", Alert.AlertType.WARNING);
-            champMailMDPOublie.setStyle("-fx-border-color: #FD2528;");
+            champMailMDPOublie.setStyle("-fx-border-color: #FD2528;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #FD2528;");
         } else {
-            champMailMDPOublie.setStyle("-fx-border-color: #424242;");
+            champMailMDPOublie.setStyle("-fx-border-color: #424242;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #424242;");
             if (afficherPopUpConfirmation("Confirmation", "Confirmation d'adresse courriel", "Confirmez-vous votre adresse-courriel ?")) {
                 ModeleUtilisateur.verifierEmailMotDePasseOublie(actionEvent, champMailMDPOublie.getText());
+                champMailMDPOublie.setStyle("-fx-border-color: #424242;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #424242;");
+
             }
         }
     }

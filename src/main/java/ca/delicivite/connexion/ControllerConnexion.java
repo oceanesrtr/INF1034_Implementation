@@ -1,6 +1,13 @@
 package ca.delicivite.connexion;
 
-/*Classe controller : s'occupe des controller de la page Connexion */
+/*INF1034 - Devoir de fin de session hiver 2024
+Implémentation du système Delicivite par
+Océane RAKOTOARISOA
+Julien Desrosiers
+Lily Occhibelli
+Ce : 23 avril 2024
+
+Classe controller : s'occupe des controller de la page Connexion */
 
 import ca.delicivite.modele.ModeleUtilisateur;
 import ca.delicivite.outils.ClasseUtilitaire;
@@ -134,8 +141,6 @@ public class ControllerConnexion implements Initializable {
     private ModeleEntree modeleEntreeMotDePasse = new ModeleEntree();
 
 
-
-
     /*=========================================================================
     [1] Initialize au démarrage de la scène
     * ========================================================================*/
@@ -145,9 +150,8 @@ public class ControllerConnexion implements Initializable {
         //[a] Redirection vers les pages adéquates selon les boutons cliqués
         boutonSeConnecter.setOnAction(actionEvent -> ModeleUtilisateur.clientSeConnecte(actionEvent, entreeCourriel.getText().trim(), motDePasseCache.getText().trim()));
 
-        //TODO : Créer les pages non faîtes inscription et accueil pour non-connecté
         boutonInscription.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Inscription", null));
-        boutonAccueil.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/clientConnecteAccueil/VueClientConnecteAccueil.fxml", "ControllerAccueil", null));
+        boutonAccueil.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/accueilAutresUtilisateurs/VueClientConnecteAccueil.fxml", "ControllerAccueil", null));
 
         boutonMotDePasseOublie.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/motDePasseOublie/VueMDPOublieMoyenne.fxml", "Mot de passe oublié", null));
 
@@ -217,12 +221,12 @@ public class ControllerConnexion implements Initializable {
         if (entreeCourriel.getText().isBlank() || motDePasseCache.getText().isBlank()) {
             afficherPopUp("Erreur", "Erreur lors de l'annulation de la connexion", "Veuillez remplir au moins un champ avant d'annuler la connexion.", Alert.AlertType.WARNING);
             // Mettre en rouge la bordure du champ vide
-            if (entreeCourriel.getText().isBlank()) entreeCourriel.setStyle("-fx-border-color: #FD2528;");
-            if (motDePasseCache.getText().isBlank()) motDePasseCache.setStyle("-fx-border-color: #FD2528;");
+            if (entreeCourriel.getText().isBlank()) entreeCourriel.setStyle(" -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #FD2528;");
+            if (motDePasseCache.getText().isBlank()) motDePasseCache.setStyle("-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #FD2528;");
 
         } else {
-            entreeCourriel.setStyle("-fx-border-color: #424242;");
-            motDePasseCache.setStyle("-fx-border-color: #424242;");
+            entreeCourriel.setStyle("-fx-border-color: #424242;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #424242;");
+            motDePasseCache.setStyle("-fx-border-color: #424242;-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #424242;");
             //Si l'utilisateur confirme son choix :
             if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Confirmation d'annulation", "Êtes-vous sûrs de vouloir annuler cette action ?")) {
                 entreeCourriel.clear();
@@ -240,12 +244,14 @@ public class ControllerConnexion implements Initializable {
             if (boutonRevelerMdp.isSelected()) {
                 motDePasseRevele.setText(motDePasseCache.getText());
                 motDePasseRevele.setOpacity(1);
+                motDePasseRevele.setStyle(" -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #424242; -fx-background-color: #FBFAFF");
                 motDePasseCache.setOpacity(0);
                 oeilOuvert.setOpacity(0);
                 oeilFerme.setOpacity(1);
             }
         } else if (oeilOuvert.getOpacity() == 0 && oeilFerme.getOpacity() == 1) {
             motDePasseRevele.setOpacity(0);
+            motDePasseRevele.setStyle(" -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #424242; -fx-background-color: #FBFAFF");
             motDePasseCache.setOpacity(1);
             oeilOuvert.setOpacity(1);
             oeilFerme.setOpacity(0);

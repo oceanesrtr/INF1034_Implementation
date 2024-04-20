@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--fxml de l'interface d'inscription générale-->
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -9,61 +10,66 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="root" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.inscription.ControllerInscription">
+<BorderPane fx:id="root" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0"
+            prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ca.delicivite.inscription.ControllerInscription">
 
     <!--   Lien avec le fichier CSS correspondant-->
     <stylesheets>
-        <URL value="@inscription.css" />
+        <URL value="@inscription.css"/>
     </stylesheets>
 
+    <!--[1] : Barre de menu -->
+
     <top>
-        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
+        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;"
+                 BorderPane.alignment="CENTER">
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
             <opaqueInsets>
-                <Insets />
+                <Insets/>
             </opaqueInsets>
             <BorderPane.margin>
-                <Insets left="-4.0" right="-4.0" />
+                <Insets left="-4.0" right="-4.0"/>
             </BorderPane.margin>
             <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Annuler" />
-                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z" />
+                            <Label style="-fx-text-fill: black;" text="Annuler"/>
+                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z"/>
                         </HBox>
                     </graphic>
                 </MenuItem>
                 <MenuItem fx:id="stRefaireAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Refaire" />
-                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y" />
+                            <Label style="-fx-text-fill: black;" text="Refaire"/>
+                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y"/>
                         </HBox>
                     </graphic>
                 </MenuItem>
                 <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Quitter" />
-                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q" />
+                            <Label style="-fx-text-fill: black;" text="Quitter"/>
+                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q"/>
                         </HBox>
                     </graphic>
                 </MenuItem>
             </Menu>
             <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
-                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
-                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre"/>
+                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair"/>
             </Menu>
             <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Petite" />
-                                <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
+                                <Label style="-fx-text-fill: black;" text="Petite"/>
+                                <Label style="-fx-text-fill: gray;" text="      Ctrl -"/>
                             </HBox>
                         </graphic>
                     </MenuItem>
@@ -71,8 +77,8 @@
                     <MenuItem fx:id="moyenneTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Moyenne" />
-                                <Label style="-fx-text-fill: gray;" text="Ctrl 0" />
+                                <Label style="-fx-text-fill: black;" text="Moyenne"/>
+                                <Label style="-fx-text-fill: gray;" text="Ctrl 0"/>
                             </HBox>
                         </graphic>
                     </MenuItem>
@@ -80,200 +86,247 @@
                     <MenuItem fx:id="grandeTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Grand" />
-                                <Label style="-fx-text-fill: gray;" text="     Ctrl +" />
+                                <Label style="-fx-text-fill: black;" text="Grand"/>
+                                <Label style="-fx-text-fill: gray;" text="     Ctrl +"/>
                             </HBox>
                         </graphic>
                     </MenuItem>
                 </Menu>
             </Menu>
             <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
-                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
+                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos"/>
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation"
+                          text="Guide d'utilisation"/>
             </Menu>
         </MenuBar>
     </top>
 
-    <!--[3] Zone de travail et barre latérale gauche -->
+    <!--[2] Zone de travail et barre latérale gauche -->
     <center>
-        <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-            <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
-                <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
+        <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0"
+                    BorderPane.alignment="CENTER">
+            <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0"
+                  prefWidth="885.0">
+                <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0"
+                            prefWidth="885.0">
                     <HBox alignment="CENTER" maxWidth="885.0" opacity="0.83" prefHeight="549.0" prefWidth="885.0">
-                        <AnchorPane maxHeight="635.0" maxWidth="263.0" minHeight="635.0" minWidth="263.0" prefHeight="635.0" prefWidth="263.0">
-                     <children>
-                        <ImageView fitHeight="544.0" fitWidth="271.0" layoutX="-2.0" preserveRatio="true">
-                           <image>
-                              <Image url="@/images/banniereMoyenne.png" />
-                           </image>
-                        </ImageView>
-                     </children>
+                        <AnchorPane maxHeight="635.0" maxWidth="263.0" minHeight="635.0" minWidth="263.0"
+                                    prefHeight="635.0" prefWidth="263.0">
+                            <children>
+                                <ImageView fitHeight="544.0" fitWidth="271.0" layoutX="-2.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/banniereMoyenne.png"/>
+                                    </image>
+                                </ImageView>
+                            </children>
                         </AnchorPane>
-                        <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
-                            <ImageView fitHeight="552.0" fitWidth="736.0" layoutX="-1.0" opacity="0.03" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@/images/PatternNourriture.jpeg" />
+                        <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0"
+                                    style="-fx-background-color: #FFFF;">
+                            <ImageView fitHeight="552.0" fitWidth="736.0" layoutX="-1.0" opacity="0.05"
+                                       pickOnBounds="true" preserveRatio="true">
+                                <Image url="@/images/PatternNourriture.jpeg"/>
                             </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
-                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="0.25" style="-fx-accent: #F44322; -fx-box-border: #F44322;">
+                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0"
+                                                 progress="0.25" style="-fx-accent: #F44322; -fx-box-border: #F44322;">
                                         <cursor>
-                                            <Cursor fx:constant="DEFAULT" />
+                                            <Cursor fx:constant="DEFAULT"/>
                                         </cursor>
                                     </ProgressBar>
                                     <Group layoutX="127.0" layoutY="5.0">
-                                        <Circle fill="#f44322" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                        <Text fill="WHITE" layoutX="-7.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                        <Circle fill="#f44322" radius="18.0" stroke="BLACK" strokeType="INSIDE"
+                                                strokeWidth="0.0"/>
+                                        <Text fill="WHITE" layoutX="-7.0" layoutY="9.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="1">
                                             <font>
-                                                <Font name="Lexend Deca Regular" size="25.0" />
+                                                <Font name="Lexend Deca Regular" size="25.0"/>
                                             </font>
                                         </Text>
                                     </Group>
                                     <Group layoutX="300.0" layoutY="5.0">
-                                        <Circle fill="WHITE" layoutX="-10.0" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
-                                        <Text fill="#f44322" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+                                        <Circle fill="WHITE" layoutX="-10.0" radius="18.0" stroke="#f44322"
+                                                strokeType="INSIDE"/>
+                                        <Text fill="#f44322" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="2">
                                             <font>
-                                                <Font name="Lexend Deca Regular" size="25.0" />
+                                                <Font name="Lexend Deca Regular" size="25.0"/>
                                             </font>
                                         </Text>
                                     </Group>
                                     <Group layoutX="453.0" layoutY="5.0">
-                                        <Circle fill="WHITE" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
-                                        <Text fill="#f44322" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                                        <Circle fill="WHITE" radius="18.0" stroke="#f44322" strokeType="INSIDE"/>
+                                        <Text fill="#f44322" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="3">
                                             <font>
-                                                <Font name="Lexend Deca Regular" size="25.0" />
+                                                <Font name="Lexend Deca Regular" size="25.0"/>
                                             </font>
                                         </Text>
                                     </Group>
                                 </children>
                             </Group>
-                            <Text fx:id="titreInscription" fill="#424242" layoutX="223.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscrivez-vous !">
+                            <Text fx:id="titreInscription" fill="#424242" layoutX="223.0" layoutY="96.0"
+                                  strokeType="OUTSIDE" strokeWidth="0.0" text="Inscrivez-vous !">
                                 <font>
-                                    <Font name="Lexend Deca SemiBold" size="25.0" />
+                                    <Font name="Lexend Deca SemiBold" size="25.0"/>
                                 </font>
                             </Text>
-                            <TextField fx:id="entreePrenomInscrit" alignment="CENTER" layoutX="177.0" layoutY="118.0" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Votre prénom" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
+                            <TextField fx:id="entreePrenomInscrit" alignment="CENTER" layoutX="177.0" layoutY="118.0"
+                                       maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
+                                       promptText="Votre prénom"
+                                       style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                 <font>
-                                    <Font name="Lexend Light" />
+                                    <Font name="Lexend Light"/>
                                 </font>
                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                 </padding>
                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
+                                    <Cursor fx:constant="TEXT"/>
                                 </cursor>
                             </TextField>
-                            <TextField fx:id="entreeNomInscrit" alignment="CENTER" layoutX="177.0" layoutY="174.0" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Votre nom" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
+                            <TextField fx:id="entreeNomInscrit" alignment="CENTER" layoutX="177.0" layoutY="174.0"
+                                       maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
+                                       promptText="Votre nom"
+                                       style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                 <font>
-                                    <Font name="Lexend Light" />
+                                    <Font name="Lexend Light"/>
                                 </font>
                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                 </padding>
                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
+                                    <Cursor fx:constant="TEXT"/>
                                 </cursor>
                             </TextField>
-                            <DatePicker fx:id="entreeDateNaissanceInscrit" layoutX="177.0" layoutY="229.0" prefHeight="33.0" prefWidth="283.0" promptText="Votre date de naissance" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;" />
-                     <Group layoutX="41.0" layoutY="434.0">
-                        <children>
-                                  
-                                      <RadioButton fx:id="boutonClient" contentDisplay="RIGHT" ellipsisString="" layoutX="430.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="2.0" text="   " textFill="#424242">
-                                          <font>
-                                              <Font name="Lexend Light" size="12.0" />
-                                          </font>
-                              <toggleGroup>
-                                 <ToggleGroup fx:id="groupeBouton" />
-                              </toggleGroup>
-                                      </RadioButton>
-      
-                                      <RadioButton fx:id="boutonRestaurateur" contentDisplay="RIGHT" ellipsisString="" layoutX="51.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="2.0" text="   " textFill="#424242" toggleGroup="$groupeBouton">
-                                          <font>
-                                              <Font name="Lexend Light" size="12.0" />
-                                          </font>
-                                      </RadioButton>
+                            <DatePicker fx:id="entreeDateNaissanceInscrit" layoutX="177.0" layoutY="229.0"
+                                        prefHeight="33.0" prefWidth="283.0" promptText="Votre date de naissance"
+                                        style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;"/>
+                            <Group layoutX="41.0" layoutY="434.0">
+                                <children>
 
-                                      <RadioButton fx:id="boutonLivreur" contentDisplay="RIGHT" ellipsisString="" layoutX="252.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="2.0" text="   " textFill="#424242" toggleGroup="$groupeBouton">
-                                          <font>
-                                              <Font name="Lexend Light" size="12.0" />
-                                          </font>
-                                      </RadioButton>
-      
-      
-                                  <Text layoutX="72.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client">
-                                      <font>
-                                          <Font name="Lexend Light" size="14.0" />
-                                      </font>
-                                  </Text>
+                                    <RadioButton fx:id="boutonClient" contentDisplay="RIGHT" ellipsisString=""
+                                                 layoutX="430.0" layoutY="10.0" mnemonicParsing="false"
+                                                 prefHeight="30.0" prefWidth="2.0" text="   " textFill="#424242">
+                                        <font>
+                                            <Font name="Lexend Light" size="12.0"/>
+                                        </font>
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="groupeBouton"/>
+                                        </toggleGroup>
+                                    </RadioButton>
 
-                        </children>
-                     </Group>
-                            <Text fx:id="sousTitre" fill="#424242" layoutX="226.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qui êtes-vous?">
+                                    <RadioButton fx:id="boutonRestaurateur" contentDisplay="RIGHT" ellipsisString=""
+                                                 layoutX="51.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0"
+                                                 prefWidth="2.0" text="   " textFill="#424242"
+                                                 toggleGroup="$groupeBouton">
+                                        <font>
+                                            <Font name="Lexend Light" size="12.0"/>
+                                        </font>
+                                    </RadioButton>
+
+                                    <RadioButton fx:id="boutonLivreur" contentDisplay="RIGHT" ellipsisString=""
+                                                 layoutX="252.0" layoutY="10.0" mnemonicParsing="false"
+                                                 prefHeight="30.0" prefWidth="2.0" text="   " textFill="#424242"
+                                                 toggleGroup="$groupeBouton">
+                                        <font>
+                                            <Font name="Lexend Light" size="12.0"/>
+                                        </font>
+                                    </RadioButton>
+
+
+                                    <Text layoutX="72.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                          text="Client">
+                                        <font>
+                                            <Font name="Lexend Light" size="14.0"/>
+                                        </font>
+                                    </Text>
+
+                                </children>
+                            </Group>
+                            <Text fx:id="sousTitre" fill="#424242" layoutX="226.0" layoutY="311.0" strokeType="OUTSIDE"
+                                  strokeWidth="0.0" text="Qui êtes-vous?">
                                 <font>
-                                    <Font name="Lexend Deca SemiBold" size="20.0" />
+                                    <Font name="Lexend Deca SemiBold" size="20.0"/>
                                 </font>
                             </Text>
                             <Text layoutX="320.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Livreur">
                                 <font>
-                                    <Font name="Lexend Light" size="14.0" />
+                                    <Font name="Lexend Light" size="14.0"/>
                                 </font>
                             </Text>
-                            <Text layoutX="490.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurateur">
+                            <Text layoutX="490.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="Restaurateur">
                                 <font>
-                                    <Font name="Lexend Light" size="14.0" />
+                                    <Font name="Lexend Light" size="14.0"/>
                                 </font>
                             </Text>
                             <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="283.0" spacing="10.0">
                                 <children>
-                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" text="Réinitialiser" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER"
+                                            graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0"
+                                            prefWidth="100.0" text="Réinitialiser" textAlignment="CENTER"
+                                            textFill="#424242" wrapText="true">
                                         <font>
-                                            <Font name="Lexend Light" />
+                                            <Font name="Lexend Light"/>
                                         </font>
                                         <opaqueInsets>
-                                            <Insets />
+                                            <Insets/>
                                         </opaqueInsets>
                                         <cursor>
-                                            <Cursor fx:constant="HAND" />
+                                            <Cursor fx:constant="HAND"/>
                                         </cursor>
                                     </Button>
-                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onAction="#validationChamp" prefHeight="30.0" prefWidth="100.0" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER"
+                                            graphicTextGap="2.0" onAction="#validationChamp" prefHeight="30.0"
+                                            prefWidth="100.0" text="Suivant" textAlignment="CENTER" textFill="#424242"
+                                            wrapText="true">
                                         <font>
-                                            <Font name="Lexend Light" />
+                                            <Font name="Lexend Light"/>
                                         </font>
                                         <opaqueInsets>
-                                            <Insets />
+                                            <Insets/>
                                         </opaqueInsets>
                                         <cursor>
-                                            <Cursor fx:constant="HAND" />
+                                            <Cursor fx:constant="HAND"/>
                                         </cursor>
                                     </Button>
                                 </children>
                             </HBox>
 
-                            <Line endX="433.00006103515625" layoutX="173.0" layoutY="279.0" opacity="0.23" startX="-131.6666717529297" />
-                            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0" prefWidth="100.0" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
+                            <Line endX="433.00006103515625" layoutX="173.0" layoutY="279.0" opacity="0.23"
+                                  startX="-131.6666717529297"/>
+                            <Button fx:id="boutonRetourConnexion" alignment="CENTER" contentDisplay="CENTER"
+                                    graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0"
+                                    prefWidth="100.0" text="Précédent" textAlignment="CENTER" textFill="#424242"
+                                    wrapText="true">
                                 <font>
-                                    <Font name="Lexend Light" />
+                                    <Font name="Lexend Light"/>
                                 </font>
                                 <opaqueInsets>
-                                    <Insets />
+                                    <Insets/>
                                 </opaqueInsets>
                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="HAND"/>
                                 </cursor>
                             </Button>
-                            <ImageView fitHeight="108.0" fitWidth="108.0" layoutX="469.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="108.0" fitWidth="108.0" layoutX="469.0" layoutY="333.0"
+                                       pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@/images/restaurantIcone2.jpeg" />
+                                    <Image url="@/images/restaurantIcone2.jpeg"/>
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="imageLivreur" fitHeight="108.0" fitWidth="108.0" layoutX="279.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 5;">
+                            <ImageView fx:id="imageLivreur" fitHeight="108.0" fitWidth="108.0" layoutX="279.0"
+                                       layoutY="332.0" pickOnBounds="true" preserveRatio="true"
+                                       style="-fx-border-radius: 5;">
                                 <image>
-                                    <Image url="@/images/livreurIcone2.jpg" />
+                                    <Image url="@/images/livreurIcone2.jpg"/>
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="imageClient" fitHeight="108.0" fitWidth="115.0" layoutX="61.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imageClient" fitHeight="108.0" fitWidth="115.0" layoutX="61.0"
+                                       layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@/images/clientIcone2.jpeg" />
+                                    <Image url="@/images/clientIcone2.jpeg"/>
                                 </image>
                             </ImageView>
                         </AnchorPane>
@@ -283,30 +336,36 @@
         </ScrollPane>
     </center>
 
+    <!--[3] Barre d'état et fil d'Ariane -->
     <bottom>
-        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
-            <Text fx:id="copyrightMention" fill="#424242" layoutX="695.0" layoutY="17.0" strokeWidth="0.0" text="© Copyright - Tous droits réservés">
+        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;"
+              BorderPane.alignment="CENTER">
+            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0"
+                       stroke="#c5c5c5" strokeType="INSIDE" width="907.0"/>
+            <Text fx:id="copyrightMention" fill="#424242" layoutX="695.0" layoutY="17.0" strokeWidth="0.0"
+                  text="© Copyright - Tous droits réservés">
                 <font>
-                    <Font name="Lexend Light" />
+                    <Font name="Lexend Light"/>
                 </font>
             </Text>
 
             <HBox alignment="CENTER_RIGHT" spacing="-15">
-                <Button fx:id="buttonFilConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
+                <Button fx:id="boutonFilConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;"
+                        textFill="#424242">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <font>
-                        <Font name="Lexend Light" size="12.0" />
+                        <Font name="Lexend Light" size="12.0"/>
                     </font>
                 </Button>
-                <Button fx:id="boutonFilArianeEmploye" layoutX="10.0" layoutY="10.0" style="-fx-background-color: transparent;" text="Inscription" textFill="#424242">
+                <Button fx:id="boutonFilArianeEmploye" layoutX="10.0" layoutY="10.0"
+                        style="-fx-background-color: transparent;" text="Inscription" textFill="#424242">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <font>
-                        <Font name="Lexend Light" size="12.0" />
+                        <Font name="Lexend Light" size="12.0"/>
                     </font>
                 </Button>
             </HBox>
