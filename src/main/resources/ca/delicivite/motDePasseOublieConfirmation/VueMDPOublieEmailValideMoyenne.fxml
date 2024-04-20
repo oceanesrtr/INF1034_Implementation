@@ -151,7 +151,7 @@ Taille de police : moyenne-->
                <Image url="@/images/PatternNourriture.jpeg" />
             </image>
          </ImageView>
-            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="234.0" layoutY="206.0" prefHeight="63.0" prefWidth="453.0" text="Vérifiez votre boîte de réception !" wrapText="true">
+            <Label fx:id="titreMDPOUblie" ellipsisString="" layoutX="234.0" layoutY="215.0" prefHeight="63.0" prefWidth="453.0" text="Vérifiez votre boîte de réception !" wrapText="true">
                 <font>
                     <Font name="Lexend Deca SemiBold" size="28.0" />
                 </font>
