@@ -8,6 +8,7 @@ Lily Occhibelli
 Ce : 23 avril 2024
 
 Classe Controller de l'interface propriétaire : gère l'ajout d'item dans un menu d'un restaurant*/
+
 import ca.delicivite.modele.ModeleItemMenu.Item;
 import ca.delicivite.modele.ModeleItemMenu.DonneesItem;
 
@@ -63,17 +64,11 @@ public class ControllerAjoutItem implements Initializable {
 
     }
 
-   /* @FXML
-    public void initialize() {
-        groupe.setItems(listeGroupes);
-    }*/
-
     /*=========================================================================
     [3] Méthode pour ajouter un nouvel item
     * ========================================================================*/
     @FXML
     private void ajouter(ActionEvent event) {
-
         // Récupération des valeurs des champs
         String nom = nomItem.getText().trim();
         String groupeSelectionne = groupe.getValue(); // Pas besoin de cast car ChoiceBox est désormais paramétré avec String
@@ -81,23 +76,24 @@ public class ControllerAjoutItem implements Initializable {
 
         // Vérification que les champs soient belle et bien remplis
         if (!nom.isEmpty() && !groupeSelectionne.equals("Choisissez un groupe") && !descriptionTexte.isEmpty()) {
-            // Ajout du nouvel item à la liste
-            items.add(new Item(nom, groupeSelectionne, descriptionTexte));
-            // Fermeture de la fenêtre
-            fermer((Node) event.getSource());
+            if(ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Ajout de l'item dans le menu", "Voulez-vous vraiment ajouter cet item ?")){
+                nomItem.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #424242");
+                description.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #424242");
+                groupe.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #424242");
+                // Ajout du nouvel item à la liste
+                items.add(new Item(nom, groupeSelectionne, descriptionTexte));
+                // Affichage de la confirmation
+                ClasseUtilitaire.afficherPopUp("Succès", "Opération réussie", "L'item' a été ajouté avec succès.", Alert.AlertType.INFORMATION);
+                // Fermeture de la fenêtre
+                fermer((Node) event.getSource());
+            }
+
         } else {
-        // Affichage du message d'erreur
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText("Champs incomplets");
-            alert.setContentText("Veuillez remplir tous les champs.");
-
-            // Positionnement du popup au-dessus du popup d'ajout d'items
-            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.initOwner(((Node) event.getSource()).getScene().getWindow());
-            stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
-
-            alert.showAndWait();
+            // Affichage du message d'erreur
+            ClasseUtilitaire.afficherPopUp("Erreur", "Champs incomplets", "Veuillez remplir tous les champs", Alert.AlertType.ERROR);
+            if(nomItem.getText().isBlank()) nomItem.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #F44322");
+            else if(description.getText().isBlank())  description.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #F44322");
+            else if (groupeSelectionne.isBlank() || groupeSelectionne.equals("Choisissez un groupe")) groupe.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #F44322");
         }
     }
 

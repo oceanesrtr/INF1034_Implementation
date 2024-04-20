@@ -210,6 +210,12 @@ public class ControllerClient implements Initializable {
                 entree1.clear();
                 entree2.clear();
                 entree3.clear();
+                for (Node node : tableauCuisineFavorite.getChildren()) {
+                    if (node instanceof CheckBox) {
+                        CheckBox checkBox = (CheckBox) node;
+                        checkBox.setSelected(false);
+                    }
+                }
 
                 entree1.setStyle("-fx-border-color: #424242");
                 entree2.setStyle("-fx-border-color: #424242");
@@ -227,6 +233,7 @@ public class ControllerClient implements Initializable {
     @FXML
     private void validationChamp(ActionEvent event) {
 
+
         String adresse = entree1.getText().trim();
         String codePostal = entree2.getText().trim();
         String cellulaire = entree3.getText().trim();
@@ -241,27 +248,27 @@ public class ControllerClient implements Initializable {
         }
 
         // Valider le code postal
-        if (!codePostal.matches("[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d")) {
+        else if (!codePostal.matches("[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d")) {
             afficherPopUp("Erreur", "Code postal incorrect", "Veuillez entrer un code postal valide.", Alert.AlertType.ERROR);
             entree2.setStyle("-fx-border-color: #FD2528");
             return;
         }
 
         // Valider le numéro de téléphone
-        if (!cellulaire.matches("[0-9\\-]+") || cellulaire.length() > 10) {
+        else if (!cellulaire.matches("[0-9\\-]+") || cellulaire.length() > 10) {
             afficherPopUp("Erreur", "Numéro de téléphone incorrect", "Veuillez entrer un numéro de téléphone valide (maximum 10 chiffres).", Alert.AlertType.ERROR);
             entree3.setStyle("-fx-border-color: #FD2528");
             return;
         }
 
 
-        if (auMoinsUneSpecialiteSelectionnee() == false) {
+        else if (!auMoinsUneSpecialiteSelectionnee()) {
             afficherPopUp("Champ incomplet", "Spécialités non sélectionnées", "Veuillez sélectionner au moins une spécialité de cuisine.", Alert.AlertType.ERROR);
             tableauCuisineFavorite.setStyle("-fx-border-color: #FD2528");
         }
 
         //Si tout est valide :
-        changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
+        else changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
     /*===========================================================

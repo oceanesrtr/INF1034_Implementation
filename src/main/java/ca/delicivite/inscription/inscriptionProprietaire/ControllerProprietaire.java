@@ -112,6 +112,7 @@ public class ControllerProprietaire implements Initializable {
     public Button boutonFilConnexion;
     @FXML
     public Button boutonFilArianeEmploye;
+    public ScrollPane scrollPaneTableau;
 
 
     @Override
@@ -219,7 +220,7 @@ public class ControllerProprietaire implements Initializable {
                 entreeAdresseRestaurant.setStyle("-fx-border-color: #424242");
                 entreeNomRestaurant.setStyle("-fx-border-color: #424242");
                 entreeCellulaireRestaurant.setStyle("-fx-border-color: #424242");
-                tableauChoixSpecialiteRestaurant.setStyle("-fx-border-color: #424242");
+                scrollPaneTableau.setStyle("-fx-border-color: #424242");
 
             }
 
@@ -237,42 +238,42 @@ public class ControllerProprietaire implements Initializable {
         String cellulaire = entreeCellulaireRestaurant.getText().trim();
         String nom = entreeNomRestaurant.getText().trim();
 
+        // Valider le nom du restaurant
+         if (!nom.matches("[a-zA-Z0-9À-ÿ\\-' ]+")) {
+            afficherPopUp("Erreur", "Nom incorrect", "Le nom doit contenir uniquement des lettres.", Alert.AlertType.ERROR);
+            entreeNomRestaurant.setStyle("-fx-border-color: #FD2528");
+            return;
+        }
+
+         // Valider le numéro de téléphone
+         else if (!cellulaire.matches("[0-9\\-]+") || cellulaire.length() > 10) {
+             afficherPopUp("Erreur", "Numéro de téléphone incorrect", "Veuillez entrer un numéro de téléphone valide (maximum 10 chiffres).", Alert.AlertType.ERROR);
+             entreeCellulaireRestaurant.setStyle("-fx-border-color: #FD2528");
+             return;
+         }
+
         // Valider l'adresse
-        if (!adresse.matches("[a-zA-Z0-9À-ÿ\\-' ]+")) {
+        else if (!adresse.matches("[a-zA-Z0-9À-ÿ\\-' ]+")) {
             afficherPopUp("Erreur", "Adresse incorrecte", "L'adresse doit contenir uniquement des lettres, des chiffres et des caractères spéciaux.", Alert.AlertType.ERROR);
             entreeAdresseRestaurant.setStyle("-fx-border-color: #FD2528");
             return;
         }
 
-        // Valider le nom du restaurant
-        if (!adresse.matches("[a-zA-Z0-9À-ÿ\\-' ]+")) {
-            afficherPopUp("Erreur", "Adresse incorrecte", "L'adresse doit contenir uniquement des lettres, des chiffres et des caractères spéciaux.", Alert.AlertType.ERROR);
-            entreeNomRestaurant.setStyle("-fx-border-color: #FD2528");
-            return;
-        }
+         // Valider le code postal
+         else if (!codePostal.matches("[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d")) {
+             afficherPopUp("Erreur", "Code postal incorrect", "Veuillez entrer un code postal valide.", Alert.AlertType.ERROR);
+             entreeCodePostalRestaurant.setStyle("-fx-border-color: #FD2528");
+             return;
+         }
 
 
-        // Valider le code postal
-        if (!codePostal.matches("[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d")) {
-            afficherPopUp("Erreur", "Code postal incorrect", "Veuillez entrer un code postal valide.", Alert.AlertType.ERROR);
-            entreeCodePostalRestaurant.setStyle("-fx-border-color: #FD2528");
-            return;
-        }
-
-        // Valider le numéro de téléphone
-        if (!cellulaire.matches("[0-9\\-]+") || cellulaire.length() > 10) {
-            afficherPopUp("Erreur", "Numéro de téléphone incorrect", "Veuillez entrer un numéro de téléphone valide (maximum 10 chiffres).", Alert.AlertType.ERROR);
-            entreeCellulaireRestaurant.setStyle("-fx-border-color: #FD2528");
-            return;
-        }
-
-        if (!auMoinsUneCaseCochee()) {
+        else if (!auMoinsUneCaseCochee()) {
             afficherPopUp("Champ incomplet", "Spécialités non sélectionnées", "Veuillez sélectionner au moins une spécialité de cuisine.", Alert.AlertType.ERROR);
-            tableauChoixSpecialiteRestaurant.setStyle("-fx-border-color: #FD2528");
+            scrollPaneTableau.setStyle("-fx-border-color: #FD2528");
         }
 
         //Si tout est valide :
-        changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
+        else changerScene(event, "/ca/delicivite/inscription/VueIdentifiantP3.fxml", "Connexion", null);
     }
 
     /*====================================

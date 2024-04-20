@@ -12,11 +12,14 @@ d'un restaurant*/
 
 
 import ca.delicivite.modele.ModeleItemMenu.*;
+import ca.delicivite.outils.ClasseUtilitaire;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -27,6 +30,7 @@ import java.util.ResourceBundle;
 public class ControllerSupprimerItem implements Initializable {
 
 
+    public Button boutonSupprimer;
     @FXML
     private ChoiceBox<Item> item;
 
@@ -48,6 +52,7 @@ public class ControllerSupprimerItem implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         item.setItems(items);
+
     }
 
 
@@ -56,14 +61,24 @@ public class ControllerSupprimerItem implements Initializable {
     * ========================================================================*/
     @FXML
     private void supprimerItem(ActionEvent event) {
-        Item selectedItem = item.getSelectionModel().getSelectedItem();
+        Item itemSelectionne = item.getSelectionModel().getSelectedItem();
+
         // Si un item est sélectionné
-        if (selectedItem != null) {
-            items.remove(selectedItem);
-            item.setItems(items);
-            fermer((Node) event.getSource());
+        if (!item.getValue().equals("Choisissez un item à supprimer") || items.contains(itemSelectionne)) {
+            if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Suppression de l'item dans le menu", "Voulez-vous vraiment supprimer cet item ?")) {
+                items.remove(itemSelectionne);
+                ClasseUtilitaire.afficherPopUp("Succès", "Opération réussie", "L'item' a été supprimé avec succès.", Alert.AlertType.INFORMATION);
+                item.setItems(items);
+                item.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #424242");
+                fermer((Node) event.getSource());
+            }
+        } else if (!items.contains(itemSelectionne)){
+            ClasseUtilitaire.afficherPopUp("Erreur", "Aucun item sélectionné", "Veuillez choisir un item à supprimer", Alert.AlertType.ERROR);
+            item.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #F44322");
         }
+
     }
+
     /*=========================================================================
     [4] Méthode pour annuler l'opération
     * ========================================================================*/

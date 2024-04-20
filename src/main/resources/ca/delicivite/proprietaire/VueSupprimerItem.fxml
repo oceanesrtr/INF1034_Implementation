@@ -28,7 +28,7 @@
             <AnchorPane GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6">
                 <HBox alignment="CENTER_LEFT" layoutY="-24.0" spacing="10.0" AnchorPane.rightAnchor="21.333333333333314">
                     <Button maxWidth="140.0" onAction="#annuler" prefHeight="31.0" prefWidth="140.0" styleClass="boutonAction" text="Annuler" textFill="#424242">Annuler</Button>
-                    <Button onAction="#supprimerItem" prefHeight="31.0" prefWidth="140.0" styleClass="boutonAction" textFill="#424242">Supprimer</Button>
+                    <Button fx:id= "boutonSupprimer" onAction="#supprimerItem" prefHeight="31.0" prefWidth="140.0" styleClass="boutonAction" textFill="#424242">Supprimer</Button>
                 </HBox>
             </AnchorPane>
          <columnConstraints>

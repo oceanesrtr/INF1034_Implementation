@@ -8,6 +8,7 @@ Lily Occhibelli
 Ce : 23 avril 2024
 
 Classe Controller de l'interface propriétaire : gère l'apercu du menu d'un restaurant */
+
 import ca.delicivite.modele.ModeleItemMenu.*;
 
 import javafx.collections.transformation.FilteredList;
@@ -16,11 +17,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 
 import javafx.stage.Stage;
 
@@ -46,6 +44,7 @@ public class ControllerApercuMenu implements Initializable {
 
     // Fenêtre pour l'ajout d'un nouvel item
     private Stage ajoutFenetre;
+
     /*=========================================================================
     [1] Constructeur
     * ========================================================================*/
@@ -74,8 +73,47 @@ public class ControllerApercuMenu implements Initializable {
             });
             listeItems.setItems(listeFiltrer);
         });
-    }
 
+
+        //Écouteur pour voir si l'utilisateur a cliqué sur un item
+        listeItems.setOnMouseClicked(event -> {
+            Item selectedItem = listeItems.getSelectionModel().getSelectedItem();
+            if (selectedItem != null) {
+                Alert alerte = new Alert(Alert.AlertType.CONFIRMATION);
+                alerte.setTitle("Action sur l'item");
+                alerte.setHeaderText("Que souhaitez-vous faire avec l'item sélectionné?");
+                alerte.setContentText("Choisissez votre action :");
+                Stage stage = (Stage) listeItems.getScene().getWindow();
+                stage.getIcons().add(new Image("/images/logo_fond_grise.png"));
+                alerte.initOwner(stage);
+
+                stage.setResizable(false);
+
+                DialogPane dialogPane = alerte.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/ca/delicivite/proprietaire/proprietaire.css").toExternalForm());
+                dialogPane.getStyleClass().add("fondPopUp");
+
+
+                ButtonType boutonAjout = new ButtonType("Ajouter un item");
+                ButtonType boutonSuppression = new ButtonType("Supprimer un item");
+                ButtonType boutonAnnuler = new ButtonType("Annuler");
+
+                alerte.getButtonTypes().setAll(boutonAjout, boutonSuppression, boutonAnnuler);
+
+                alerte.showAndWait().ifPresent(buttonType -> {
+                    if (buttonType == boutonAjout) {
+                        ajouterItem();
+                    } else if (buttonType == boutonSuppression) {
+                        supprimerItem();
+                    } else {
+                        alerte.close();
+                    }
+                });
+            }
+        });
+
+
+    }
 
 
     /*=========================================================================
@@ -94,7 +132,6 @@ public class ControllerApercuMenu implements Initializable {
                 ajoutFenetre.setTitle("Ajouter un item");
                 ajoutFenetre.getIcons().add(new Image("/images/logo_fond_grise.png"));
                 ajoutFenetre.setScene(scene);
-                ajoutFenetre.setAlwaysOnTop(true);
                 ajoutFenetre.setOnHidden(event -> ajoutFenetre = null); // Réinitialiser la référence lorsque la fenêtre est fermée
                 ajoutFenetre.show();
 
@@ -111,8 +148,6 @@ public class ControllerApercuMenu implements Initializable {
                 alert.getButtonTypes().add(ButtonType.OK);
                 alert.show();
             }
-        } else {
-            ajoutFenetre.toFront();
         }
     }
 
@@ -135,7 +170,6 @@ public class ControllerApercuMenu implements Initializable {
                 fenetreSupprimer.setTitle("Supprimer un item");
                 fenetreSupprimer.getIcons().add(new Image("/images/logo_fond_grise.png"));
                 fenetreSupprimer.setScene(scene);
-                fenetreSupprimer.setAlwaysOnTop(true);
                 fenetreSupprimer.setOnHidden(event -> fenetreSupprimer = null); // Réinitialiser la référence lorsque la fenêtre est fermée
                 fenetreSupprimer.show();
 
@@ -152,8 +186,6 @@ public class ControllerApercuMenu implements Initializable {
                 alert.getButtonTypes().add(ButtonType.OK);
                 alert.show();
             }
-        } else {
-            fenetreSupprimer.toFront();
         }
     }
 

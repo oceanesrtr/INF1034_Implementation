@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--fxml de l'interface d'inscription en tant que propriétaire de restaurant-->
 
 <?import java.net.*?>
@@ -10,64 +11,60 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ca.delicivite.inscription.inscriptionProprietaire.ControllerProprietaire">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.delicivite.inscription.inscriptionProprietaire.ControllerProprietaire">
     <!--   Lien avec le fichier CSS correspondant-->
     <stylesheets>
-        <URL value="@inscriptionProprietaire.css"/>
+        <URL value="@inscriptionProprietaire.css" />
     </stylesheets>
     <!--[1] : Barre de menu -->
     <top>
-        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;"
-                 BorderPane.alignment="CENTER">
+        <MenuBar fx:id="barreMenu" prefHeight="25.0" style="-fx-background-color: #F0F3F9; -fx-border-color: #c5c5c5;" BorderPane.alignment="CENTER">
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
             <BorderPane.margin>
-                <Insets left="-4.0" right="-4.0"/>
+                <Insets left="-4.0" right="-4.0" />
             </BorderPane.margin>
             <Menu id="menuApplication" fx:id="titreMenuApplication" text="Action">
                 <MenuItem fx:id="stAnnulerAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Annuler"/>
-                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z"/>
+                            <Label style="-fx-text-fill: black;" text="Annuler" />
+                            <Label style="-fx-text-fill: gray;" text="        Ctrl Z" />
                         </HBox>
                     </graphic>
                 </MenuItem>
                 <MenuItem fx:id="stRefaireAction" disable="true" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Refaire"/>
-                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y"/>
+                            <Label style="-fx-text-fill: black;" text="Refaire" />
+                            <Label style="-fx-text-fill: gray;" text="         Ctrl Y" />
                         </HBox>
                     </graphic>
                 </MenuItem>
                 <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Quitter"/>
-                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q"/>
+                            <Label style="-fx-text-fill: black;" text="Quitter" />
+                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q" />
                         </HBox>
                     </graphic>
                 </MenuItem>
             </Menu>
             <Menu id="menuApparence" fx:id="titreMenuApparence" text="Apparence">
-                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre"/>
-                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair"/>
+                <MenuItem fx:id="modeSombreMenuItem" disable="true" text="Mode sombre" />
+                <MenuItem fx:id="modeClairMenuItem" disable="true" text="Mode clair" />
             </Menu>
             <Menu fx:id="titreMenuVue" mnemonicParsing="false" text="Police">
                 <Menu fx:id="taillePoliceMenu" text="Taille de la police">
                     <MenuItem fx:id="petiteTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Petite"/>
-                                <Label style="-fx-text-fill: gray;" text="      Ctrl -"/>
+                                <Label style="-fx-text-fill: black;" text="Petite" />
+                                <Label style="-fx-text-fill: gray;" text="      Ctrl -" />
                             </HBox>
                         </graphic>
                     </MenuItem>
@@ -75,8 +72,8 @@
                     <MenuItem fx:id="moyenneTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Moyenne"/>
-                                <Label style="-fx-text-fill: gray;" text="Ctrl 0"/>
+                                <Label style="-fx-text-fill: black;" text="Moyenne" />
+                                <Label style="-fx-text-fill: gray;" text="Ctrl 0" />
                             </HBox>
                         </graphic>
                     </MenuItem>
@@ -84,85 +81,73 @@
                     <MenuItem fx:id="grandeTailleMenuItem" disable="true" mnemonicParsing="false">
                         <graphic>
                             <HBox alignment="CENTER_RIGHT" spacing="10">
-                                <Label style="-fx-text-fill: black;" text="Grand"/>
-                                <Label style="-fx-text-fill: gray;" text="     Ctrl +"/>
+                                <Label style="-fx-text-fill: black;" text="Grand" />
+                                <Label style="-fx-text-fill: gray;" text="     Ctrl +" />
                             </HBox>
                         </graphic>
                     </MenuItem>
                 </Menu>
             </Menu>
             <Menu fx:id="menuInformations" mnemonicParsing="false" text="Informations">
-                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos"/>
-                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation"
-                          text="Guide d'utilisation"/>
+                <MenuItem fx:id="stAPropos" mnemonicParsing="false" onAction="#afficherPopupAPropos" text="À propos" />
+                <MenuItem fx:id="stGuideUtilisation" mnemonicParsing="false" onAction="#ouvrirGuideUtilisation" text="Guide d'utilisation" />
             </Menu>
         </MenuBar>
     </top>
     <!--[2] Barre d'état et fil d'Ariane -->
     <center>
-        <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0"
-                    BorderPane.alignment="CENTER">
-            <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0"
-                  prefWidth="885.0">
-                <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0"
-                            prefWidth="885.0">
+        <ScrollPane fx:id="scrollPane" fitToHeight="true" maxWidth="900.0" prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="container" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
+                <AnchorPane fx:id="anchorPane" maxWidth="885.0" minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="885.0">
                     <HBox alignment="CENTER" maxWidth="885.0" opacity="0.83" prefHeight="549.0" prefWidth="885.0">
-                        <AnchorPane maxHeight="635.0" maxWidth="263.0" minHeight="635.0" minWidth="263.0"
-                                    prefHeight="635.0" prefWidth="263.0" style="-fx-background-color: #94DAE5#94DAE5;">
+                        <AnchorPane maxHeight="635.0" maxWidth="263.0" minHeight="635.0" minWidth="263.0" prefHeight="635.0" prefWidth="263.0" style="-fx-background-color: #94DAE5#94DAE5;">
                             <children>
                                 <ImageView fitHeight="548.0" fitWidth="276.0" layoutX="-1.0" preserveRatio="true">
                                     <image>
-                                        <Image url="@/images/banniereMoyenne.png"/>
+                                        <Image url="@/images/banniereMoyenne.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </AnchorPane>
-                        <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0"
-                                    style="-fx-background-color: #FFFF;">
+                        <AnchorPane maxWidth="653.0" prefHeight="549.0" prefWidth="653.0" style="-fx-background-color: #FFFF;">
                             <ImageView fitHeight="550.0" fitWidth="734.0" opacity="0.05">
                                 <image>
-                                    <Image url="@/images/PatternNourriture.jpeg"/>
+                                    <Image url="@/images/PatternNourriture.jpeg" />
                                 </image>
                             </ImageView>
                             <Group id="grouppeBarre" fx:id="groupeBarre" layoutX="29.0" layoutY="38.0">
                                 <children>
-                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0"
-                                                 progress="0.52" style="-fx-accent: #F44322; -fx-box-border: #F44322;">
+                                    <ProgressBar fx:id="barreProgression" prefHeight="16.0" prefWidth="580.0" progress="0.52" style="-fx-accent: #F44322; -fx-box-border: #F44322;">
                                         <cursor>
-                                            <Cursor fx:constant="DEFAULT"/>
+                                            <Cursor fx:constant="DEFAULT" />
                                         </cursor>
                                     </ProgressBar>
                                     <Group layoutX="127.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#f44322" radius="18.0" stroke="#f44322" strokeType="INSIDE"
-                                                    strokeWidth="0.0"/>
-                                            <Text fill="WHITE" layoutX="-7.0" layoutY="9.0" strokeType="OUTSIDE"
-                                                  strokeWidth="0.0" text="1">
+                                            <Circle fill="#f44322" radius="18.0" stroke="#f44322" strokeType="INSIDE" strokeWidth="0.0" />
+                                            <Text fill="WHITE" layoutX="-7.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                                                 <font>
-                                                    <Font name="Lexend Deca Regular" size="25.0"/>
+                                                    <Font name="Lexend Deca Regular" size="25.0" />
                                                 </font>
                                             </Text>
                                         </children>
                                     </Group>
                                     <Group layoutX="300.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="#f44322" layoutX="-10.0" radius="18.0" stroke="#f44322"
-                                                    strokeType="INSIDE"/>
-                                            <Text fill="WHITE" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE"
-                                                  strokeWidth="0.0" text="2">
+                                            <Circle fill="#f44322" layoutX="-10.0" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
+                                            <Text fill="WHITE" layoutX="-17.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                                                 <font>
-                                                    <Font name="Lexend Deca Regular" size="25.0"/>
+                                                    <Font name="Lexend Deca Regular" size="25.0" />
                                                 </font>
                                             </Text>
                                         </children>
                                     </Group>
                                     <Group layoutX="453.0" layoutY="5.0">
                                         <children>
-                                            <Circle fill="WHITE" radius="18.0" stroke="#f44322" strokeType="INSIDE"/>
-                                            <Text fill="#f44322" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE"
-                                                  strokeWidth="0.0" text="3">
+                                            <Circle fill="WHITE" radius="18.0" stroke="#f44322" strokeType="INSIDE" />
+                                            <Text fill="#f44322" layoutX="-6.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                                                 <font>
-                                                    <Font name="Lexend Deca Regular" size="25.0"/>
+                                                    <Font name="Lexend Deca Regular" size="25.0" />
                                                 </font>
                                             </Text>
                                         </children>
@@ -171,288 +156,242 @@
                             </Group>
                             <HBox layoutX="397.0" layoutY="493.0" prefHeight="43.0" prefWidth="212.0" spacing="10.0">
                                 <children>
-                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER"
-                                            graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0"
-                                            prefWidth="100.0" text="Réinitialiser" textAlignment="CENTER"
-                                            textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonReinitialiser" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" onMouseClicked="#reinitialiserChamp" prefHeight="30.0" prefWidth="100.0" text="Réinitialiser" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
-                                            <Font name="Lexend Light"/>
+                                            <Font name="Lexend Light" />
                                         </font>
                                         <opaqueInsets>
-                                            <Insets/>
+                                            <Insets />
                                         </opaqueInsets>
                                         <cursor>
-                                            <Cursor fx:constant="HAND"/>
+                                            <Cursor fx:constant="HAND" />
                                         </cursor>
                                     </Button>
-                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER"
-                                            graphicTextGap="2.0" prefHeight="30.0" prefWidth="100.0" text="Suivant"
-                                            textAlignment="CENTER" textFill="#424242" wrapText="true">
+                                    <Button fx:id="boutonSuivant" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" prefHeight="30.0" prefWidth="100.0" text="Suivant" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                         <font>
-                                            <Font name="Lexend Light"/>
+                                            <Font name="Lexend Light" />
                                         </font>
                                         <opaqueInsets>
-                                            <Insets/>
+                                            <Insets />
                                         </opaqueInsets>
                                         <cursor>
-                                            <Cursor fx:constant="HAND"/>
+                                            <Cursor fx:constant="HAND" />
                                         </cursor>
                                     </Button>
                                 </children>
                             </HBox>
-                            <Group layoutX="29.0" layoutY="494.0"/>
-                            <Button fx:id="boutonRetourPagePrecedente" alignment="CENTER" contentDisplay="CENTER"
-                                    graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0"
-                                    prefWidth="100.0" text="Précédent" textAlignment="CENTER" textFill="#424242"
-                                    wrapText="true">
+                            <Group layoutX="29.0" layoutY="494.0" />
+                            <Button fx:id="boutonRetourPagePrecedente" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="29.0" layoutY="493.0" prefHeight="30.0" prefWidth="100.0" text="Précédent" textAlignment="CENTER" textFill="#424242" wrapText="true">
                                 <font>
-                                    <Font name="Lexend Light"/>
+                                    <Font name="Lexend Light" />
                                 </font>
                                 <opaqueInsets>
-                                    <Insets/>
+                                    <Insets />
                                 </opaqueInsets>
                                 <cursor>
-                                    <Cursor fx:constant="HAND"/>
+                                    <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Text fx:id="titreInscription" fill="#424242" layoutX="66.0" layoutY="102.0"
-                                  strokeType="OUTSIDE" strokeWidth="0.0"
-                                  text="Dîtes-nous en plus sur votre restaurant! ">
+                            <Text fx:id="titreInscription" fill="#424242" layoutX="66.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dîtes-nous en plus sur votre restaurant! ">
                                 <font>
-                                    <Font name="Lexend Deca SemiBold" size="20.0"/>
+                                    <Font name="Lexend Deca SemiBold" size="20.0" />
                                 </font>
                             </Text>
                             <VBox layoutX="176.0" layoutY="119.0" prefHeight="183.0" prefWidth="285.0" spacing="15.0">
                                 <children>
-                                    <TextField fx:id="entreeNomRestaurant" alignment="CENTER" maxHeight="37.0"
-                                               maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
-                                               promptText="Nom du restaurant"
-                                               style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
+                                    <TextField fx:id="entreeNomRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Nom du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                         <font>
-                                            <Font name="Lexend Light"/>
+                                            <Font name="Lexend Light" />
                                         </font>
                                         <padding>
-                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                         </padding>
                                         <cursor>
-                                            <Cursor fx:constant="TEXT"/>
+                                            <Cursor fx:constant="TEXT" />
                                         </cursor>
                                     </TextField>
-                                    <TextField fx:id="entreeCellulaireRestaurant" alignment="CENTER" maxHeight="37.0"
-                                               maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
-                                               promptText="Cellulaire du restaurant"
-                                               style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
+                                    <TextField fx:id="entreeCellulaireRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Cellulaire du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                         <font>
-                                            <Font name="Lexend Light"/>
+                                            <Font name="Lexend Light" />
                                         </font>
                                         <padding>
-                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                         </padding>
                                         <cursor>
-                                            <Cursor fx:constant="TEXT"/>
+                                            <Cursor fx:constant="TEXT" />
                                         </cursor>
                                     </TextField>
-                                    <TextField fx:id="entreeAdresseRestaurant" alignment="CENTER" maxHeight="37.0"
-                                               maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
-                                               promptText="Adresse du restaurant"
-                                               style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 5;">
+                                    <TextField fx:id="entreeAdresseRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Adresse du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                         <font>
-                                            <Font name="Lexend Light"/>
+                                            <Font name="Lexend Light" />
                                         </font>
                                         <padding>
-                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                         </padding>
                                         <cursor>
-                                            <Cursor fx:constant="TEXT"/>
+                                            <Cursor fx:constant="TEXT" />
                                         </cursor>
                                     </TextField>
-                                    <TextField fx:id="entreeCodePostalRestaurant" alignment="CENTER" maxHeight="37.0"
-                                               maxWidth="283.0" prefHeight="33.0" prefWidth="283.0"
-                                               promptText="Code postal du restaurant"
-                                               style="-fx-background-color: #FBFAFF; -fx-border-color: #424242; -fx-border-radius: 5;">
+                                    <TextField fx:id="entreeCodePostalRestaurant" alignment="CENTER" maxHeight="37.0" maxWidth="283.0" prefHeight="33.0" prefWidth="283.0" promptText="Code postal du restaurant" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                         <font>
-                                            <Font name="Lexend Light"/>
+                                            <Font name="Lexend Light" />
                                         </font>
                                         <padding>
-                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                         </padding>
                                         <cursor>
-                                            <Cursor fx:constant="TEXT"/>
+                                            <Cursor fx:constant="TEXT" />
                                         </cursor>
                                     </TextField>
                                 </children>
                             </VBox>
-                            <Text fx:id="sousTitre" fill="#424242" layoutX="212.0" layoutY="346.0" strokeType="OUTSIDE"
-                                  strokeWidth="0.0" text="Votre spécialité ">
+                            <Text fx:id="sousTitre" fill="#424242" layoutX="212.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre spécialité ">
                                 <font>
-                                    <Font name="Lexend Deca SemiBold" size="20.0"/>
+                                    <Font name="Lexend Deca SemiBold" size="20.0" />
                                 </font>
                             </Text>
-                            <Line endX="466.3333740234375" layoutX="136.0" layoutY="311.0" opacity="0.2"
-                                  startX="-102.33332824707031"/>
-                            <ScrollPane layoutX="179.0" layoutY="363.0" prefHeight="122.0" prefWidth="282.0"
-                                        style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
+                            <Line endX="466.3333740234375" layoutX="136.0" layoutY="311.0" opacity="0.2" startX="-102.33332824707031" />
+                            <ScrollPane fx:id="scrollPaneTableau" layoutX="179.0" layoutY="363.0" prefHeight="122.0" prefWidth="282.0" style="-fx-background-color: #FBFAFF; -fx-border-color: #424242;">
                                 <content>
-                                    <GridPane fx:id="tableauChoixSpecialiteRestaurant" prefHeight="638.0"
-                                              prefWidth="209.0">
+                                    <GridPane fx:id="tableauChoixSpecialiteRestaurant" prefHeight="638.0" prefWidth="209.0">
                                         <columnConstraints>
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         </columnConstraints>
                                         <rowConstraints>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         </rowConstraints>
                                         <children>
                                             <RadioButton mnemonicParsing="false" text="Africaine">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                                 <toggleGroup>
-                                                    <ToggleGroup fx:id="Cuisine"/>
+                                                    <ToggleGroup fx:id="Cuisine" />
                                                 </toggleGroup>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Allemande" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="1">
+                                            <RadioButton mnemonicParsing="false" text="Allemande" toggleGroup="$Cuisine" GridPane.rowIndex="1">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Etasunienne"
-                                                         toggleGroup="$Cuisine" GridPane.rowIndex="9">
+                                            <RadioButton mnemonicParsing="false" text="Etasunienne" toggleGroup="$Cuisine" GridPane.rowIndex="9">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Antillaise"
-                                                         toggleGroup="$Cuisine" GridPane.rowIndex="2">
+                                            <RadioButton mnemonicParsing="false" text="Antillaise" toggleGroup="$Cuisine" GridPane.rowIndex="2">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Asiatique" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="3">
+                                            <RadioButton mnemonicParsing="false" text="Asiatique" toggleGroup="$Cuisine" GridPane.rowIndex="3">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Cajun" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="4">
+                                            <RadioButton mnemonicParsing="false" text="Cajun" toggleGroup="$Cuisine" GridPane.rowIndex="4">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Chinoise" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="5">
+                                            <RadioButton mnemonicParsing="false" text="Chinoise" toggleGroup="$Cuisine" GridPane.rowIndex="5">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Créole" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="6">
+                                            <RadioButton mnemonicParsing="false" text="Créole" toggleGroup="$Cuisine" GridPane.rowIndex="6">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Cubaine" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="7">
+                                            <RadioButton mnemonicParsing="false" text="Cubaine" toggleGroup="$Cuisine" GridPane.rowIndex="7">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Espagnole" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="8">
+                                            <RadioButton mnemonicParsing="false" text="Espagnole" toggleGroup="$Cuisine" GridPane.rowIndex="8">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Française" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="10">
+                                            <RadioButton mnemonicParsing="false" text="Française" toggleGroup="$Cuisine" GridPane.rowIndex="10">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Grecque" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="11">
+                                            <RadioButton mnemonicParsing="false" text="Grecque" toggleGroup="$Cuisine" GridPane.rowIndex="11">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Indienne" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="12">
+                                            <RadioButton mnemonicParsing="false" text="Indienne" toggleGroup="$Cuisine" GridPane.rowIndex="12">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Italienne" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="13">
+                                            <RadioButton mnemonicParsing="false" text="Italienne" toggleGroup="$Cuisine" GridPane.rowIndex="13">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Japonaise" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="14">
+                                            <RadioButton mnemonicParsing="false" text="Japonaise" toggleGroup="$Cuisine" GridPane.rowIndex="14">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Mexicaine" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="15">
+                                            <RadioButton mnemonicParsing="false" text="Mexicaine" toggleGroup="$Cuisine" GridPane.rowIndex="15">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Portugaise"
-                                                         toggleGroup="$Cuisine" GridPane.rowIndex="16">
+                                            <RadioButton mnemonicParsing="false" text="Portugaise" toggleGroup="$Cuisine" GridPane.rowIndex="16">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Québécoise"
-                                                         toggleGroup="$Cuisine" GridPane.rowIndex="17">
+                                            <RadioButton mnemonicParsing="false" text="Québécoise" toggleGroup="$Cuisine" GridPane.rowIndex="17">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Thaïe" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="18">
+                                            <RadioButton mnemonicParsing="false" text="Thaïe" toggleGroup="$Cuisine" GridPane.rowIndex="18">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Vietnamienne"
-                                                         toggleGroup="$Cuisine" GridPane.rowIndex="19">
+                                            <RadioButton mnemonicParsing="false" text="Vietnamienne" toggleGroup="$Cuisine" GridPane.rowIndex="19">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
-                                            <RadioButton mnemonicParsing="false" text="Autre" toggleGroup="$Cuisine"
-                                                         GridPane.rowIndex="20">
+                                            <RadioButton mnemonicParsing="false" text="Autre" toggleGroup="$Cuisine" GridPane.rowIndex="20">
                                                 <font>
-                                                    <Font name="Lexend Light" size="12.0"/>
+                                                    <Font name="Lexend Light" size="12.0" />
                                                 </font>
                                             </RadioButton>
                                         </children>
                                         <padding>
-                                            <Insets left="5.0"/>
+                                            <Insets left="5.0" />
                                         </padding>
                                     </GridPane>
                                 </content>
@@ -467,34 +406,29 @@
     <!--[3] Zone de travail et barre latérale gauche -->
 
     <bottom>
-        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;"
-              BorderPane.alignment="CENTER">
-            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0"
-                       stroke="#c5c5c5" strokeType="INSIDE" width="907.0"/>
-            <Text fx:id="copyrightMention" fill="#424242" layoutX="695.0" layoutY="17.0" strokeWidth="0.0"
-                  text="© Copyright - Tous droits réservés">
+        <Pane fx:id="filArianeBarreEtat" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <Rectangle fx:id="barreEtat" arcHeight="5.0" arcWidth="5.0" fill="#f0f3f9" height="26.0" layoutX="-6.0" stroke="#c5c5c5" strokeType="INSIDE" width="907.0" />
+            <Text fx:id="copyrightMention" fill="#424242" layoutX="695.0" layoutY="17.0" strokeWidth="0.0" text="© Copyright - Tous droits réservés">
                 <font>
-                    <Font name="Lexend Light"/>
+                    <Font name="Lexend Light" />
                 </font>
             </Text>
 
             <HBox alignment="CENTER_RIGHT" spacing="-15">
-                <Button fx:id="boutonFilConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;"
-                        textFill="#424242">
+                <Button fx:id="boutonFilConnexion" style="-fx-background-color: transparent;" text="Connexion &gt;" textFill="#424242">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                     <font>
-                        <Font name="Lexend Light" size="12.0"/>
+                        <Font name="Lexend Light" size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="boutonFilArianeEmploye" layoutX="10.0" layoutY="10.0"
-                        style="-fx-background-color: transparent;" text="Inscription" textFill="#424242">
+                <Button fx:id="boutonFilArianeEmploye" layoutX="10.0" layoutY="10.0" style="-fx-background-color: transparent;" text="Inscription" textFill="#424242">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                     <font>
-                        <Font name="Lexend Light" size="12.0"/>
+                        <Font name="Lexend Light" size="12.0" />
                     </font>
                 </Button>
             </HBox>

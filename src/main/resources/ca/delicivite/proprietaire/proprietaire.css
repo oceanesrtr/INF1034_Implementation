@@ -98,3 +98,19 @@
 }
 
 
+/*=======================================================
+Pop up de demande d'action sur les items d'un menu
+=================================================*/
+
+.fondPopUp{
+    -fx-background-color: #FFFFFF;
+}
+
+.boutonPopUp {
+    -fx-background-color: #FFD324; /* Couleur des boutons */
+}
+
+/* Au survol des boutons */
+.boutonPopUp:hover {
+    -fx-background-color: #FFE50D; /* Couleur au survol */
+}

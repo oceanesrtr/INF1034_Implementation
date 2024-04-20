@@ -71,7 +71,7 @@ public class ControllerModifierMenu implements Initializable {
         else if (nomGroupe.equals("")) {
             // Affichage d'une alerte si le nom du groupe est vide
             ClasseUtilitaire.afficherPopUp("Erreur", "Champs incomplets", "Veuillez entrer un nom valide.", Alert.AlertType.ERROR);
-
+            nouveauGroupe.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #F44322");
         } else {
             // Confirmation de l'ajout
             if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Ajout du groupe", "Voulez-vous vraiment ajouter ce groupe ?")) {
@@ -80,6 +80,7 @@ public class ControllerModifierMenu implements Initializable {
                 nouveauGroupe.setText("");
                 // Affichage de la confirmation
                 ClasseUtilitaire.afficherPopUp("Succès", "Opération réussie", "Le groupe a été ajouté avec succès.", Alert.AlertType.INFORMATION);
+                nouveauGroupe.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #424242");
 
             }
 
@@ -96,6 +97,8 @@ public class ControllerModifierMenu implements Initializable {
         //Validation 2 : si l'utilisateur a choisi un groupe
         if (groupe.getValue() == null) {
             ClasseUtilitaire.afficherPopUp("Erreur", "Champs incomplets", "Veuillez choisir un groupe.", Alert.AlertType.ERROR);
+           groupe.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #F44322");
+
         } else {
             // Récupération du groupe sélectionné
             String selectedItem = groupe.getSelectionModel().getSelectedItem();
@@ -103,6 +106,7 @@ public class ControllerModifierMenu implements Initializable {
             if (ClasseUtilitaire.afficherPopUpConfirmation("Confirmation", "Suppression du groupe", "Voulez-vous vraiment supprimer ce groupe ?")) {
                 // Suppression du groupe de la liste des groupes
                 if (selectedItem != null) {
+                    nouveauGroupe.setStyle(" -fx-border-radius: 15px;-fx-background-radius: 15px; -fx-border-color: #424242");
                     listeGroupes.remove(selectedItem);
                     // Affichage de la confirmation
                     ClasseUtilitaire.afficherPopUp("Succès", "Opération réussie", "Le groupe a été supprimé avec succès.", Alert.AlertType.INFORMATION);
