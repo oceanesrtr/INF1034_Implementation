@@ -182,7 +182,7 @@ Taille de police : moyenne-->
             <ImageView fitHeight="123.0" fitWidth="117.0" layoutX="407.0" layoutY="18.0">
                 <Image url="@/images/pigeonVoyageur.jpeg" />
             </ImageView>
-            <Label fx:id="messageSoutienTechnique" layoutX="141.0" layoutY="462.0" opacity="0.05" prefHeight="54.0" prefWidth="629.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
+            <Label fx:id="messageSoutienTechnique" layoutX="141.0" layoutY="462.0" opacity="1" prefHeight="54.0" prefWidth="629.0" text="Pour toute assistance supplémentaire, nous vous prions de nous contacter via " textOverrun="CLIP" wrapText="true" />
             <Button fx:id="mailSoutienTechnique" layoutX="359.0" layoutY="497.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="delicivite.soutien@gmail.com" textFill="#246fe4" underline="true">
                 <font>
                     <Font name="Lexend Light" size="12.0" />
