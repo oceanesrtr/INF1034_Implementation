@@ -89,10 +89,10 @@ public class ControllerCommande implements Initializable {
 
         stQuitterApp.setOnAction(event -> Platform.exit());
 
-        // [f] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
+        // [f] Raccourci mmémonique 2 : Alt Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
-                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
+                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
                 Runnable runnable = Platform::exit;
                 newScene.getAccelerators().put(keyCombination, runnable);
             }
@@ -189,7 +189,7 @@ public class ControllerCommande implements Initializable {
             Stage stage = (Stage) boutonFilConnexion.getScene().getWindow();
             stage.setTitle("Connexion");
             stage.setScene(scene);
-        }else{
+        } else {
             boutonDeconnexion.setStyle("-fx-background-color: #F44322;-fx-text-fill: #FFFFFF;");
 
 
@@ -221,6 +221,7 @@ public class ControllerCommande implements Initializable {
 
         dernierBoutonClique = clickedButton;
     }
+
     /*=============================================================
      *Méthodes pour les fonctionnalités du sous-menu Informations
      * [4] Afficher la fenêtre d'information A propos

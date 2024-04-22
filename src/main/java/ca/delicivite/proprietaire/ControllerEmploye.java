@@ -81,14 +81,15 @@ public class ControllerEmploye implements Initializable {
     public void initialize(URL location, ResourceBundle resource) {
         stQuitterApp.setOnAction(event -> Platform.exit());
 
-        // [f] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
+        // [f] Raccourci mmémonique 2 : Alt Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
-                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
+                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
                 Runnable runnable = Platform::exit;
                 newScene.getAccelerators().put(keyCombination, runnable);
             }
         });
+
     }
 
     /*=========================================================================

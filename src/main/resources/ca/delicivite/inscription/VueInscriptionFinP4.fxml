@@ -47,8 +47,8 @@
                 <MenuItem fx:id="stQuitterApp" mnemonicParsing="false">
                     <graphic>
                         <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <Label style="-fx-text-fill: black;" text="Quitter" />
-                            <Label style="-fx-text-fill: gray;" text="Ctrl Shift Q" />
+                           <Label fx:id="labelQuitter" style="-fx-text-fill: black;"  text="Q̲uitter"  />
+                            <Label style="-fx-text-fill: gray;" text="         Alt Q" />
                         </HBox>
                     </graphic>
                 </MenuItem>

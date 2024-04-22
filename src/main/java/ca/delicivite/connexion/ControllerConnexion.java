@@ -78,6 +78,7 @@ public class ControllerConnexion implements Initializable {
     public Text texteGeneral2;
     @FXML
     public Text texteGeneral1;
+    public Label labelQuitter;
     @FXML
     private Menu taillePoliceMenu;
     @FXML
@@ -147,6 +148,7 @@ public class ControllerConnexion implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         //[a] Redirection vers les pages adéquates selon les boutons cliqués
         boutonSeConnecter.setOnAction(actionEvent -> ModeleUtilisateur.clientSeConnecte(actionEvent, entreeCourriel.getText().trim(), motDePasseCache.getText().trim()));
 
@@ -185,10 +187,10 @@ public class ControllerConnexion implements Initializable {
             }
         });
 
-        // [f] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
+        // [f] Raccourci mmémonique 2 : Alt Q pour quitter l'application
         barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
-                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
+                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
                 Runnable runnable = Platform::exit;
                 newScene.getAccelerators().put(keyCombination, runnable);
             }

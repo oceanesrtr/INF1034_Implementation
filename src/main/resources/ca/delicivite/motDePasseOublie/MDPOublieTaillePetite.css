@@ -23,16 +23,8 @@
     -fx-font-size: 10px;
 }
 
-#boutonAnnulerMDP{
-    -fx-background-color:  #FFD324;
-    -fx-font-weight: bold;
-    -fx-text-fill: #424242;
-    -fx-background-radius: 15;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
-}
 
-
-#boutonEnvoyerMailMDP{
+#boutonEnvoyerMailMDP, #boutonAnnulerMDP {
     -fx-background-color:#F44322 ;
     -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
@@ -40,14 +32,9 @@
     -fx-background-radius: 15px;
 }
 
-#boutonEnvoyerMailMDP:hover{
+#boutonEnvoyerMailMDP:hover, #boutonAnnulerMDP:hover{
     -fx-background-color: #FF0000;
 }
-
-#boutonAnnulerMDP:hover{
-    -fx-background-color: #FFE50D;
-}
-
 
 
 #filConnexion:hover {

@@ -100,12 +100,13 @@ public class ControllerClientAccueil implements Initializable {
         stQuitterApp.setOnAction(event -> Platform.exit());
 
         // [2] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
-        barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
-            if (newScene != null) {
-                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
-                Runnable runnable = Platform::exit;
-                newScene.getAccelerators().put(keyCombination, runnable);
-            }
-        });
+barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
+    if (newScene != null) {
+        KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
+        Runnable runnable = Platform::exit;
+        newScene.getAccelerators().put(keyCombination, runnable);
+    }
+});
+
     }
 }

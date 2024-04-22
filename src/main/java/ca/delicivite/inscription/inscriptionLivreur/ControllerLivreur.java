@@ -121,13 +121,14 @@ public class ControllerLivreur implements Initializable {
         boutonRetourPagePrecedente.setOnAction(actionEvent -> changerScene(actionEvent, "/ca/delicivite/inscription/VueInscriptionGenerale1.fxml", "Connexion", null));
 
         // [c] Raccourci mmémonique 2 : Ctrl Shift Q pour quitter l'application
-        barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
-            if (newScene != null) {
-                KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN);
-                Runnable runnable = Platform::exit;
-                newScene.getAccelerators().put(keyCombination, runnable);
-            }
-        });
+barreMenu.sceneProperty().addListener((observable, oldScene, newScene) -> {
+    if (newScene != null) {
+        KeyCombination keyCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
+        Runnable runnable = Platform::exit;
+        newScene.getAccelerators().put(keyCombination, runnable);
+    }
+});
+
     }
 
     /*=============================================================
